@@ -2,4 +2,5 @@
 2 4 5 -13
 -1
 Exists x. P( x ) /
-Exists x. ( ( ? ? ? 1 ) <= x ) ^ ( P( x ) ) /
+Exists x. ( [ ? ? ? 1 ] <= x ) ^ ( P( x ) ) /
+/

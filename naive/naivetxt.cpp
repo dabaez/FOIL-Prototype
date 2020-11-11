@@ -160,20 +160,20 @@ bool eval(){
 
 int main(){
 
-	//ifstream cin("input.txt");
-    //ofstream cout("output.txt");
+	ifstream cin("input.txt");
+    ofstream cout("output.txt");
 
-	cout<<"Perceptron size"<<endl;
+	//cout<<"Perceptron size"<<endl;
 	cin>>n;
 
-	cout<<"Vector w"<<endl;
+	//cout<<"Vector w"<<endl;
 	w.resize(n);
 	for (int i=0;i<n;i++) cin>>w[i];
 
-	cout<<"Real b"<<endl;
+	//cout<<"Real b"<<endl;
 	cin>>b;
 
-	cout<<"queries end with /"<<endl;
+	//cout<<"queries end with /"<<endl;
 	string q;
 	while ( cin>>q , q != "/" ){
 
