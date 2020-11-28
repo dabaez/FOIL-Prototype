@@ -61,8 +61,10 @@ bool eval(){
 
     //no
     if ( query[ix] == "~" ){
+		ix+=2;
+		bool ans = !eval();
 		ix++;
-		return !eval();
+		return ans;
     }
 
     // y/o

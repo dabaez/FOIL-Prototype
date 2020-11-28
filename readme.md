@@ -29,7 +29,7 @@ The operation <= has to be between two variables/constants and has to have a <= 
 
 The operation P( x ) or P( c ) needs to have "P(" together (with no spaces) but separated with spaces from the variable/constant and the ")"
 
-The ~ A has to be separated from A with a space
+Everything from ~ ( A ) has to be separated with spaces
 
 The operations ( A ) v ( B ) and ( A ) ^ ( B ) need to have everything separated with a space, also it has to be a lowercase v
 
@@ -57,3 +57,21 @@ Returns:
 True
 
 False
+
+
+
+Case Generator
+
+
+reads through input and prints to a input.txt file
+
+Compiled through C++14
+
+
+-Write the seed for the algorithm (if -1 is given time(0) will be taken for the seed)
+
+-Write the size n of the perceptron
+
+-Write the number q of queries
+
+-Write the number qs of the size of the queries
