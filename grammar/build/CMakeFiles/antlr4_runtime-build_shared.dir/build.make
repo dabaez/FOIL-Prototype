@@ -53,10 +53,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/cmake/743/bin/cmake
+CMAKE_COMMAND = /snap/cmake/769/bin/cmake
 
 # The command to remove a file.
-RM = /snap/cmake/743/bin/cmake -E rm -f
+RM = /snap/cmake/769/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -78,7 +78,7 @@ CMakeFiles/antlr4_runtime-build_shared: antlr4_runtime/src/antlr4_runtime-stamp/
 antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_shared:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Performing build_shared step for 'antlr4_runtime'"
 	cd /home/aseal/Documents/invint/grammar/build/antlr4_runtime/src/antlr4_runtime/runtime/Cpp && $(MAKE) antlr4_shared
-	cd /home/aseal/Documents/invint/grammar/build/antlr4_runtime/src/antlr4_runtime/runtime/Cpp && /snap/cmake/743/bin/cmake -E touch /home/aseal/Documents/invint/grammar/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_shared
+	cd /home/aseal/Documents/invint/grammar/build/antlr4_runtime/src/antlr4_runtime/runtime/Cpp && /snap/cmake/769/bin/cmake -E touch /home/aseal/Documents/invint/grammar/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_shared
 
 antlr4_runtime-build_shared: CMakeFiles/antlr4_runtime-build_shared
 antlr4_runtime-build_shared: antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_shared

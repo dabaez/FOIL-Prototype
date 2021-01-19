@@ -4,7 +4,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.7 FATAL_ERROR)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 # compiler must be 11 or 14
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 # required if linking to static library
 add_definitions(-DANTLR4CPP_STATIC)
@@ -28,7 +28,9 @@ antlr_target(SampleGrammarLexer invLexer.g4 LEXER
 antlr_target(SampleGrammarParser invParser.g4 PARSER
              PACKAGE antlrcpptest
              DEPENDS_ANTLR SampleGrammarLexer
-             COMPILE_FLAGS -lib ${ANTLR_SampleGrammarLexer_OUTPUT_DIR})
+             COMPILE_FLAGS -lib ${ANTLR_SampleGrammarLexer_OUTPUT_DIR}
+             LISTENER
+             VISITOR)
 
 # include generated files in project environment
 include_directories(${ANTLR_SampleGrammarLexer_OUTPUT_DIR})

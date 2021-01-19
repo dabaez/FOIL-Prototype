@@ -4,7 +4,9 @@ COMMA : ',';
 
 VARIABLE : [a-z] [a-z0-9]* ;
 
-CONSTANT : '[' ('0'|'1') ( ',' ('0'|'1') )? ']' ;
+CONSTANT : '[' BOOL ( COMMA BOOL )* ']' ;
+
+BOOL : ('0' | '1' | '?');
 
 OR : 'V' ;
 

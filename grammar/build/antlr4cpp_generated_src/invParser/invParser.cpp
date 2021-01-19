@@ -2,6 +2,8 @@
 // Generated from invParser.g4 by ANTLR 4.9.1
 
 
+#include "invParserListener.h"
+#include "invParserVisitor.h"
 
 #include "invParser.h"
 
@@ -50,6 +52,25 @@ size_t invParser::InputContext::getRuleIndex() const {
   return invParser::RuleInput;
 }
 
+void invParser::InputContext::enterRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->enterInput(this);
+}
+
+void invParser::InputContext::exitRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->exitInput(this);
+}
+
+
+antlrcpp::Any invParser::InputContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<invParserVisitor*>(visitor))
+    return parserVisitor->visitInput(this);
+  else
+    return visitor->visitChildren(this);
+}
 
 invParser::InputContext* invParser::input() {
   InputContext *_localctx = _tracker.createInstance<InputContext>(_ctx, getState());
@@ -98,6 +119,25 @@ size_t invParser::QuansContext::getRuleIndex() const {
   return invParser::RuleQuans;
 }
 
+void invParser::QuansContext::enterRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->enterQuans(this);
+}
+
+void invParser::QuansContext::exitRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->exitQuans(this);
+}
+
+
+antlrcpp::Any invParser::QuansContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<invParserVisitor*>(visitor))
+    return parserVisitor->visitQuans(this);
+  else
+    return visitor->visitChildren(this);
+}
 
 invParser::QuansContext* invParser::quans() {
   QuansContext *_localctx = _tracker.createInstance<QuansContext>(_ctx, getState());
@@ -175,6 +215,25 @@ size_t invParser::QuanContext::getRuleIndex() const {
   return invParser::RuleQuan;
 }
 
+void invParser::QuanContext::enterRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->enterQuan(this);
+}
+
+void invParser::QuanContext::exitRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->exitQuan(this);
+}
+
+
+antlrcpp::Any invParser::QuanContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<invParserVisitor*>(visitor))
+    return parserVisitor->visitQuan(this);
+  else
+    return visitor->visitChildren(this);
+}
 
 invParser::QuanContext* invParser::quan() {
   QuanContext *_localctx = _tracker.createInstance<QuanContext>(_ctx, getState());
@@ -247,6 +306,25 @@ size_t invParser::NoquansContext::getRuleIndex() const {
   return invParser::RuleNoquans;
 }
 
+void invParser::NoquansContext::enterRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->enterNoquans(this);
+}
+
+void invParser::NoquansContext::exitRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->exitNoquans(this);
+}
+
+
+antlrcpp::Any invParser::NoquansContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<invParserVisitor*>(visitor))
+    return parserVisitor->visitNoquans(this);
+  else
+    return visitor->visitChildren(this);
+}
 
 invParser::NoquansContext* invParser::noquans() {
   NoquansContext *_localctx = _tracker.createInstance<NoquansContext>(_ctx, getState());
@@ -351,6 +429,25 @@ size_t invParser::GorContext::getRuleIndex() const {
   return invParser::RuleGor;
 }
 
+void invParser::GorContext::enterRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->enterGor(this);
+}
+
+void invParser::GorContext::exitRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->exitGor(this);
+}
+
+
+antlrcpp::Any invParser::GorContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<invParserVisitor*>(visitor))
+    return parserVisitor->visitGor(this);
+  else
+    return visitor->visitChildren(this);
+}
 
 invParser::GorContext* invParser::gor() {
   GorContext *_localctx = _tracker.createInstance<GorContext>(_ctx, getState());
@@ -429,6 +526,25 @@ size_t invParser::GandContext::getRuleIndex() const {
   return invParser::RuleGand;
 }
 
+void invParser::GandContext::enterRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->enterGand(this);
+}
+
+void invParser::GandContext::exitRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->exitGand(this);
+}
+
+
+antlrcpp::Any invParser::GandContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<invParserVisitor*>(visitor))
+    return parserVisitor->visitGand(this);
+  else
+    return visitor->visitChildren(this);
+}
 
 invParser::GandContext* invParser::gand() {
   GandContext *_localctx = _tracker.createInstance<GandContext>(_ctx, getState());
@@ -495,6 +611,25 @@ size_t invParser::GnoContext::getRuleIndex() const {
   return invParser::RuleGno;
 }
 
+void invParser::GnoContext::enterRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->enterGno(this);
+}
+
+void invParser::GnoContext::exitRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->exitGno(this);
+}
+
+
+antlrcpp::Any invParser::GnoContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<invParserVisitor*>(visitor))
+    return parserVisitor->visitGno(this);
+  else
+    return visitor->visitChildren(this);
+}
 
 invParser::GnoContext* invParser::gno() {
   GnoContext *_localctx = _tracker.createInstance<GnoContext>(_ctx, getState());
@@ -559,6 +694,25 @@ size_t invParser::GposContext::getRuleIndex() const {
   return invParser::RuleGpos;
 }
 
+void invParser::GposContext::enterRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->enterGpos(this);
+}
+
+void invParser::GposContext::exitRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->exitGpos(this);
+}
+
+
+antlrcpp::Any invParser::GposContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<invParserVisitor*>(visitor))
+    return parserVisitor->visitGpos(this);
+  else
+    return visitor->visitChildren(this);
+}
 
 invParser::GposContext* invParser::gpos() {
   GposContext *_localctx = _tracker.createInstance<GposContext>(_ctx, getState());
@@ -633,6 +787,25 @@ size_t invParser::GsubContext::getRuleIndex() const {
   return invParser::RuleGsub;
 }
 
+void invParser::GsubContext::enterRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->enterGsub(this);
+}
+
+void invParser::GsubContext::exitRule(tree::ParseTreeListener *listener) {
+  auto parserListener = dynamic_cast<invParserListener *>(listener);
+  if (parserListener != nullptr)
+    parserListener->exitGsub(this);
+}
+
+
+antlrcpp::Any invParser::GsubContext::accept(tree::ParseTreeVisitor *visitor) {
+  if (auto parserVisitor = dynamic_cast<invParserVisitor*>(visitor))
+    return parserVisitor->visitGsub(this);
+  else
+    return visitor->visitChildren(this);
+}
 
 invParser::GsubContext* invParser::gsub() {
   GsubContext *_localctx = _tracker.createInstance<GsubContext>(_ctx, getState());
@@ -696,13 +869,13 @@ std::vector<std::string> invParser::_ruleNames = {
 };
 
 std::vector<std::string> invParser::_literalNames = {
-  "", "','", "", "", "'V'", "'^'", "'~'", "'P'", "'('", "')'", "'EXISTS'", 
+  "", "','", "", "", "", "'V'", "'^'", "'~'", "'P'", "'('", "')'", "'EXISTS'", 
   "'FORALL'", "'<='", "' '"
 };
 
 std::vector<std::string> invParser::_symbolicNames = {
-  "", "COMMA", "VARIABLE", "CONSTANT", "OR", "AND", "NO", "POSITIVE", "OPENP", 
-  "CLOSEP", "EXISTS", "FORALL", "SUB", "WHITESPACE"
+  "", "COMMA", "VARIABLE", "CONSTANT", "BOOL", "OR", "AND", "NO", "POSITIVE", 
+  "OPENP", "CLOSEP", "EXISTS", "FORALL", "SUB", "WHITESPACE"
 };
 
 dfa::Vocabulary invParser::_vocabulary(_literalNames, _symbolicNames);
@@ -725,7 +898,7 @@ invParser::Initializer::Initializer() {
 
   _serializedATN = {
     0x3, 0x608b, 0xa72a, 0x8133, 0xb9ed, 0x417c, 0x3be7, 0x7786, 0x5964, 
-    0x3, 0xf, 0x47, 0x4, 0x2, 0x9, 0x2, 0x4, 0x3, 0x9, 0x3, 0x4, 0x4, 0x9, 
+    0x3, 0x10, 0x47, 0x4, 0x2, 0x9, 0x2, 0x4, 0x3, 0x9, 0x3, 0x4, 0x4, 0x9, 
     0x4, 0x4, 0x5, 0x9, 0x5, 0x4, 0x6, 0x9, 0x6, 0x4, 0x7, 0x9, 0x7, 0x4, 
     0x8, 0x9, 0x8, 0x4, 0x9, 0x9, 0x9, 0x4, 0xa, 0x9, 0xa, 0x3, 0x2, 0x3, 
     0x2, 0x3, 0x2, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x5, 0x3, 0x1c, 
@@ -736,7 +909,7 @@ invParser::Initializer::Initializer() {
     0x7, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x8, 0x3, 0x9, 0x3, 
     0x9, 0x3, 0x9, 0x3, 0x9, 0x3, 0x9, 0x3, 0xa, 0x3, 0xa, 0x3, 0xa, 0x3, 
     0xa, 0x3, 0xa, 0x2, 0x2, 0xb, 0x2, 0x4, 0x6, 0x8, 0xa, 0xc, 0xe, 0x10, 
-    0x12, 0x2, 0x4, 0x3, 0x2, 0xc, 0xd, 0x3, 0x2, 0x4, 0x5, 0x2, 0x42, 0x2, 
+    0x12, 0x2, 0x4, 0x3, 0x2, 0xd, 0xe, 0x3, 0x2, 0x4, 0x5, 0x2, 0x42, 0x2, 
     0x14, 0x3, 0x2, 0x2, 0x2, 0x4, 0x1b, 0x3, 0x2, 0x2, 0x2, 0x6, 0x1d, 
     0x3, 0x2, 0x2, 0x2, 0x8, 0x26, 0x3, 0x2, 0x2, 0x2, 0xa, 0x28, 0x3, 0x2, 
     0x2, 0x2, 0xc, 0x30, 0x3, 0x2, 0x2, 0x2, 0xe, 0x38, 0x3, 0x2, 0x2, 0x2, 
@@ -752,20 +925,20 @@ invParser::Initializer::Initializer() {
     0x10, 0x9, 0x2, 0x25, 0x27, 0x5, 0x12, 0xa, 0x2, 0x26, 0x21, 0x3, 0x2, 
     0x2, 0x2, 0x26, 0x22, 0x3, 0x2, 0x2, 0x2, 0x26, 0x23, 0x3, 0x2, 0x2, 
     0x2, 0x26, 0x24, 0x3, 0x2, 0x2, 0x2, 0x26, 0x25, 0x3, 0x2, 0x2, 0x2, 
-    0x27, 0x9, 0x3, 0x2, 0x2, 0x2, 0x28, 0x29, 0x7, 0xa, 0x2, 0x2, 0x29, 
-    0x2a, 0x5, 0x8, 0x5, 0x2, 0x2a, 0x2b, 0x7, 0xb, 0x2, 0x2, 0x2b, 0x2c, 
-    0x7, 0x6, 0x2, 0x2, 0x2c, 0x2d, 0x7, 0xa, 0x2, 0x2, 0x2d, 0x2e, 0x5, 
-    0x8, 0x5, 0x2, 0x2e, 0x2f, 0x7, 0xb, 0x2, 0x2, 0x2f, 0xb, 0x3, 0x2, 
-    0x2, 0x2, 0x30, 0x31, 0x7, 0xa, 0x2, 0x2, 0x31, 0x32, 0x5, 0x8, 0x5, 
-    0x2, 0x32, 0x33, 0x7, 0xb, 0x2, 0x2, 0x33, 0x34, 0x7, 0x7, 0x2, 0x2, 
-    0x34, 0x35, 0x7, 0xa, 0x2, 0x2, 0x35, 0x36, 0x5, 0x8, 0x5, 0x2, 0x36, 
-    0x37, 0x7, 0xb, 0x2, 0x2, 0x37, 0xd, 0x3, 0x2, 0x2, 0x2, 0x38, 0x39, 
-    0x7, 0x8, 0x2, 0x2, 0x39, 0x3a, 0x7, 0xa, 0x2, 0x2, 0x3a, 0x3b, 0x5, 
-    0x8, 0x5, 0x2, 0x3b, 0x3c, 0x7, 0xb, 0x2, 0x2, 0x3c, 0xf, 0x3, 0x2, 
-    0x2, 0x2, 0x3d, 0x3e, 0x7, 0x9, 0x2, 0x2, 0x3e, 0x3f, 0x7, 0xa, 0x2, 
-    0x2, 0x3f, 0x40, 0x9, 0x3, 0x2, 0x2, 0x40, 0x41, 0x7, 0xb, 0x2, 0x2, 
+    0x27, 0x9, 0x3, 0x2, 0x2, 0x2, 0x28, 0x29, 0x7, 0xb, 0x2, 0x2, 0x29, 
+    0x2a, 0x5, 0x8, 0x5, 0x2, 0x2a, 0x2b, 0x7, 0xc, 0x2, 0x2, 0x2b, 0x2c, 
+    0x7, 0x7, 0x2, 0x2, 0x2c, 0x2d, 0x7, 0xb, 0x2, 0x2, 0x2d, 0x2e, 0x5, 
+    0x8, 0x5, 0x2, 0x2e, 0x2f, 0x7, 0xc, 0x2, 0x2, 0x2f, 0xb, 0x3, 0x2, 
+    0x2, 0x2, 0x30, 0x31, 0x7, 0xb, 0x2, 0x2, 0x31, 0x32, 0x5, 0x8, 0x5, 
+    0x2, 0x32, 0x33, 0x7, 0xc, 0x2, 0x2, 0x33, 0x34, 0x7, 0x8, 0x2, 0x2, 
+    0x34, 0x35, 0x7, 0xb, 0x2, 0x2, 0x35, 0x36, 0x5, 0x8, 0x5, 0x2, 0x36, 
+    0x37, 0x7, 0xc, 0x2, 0x2, 0x37, 0xd, 0x3, 0x2, 0x2, 0x2, 0x38, 0x39, 
+    0x7, 0x9, 0x2, 0x2, 0x39, 0x3a, 0x7, 0xb, 0x2, 0x2, 0x3a, 0x3b, 0x5, 
+    0x8, 0x5, 0x2, 0x3b, 0x3c, 0x7, 0xc, 0x2, 0x2, 0x3c, 0xf, 0x3, 0x2, 
+    0x2, 0x2, 0x3d, 0x3e, 0x7, 0xa, 0x2, 0x2, 0x3e, 0x3f, 0x7, 0xb, 0x2, 
+    0x2, 0x3f, 0x40, 0x9, 0x3, 0x2, 0x2, 0x40, 0x41, 0x7, 0xc, 0x2, 0x2, 
     0x41, 0x11, 0x3, 0x2, 0x2, 0x2, 0x42, 0x43, 0x9, 0x3, 0x2, 0x2, 0x43, 
-    0x44, 0x7, 0xe, 0x2, 0x2, 0x44, 0x45, 0x9, 0x3, 0x2, 0x2, 0x45, 0x13, 
+    0x44, 0x7, 0xf, 0x2, 0x2, 0x44, 0x45, 0x9, 0x3, 0x2, 0x2, 0x45, 0x13, 
     0x3, 0x2, 0x2, 0x2, 0x4, 0x1b, 0x26, 
   };
 
