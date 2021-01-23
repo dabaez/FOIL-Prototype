@@ -96,7 +96,7 @@ antlr4cpp_generated_src/invParser/invParser.interp: antlr4cpp_generated_src/invL
 antlr4cpp_generated_src/invParser/invParser.interp: antlr4cpp_generated_src/invLexer/invLexer.h
 antlr4cpp_generated_src/invParser/invParser.interp: antlr4cpp_generated_src/invLexer/invLexer.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building SampleGrammarParser with ANTLR 4.9.1"
-	cd /home/aseal/Documents/invint/grammar && /usr/bin/java -jar /usr/local/lib/antlr-4.9.1-complete.jar invParser.g4 -o /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser -no-listener -Dlanguage=Cpp -lib /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invLexer -listener -visitor -package antlrcpptest
+	cd /home/aseal/Documents/invint/grammar && /usr/bin/java -jar /usr/local/lib/antlr-4.9.1-complete.jar invParser.g4 -o /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser -no-listener -Dlanguage=Cpp -lib /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invLexer -visitor -package antlrcpptest
 
 antlr4cpp_generated_src/invParser/invParser.tokens: antlr4cpp_generated_src/invParser/invParser.interp
 	@$(CMAKE_COMMAND) -E touch_nocreate antlr4cpp_generated_src/invParser/invParser.tokens
@@ -106,18 +106,6 @@ antlr4cpp_generated_src/invParser/invParser.h: antlr4cpp_generated_src/invParser
 
 antlr4cpp_generated_src/invParser/invParser.cpp: antlr4cpp_generated_src/invParser/invParser.interp
 	@$(CMAKE_COMMAND) -E touch_nocreate antlr4cpp_generated_src/invParser/invParser.cpp
-
-antlr4cpp_generated_src/invParser/invParserBaseListener.h: antlr4cpp_generated_src/invParser/invParser.interp
-	@$(CMAKE_COMMAND) -E touch_nocreate antlr4cpp_generated_src/invParser/invParserBaseListener.h
-
-antlr4cpp_generated_src/invParser/invParserBaseListener.cpp: antlr4cpp_generated_src/invParser/invParser.interp
-	@$(CMAKE_COMMAND) -E touch_nocreate antlr4cpp_generated_src/invParser/invParserBaseListener.cpp
-
-antlr4cpp_generated_src/invParser/invParserListener.h: antlr4cpp_generated_src/invParser/invParser.interp
-	@$(CMAKE_COMMAND) -E touch_nocreate antlr4cpp_generated_src/invParser/invParserListener.h
-
-antlr4cpp_generated_src/invParser/invParserListener.cpp: antlr4cpp_generated_src/invParser/invParser.interp
-	@$(CMAKE_COMMAND) -E touch_nocreate antlr4cpp_generated_src/invParser/invParserListener.cpp
 
 antlr4cpp_generated_src/invParser/invParserBaseVisitor.h: antlr4cpp_generated_src/invParser/invParser.interp
 	@$(CMAKE_COMMAND) -E touch_nocreate antlr4cpp_generated_src/invParser/invParserBaseVisitor.h
@@ -170,35 +158,9 @@ CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParser.cpp.s: cmake_for
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParser.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParser.cpp -o CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParser.cpp.s
 
-CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.o: antlr4cpp_generated_src/invParser/invParserBaseListener.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.o -c /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp
-
-CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp > CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.i
-
-CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp -o CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.s
-
-CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.o: antlr4cpp_generated_src/invParser/invParserListener.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.o -c /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserListener.cpp
-
-CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserListener.cpp > CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.i
-
-CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserListener.cpp -o CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.s
-
 CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp.o: antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp.o -c /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp
 
 CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp.i: cmake_force
@@ -211,7 +173,7 @@ CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp.s
 
 CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserVisitor.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserVisitor.cpp.o: antlr4cpp_generated_src/invParser/invParserVisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserVisitor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserVisitor.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserVisitor.cpp.o -c /home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserVisitor.cpp
 
 CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserVisitor.cpp.i: cmake_force
@@ -227,8 +189,6 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/main.cpp.o" \
 "CMakeFiles/main.dir/antlr4cpp_generated_src/invLexer/invLexer.cpp.o" \
 "CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParser.cpp.o" \
-"CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.o" \
-"CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.o" \
 "CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp.o" \
 "CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserVisitor.cpp.o"
 
@@ -238,14 +198,12 @@ main_EXTERNAL_OBJECTS =
 main: CMakeFiles/main.dir/main.cpp.o
 main: CMakeFiles/main.dir/antlr4cpp_generated_src/invLexer/invLexer.cpp.o
 main: CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParser.cpp.o
-main: CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseListener.cpp.o
-main: CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserListener.cpp.o
 main: CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp.o
 main: CMakeFiles/main.dir/antlr4cpp_generated_src/invParser/invParserVisitor.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/libantlr4-runtime.a
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aseal/Documents/invint/grammar/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -265,12 +223,8 @@ CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParser.cpp
 CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParser.h
 CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParser.interp
 CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParser.tokens
-CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParserBaseListener.cpp
-CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParserBaseListener.h
 CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp
 CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParserBaseVisitor.h
-CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParserListener.cpp
-CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParserListener.h
 CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParserVisitor.cpp
 CMakeFiles/main.dir/depend: antlr4cpp_generated_src/invParser/invParserVisitor.h
 	cd /home/aseal/Documents/invint/grammar/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aseal/Documents/invint/grammar /home/aseal/Documents/invint/grammar /home/aseal/Documents/invint/grammar/build /home/aseal/Documents/invint/grammar/build /home/aseal/Documents/invint/grammar/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)

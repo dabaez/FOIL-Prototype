@@ -26,6 +26,10 @@ public:
 
     virtual antlrcpp::Any visitQuan(invParser::QuanContext *context) = 0;
 
+    virtual antlrcpp::Any visitGexists(invParser::GexistsContext *context) = 0;
+
+    virtual antlrcpp::Any visitGforall(invParser::GforallContext *context) = 0;
+
     virtual antlrcpp::Any visitNoquans(invParser::NoquansContext *context) = 0;
 
     virtual antlrcpp::Any visitGor(invParser::GorContext *context) = 0;
@@ -37,6 +41,8 @@ public:
     virtual antlrcpp::Any visitGpos(invParser::GposContext *context) = 0;
 
     virtual antlrcpp::Any visitGsub(invParser::GsubContext *context) = 0;
+
+    virtual antlrcpp::Any visitConstant(invParser::ConstantContext *context) = 0;
 
 
 };

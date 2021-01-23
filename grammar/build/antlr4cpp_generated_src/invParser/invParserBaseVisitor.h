@@ -29,6 +29,14 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitGexists(invParser::GexistsContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitGforall(invParser::GforallContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitNoquans(invParser::NoquansContext *ctx) override {
     return visitChildren(ctx);
   }
@@ -50,6 +58,10 @@ public:
   }
 
   virtual antlrcpp::Any visitGsub(invParser::GsubContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitConstant(invParser::ConstantContext *ctx) override {
     return visitChildren(ctx);
   }
 

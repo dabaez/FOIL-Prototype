@@ -8,7 +8,11 @@ input : quans noquans ;
 
 quans : quan quans | ;
 
-quan : (EXISTS | FORALL) VARIABLE COMMA ;
+quan :  ( gexists | gforall ) COMMA ;
+
+gexists: EXISTS VARIABLE ;
+
+gforall: FORALL VARIABLE ;
 
 noquans : gor | gand | gno | gpos | gsub;
 
@@ -18,6 +22,8 @@ gand : OPENP noquans CLOSEP AND OPENP noquans CLOSEP;
 
 gno : NO OPENP noquans CLOSEP;
 
-gpos : POSITIVE OPENP (CONSTANT | VARIABLE) CLOSEP;
+gpos : POSITIVE OPENP (constant | VARIABLE) CLOSEP;
 
-gsub : (CONSTANT | VARIABLE) SUB (CONSTANT | VARIABLE);
+gsub : (constant | VARIABLE) SUB (constant | VARIABLE);
+
+constant : OPENB BOOL ( COMMA BOOL )*  CLOSEB;

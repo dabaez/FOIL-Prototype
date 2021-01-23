@@ -29,7 +29,6 @@ antlr_target(SampleGrammarParser invParser.g4 PARSER
              PACKAGE antlrcpptest
              DEPENDS_ANTLR SampleGrammarLexer
              COMPILE_FLAGS -lib ${ANTLR_SampleGrammarLexer_OUTPUT_DIR}
-             LISTENER
              VISITOR)
 
 # include generated files in project environment
