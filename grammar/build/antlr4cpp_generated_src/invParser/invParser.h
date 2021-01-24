@@ -52,7 +52,6 @@ public:
     InputContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     QuansContext *quans();
-    NoquansContext *noquans();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -67,6 +66,7 @@ public:
     virtual size_t getRuleIndex() const override;
     QuanContext *quan();
     QuansContext *quans();
+    NoquansContext *noquans();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;

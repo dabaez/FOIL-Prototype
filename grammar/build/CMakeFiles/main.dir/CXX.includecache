@@ -6,6 +6,36 @@
 
 #IncludeRegexTransform: 
 
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParser.cpp
+invParserVisitor.h
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserVisitor.h
+invParser.h
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParser.h
+
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParser.h
+antlr4-runtime.h
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/antlr4-runtime.h
+
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserBaseVisitor.cpp
+invParserBaseVisitor.h
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserBaseVisitor.h
+
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserBaseVisitor.h
+antlr4-runtime.h
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/antlr4-runtime.h
+invParserVisitor.h
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserVisitor.h
+
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserVisitor.cpp
+invParserVisitor.h
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserVisitor.h
+
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParserVisitor.h
+antlr4-runtime.h
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/antlr4-runtime.h
+invParser.h
+/home/aseal/Documents/invint/grammar/build/antlr4cpp_generated_src/invParser/invParser.h
+
 /home/aseal/Documents/invint/grammar/greedyVisitor.h
 antlr4-runtime.h
 /home/aseal/Documents/invint/grammar/antlr4-runtime.h

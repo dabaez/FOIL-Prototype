@@ -10,8 +10,12 @@ using namespace std;
 
 namespace gVisitor{
 
+int perceptron_size;
+vector<int> perceptron_w;
+int perceptron_b;
+
 bool evaluate(invParser::InputContext* ctx){
-    return true;
+    
 }
 
 }
