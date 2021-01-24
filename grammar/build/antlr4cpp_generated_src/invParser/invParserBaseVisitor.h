@@ -61,6 +61,10 @@ public:
     return visitChildren(ctx);
   }
 
+  virtual antlrcpp::Any visitCov(invParser::CovContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
   virtual antlrcpp::Any visitConstant(invParser::ConstantContext *ctx) override {
     return visitChildren(ctx);
   }

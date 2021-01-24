@@ -42,6 +42,8 @@ public:
 
     virtual antlrcpp::Any visitGsub(invParser::GsubContext *context) = 0;
 
+    virtual antlrcpp::Any visitCov(invParser::CovContext *context) = 0;
+
     virtual antlrcpp::Any visitConstant(invParser::ConstantContext *context) = 0;
 
 

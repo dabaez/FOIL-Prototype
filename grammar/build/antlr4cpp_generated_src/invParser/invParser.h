@@ -21,7 +21,7 @@ public:
   enum {
     RuleInput = 0, RuleQuans = 1, RuleQuan = 2, RuleGexists = 3, RuleGforall = 4, 
     RuleNoquans = 5, RuleGor = 6, RuleGand = 7, RuleGno = 8, RuleGpos = 9, 
-    RuleGsub = 10, RuleConstant = 11
+    RuleGsub = 10, RuleCov = 11, RuleConstant = 12
   };
 
   explicit invParser(antlr4::TokenStream *input);
@@ -45,6 +45,7 @@ public:
   class GnoContext;
   class GposContext;
   class GsubContext;
+  class CovContext;
   class ConstantContext; 
 
   class  InputContext : public antlr4::ParserRuleContext {
@@ -195,9 +196,8 @@ public:
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *POSITIVE();
     antlr4::tree::TerminalNode *OPENP();
+    CovContext *cov();
     antlr4::tree::TerminalNode *CLOSEP();
-    ConstantContext *constant();
-    antlr4::tree::TerminalNode *VARIABLE();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -210,11 +210,9 @@ public:
   public:
     GsubContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
+    std::vector<CovContext *> cov();
+    CovContext* cov(size_t i);
     antlr4::tree::TerminalNode *SUB();
-    std::vector<ConstantContext *> constant();
-    ConstantContext* constant(size_t i);
-    std::vector<antlr4::tree::TerminalNode *> VARIABLE();
-    antlr4::tree::TerminalNode* VARIABLE(size_t i);
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -222,6 +220,20 @@ public:
   };
 
   GsubContext* gsub();
+
+  class  CovContext : public antlr4::ParserRuleContext {
+  public:
+    CovContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    ConstantContext *constant();
+    antlr4::tree::TerminalNode *VARIABLE();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  CovContext* cov();
 
   class  ConstantContext : public antlr4::ParserRuleContext {
   public:

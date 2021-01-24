@@ -6,7 +6,7 @@ options {
 
 input : quans;
 
-quans : quan quans | noquans;
+quans : ( quan quans ) | ( noquans );
 
 quan :  ( gexists | gforall ) COMMA ;
 
@@ -22,8 +22,10 @@ gand : OPENP noquans CLOSEP AND OPENP noquans CLOSEP;
 
 gno : NO OPENP noquans CLOSEP;
 
-gpos : POSITIVE OPENP (constant | VARIABLE) CLOSEP;
+gpos : POSITIVE OPENP cov CLOSEP;
 
-gsub : (constant | VARIABLE) SUB (constant | VARIABLE);
+gsub : cov SUB cov;
+
+cov : (constant | VARIABLE);
 
 constant : OPENB BOOL ( COMMA BOOL )*  CLOSEB;

@@ -35,7 +35,8 @@ int main(int argc, const char* argv[]) {
 		else cout<<"NO\n";
 		
 		//cout<< ctx->toStringTree(&parser) <<endl;
-		
+		//EXISTS x, P(x)
+		//EXISTS x, ( [ ?,? ,?, 1] <= x ) ^ ( P ( x ) )
 	}
 	
 	return 0;
