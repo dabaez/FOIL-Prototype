@@ -5,6 +5,7 @@ The project is built with cmake using c++14
 To build the project create a folder build in this directory and in it run the following commands
 
 $ cmake ../
+
 $ make
 
 This should leave the final program called just main
@@ -51,6 +52,9 @@ With the perceptron.txt file being:
 The queries could be as follows:
 
 $ EXISTS x, P(x)
+
 $ YES
+
 $ EXISTS x, ( [ ?,?,?,1] <= x) ^ ( P(x) )
+
 $ NO
