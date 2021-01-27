@@ -6,6 +6,8 @@ class DecisionTree {
     public:
         DecisionTree();
 
+        DecisionTree(std::shared_ptr<DTNode> root);
+
         bool predict(const std::vector<bool>& instance) const;
 
         int getSize() const;

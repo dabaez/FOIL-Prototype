@@ -7,9 +7,13 @@ DecisionTree::DecisionTree() {
     size = 0;
 }
 
+DecisionTree::DecisionTree(std::shared_ptr<DTNode> root) : root(root) {
+    size = root->getSize();
+}
+
 
 bool DecisionTree::predict(const std::vector<bool>& instance) const {
-    return true;
+    return root->predict(instance);
 }
 
 int DecisionTree::getSize() const {
