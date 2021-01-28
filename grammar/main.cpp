@@ -10,14 +10,11 @@ using namespace antlrcpptest;
 using namespace std;
 
 int main(int argc, const char* argv[]) {
-
-	ifstream ptn("perceptron.txt");
-	ptn>>gVisitor::perceptron_size;
 	
-	gVisitor::perceptron_w.resize(gVisitor::perceptron_size);
-	for (int i=0;i<gVisitor::perceptron_size;i++) ptn>>gVisitor::perceptron_w[i];
+	shared_ptr<IModel> p (new Perceptron);
+	p -> readFromFile("perceptron.txt");
 	
-	ptn>>gVisitor::perceptron_b;
+	gVisitor visitor(p);
 	
 	string s;
 	while ( getline(cin,s) , s != "" ){
@@ -31,10 +28,12 @@ int main(int argc, const char* argv[]) {
 		invParser parser(&tokens);
 		invParser::InputContext* ctx = parser.input();
 		
-		if ( gVisitor::evaluate(ctx) ) cout<<"YES\n";
+		if ( visitor.evaluate(ctx) ) cout<<"YES\n";
 		else cout<<"NO\n";
+
+		//tree::ParseTree *tree = parser.input();
+		//cout<< tree->toStringTree(&parser) <<endl;
 		
-		//cout<< ctx->toStringTree(&parser) <<endl;
 		//EXISTS x, P(x)
 		//EXISTS x, ( [ ?,? ,?, 1] <= x ) ^ ( P ( x ) )
 	}

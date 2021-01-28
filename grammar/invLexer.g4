@@ -1,5 +1,9 @@
 lexer grammar invLexer;
 
+EXISTS : [Ee] [Xx] [Ii] [Ss] [Tt] [Ss];
+
+FORALL : [Ff] [Oo] [Rr] (' ')* [Aa] [Ll] [Ll];
+
 COMMA : ',';
 
 VARIABLE : [a-z] [a-z0-9]* ;
@@ -21,10 +25,6 @@ CLOSEP : ')';
 OPENB : '[';
 
 CLOSEB : ']';
-
-EXISTS : 'EXISTS';
-
-FORALL : 'FORALL';
 
 SUB : '<=';
 
