@@ -4,7 +4,12 @@ class DTNode {
     public:
         DTNode(int label, const std::shared_ptr<DTNode> left, const std::shared_ptr<DTNode> right);
 
+        DTNode(bool leafValue);
+
         bool predict(const std::vector<bool>& instance);
+
+        DTNode negate();
+
 
         bool isLeaf();
 

@@ -8,6 +8,8 @@ class DecisionTree {
 
         DecisionTree(std::shared_ptr<DTNode> root);
 
+        DecisionTree(DTNode& oroot);
+
         bool predict(const std::vector<bool>& instance) const;
 
         int getSize() const;
@@ -20,7 +22,7 @@ class DecisionTree {
 
         DecisionTree unite(const DecisionTree& other) const; // the word union is reserved in C++.
 
-        DecisionTree negate(const DecisionTree& other) const;
+        DecisionTree negate() const;
 
     private:
         std::shared_ptr<DTNode> root;

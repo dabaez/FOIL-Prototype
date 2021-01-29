@@ -15,20 +15,31 @@ int main()
      *          /    \
      *         2      2
      *        / \    /  \
-     *       F   1  T    F
-     *          / \
-     *         F   T
+     *        |  1  T    F
+     *         | / \
+     *          F   T
      *
      *
      *
      */
     const DecisionTree DT {n4};
+    const DecisionTree NDT = DT.negate();
+
     assert(DT.predict({1, 0, 0}));
     assert(DT.predict({1, 1, 0}));
     assert(not DT.predict({1, 1, 1}));
     assert(not DT.predict({0, 1, 0}));
     assert(DT.predict({0, 1, 1}));
     assert(not DT.predict({0, 0, 1}));
+
+    assert(not NDT.predict({1, 0, 0}));
+    assert(not NDT.predict({1, 1, 0}));
+    assert(NDT.predict({1, 1, 1}));
+    assert(NDT.predict({0, 1, 0}));
+    assert(not NDT.predict({0, 1, 1}));
+    assert(NDT.predict({0, 0, 1}));
+
+
 
     return 0;
 }

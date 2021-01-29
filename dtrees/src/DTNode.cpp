@@ -23,11 +23,13 @@ DTNode::DTNode(int label, const std::shared_ptr<DTNode> left, const std::shared_
     }
 }
 
+DTNode::DTNode(bool leafValue) : DTNode(-2 + int(leafValue), nullptr, nullptr) {}
+
 bool DTNode::predict(const std::vector<bool>& instance) {
     if(this->isLeaf()) {
         return this->leafValue();
     }
-    if(label >= instance.size()) {
+    if(label >= int(instance.size())) {
         throw std::invalid_argument("given instance has less dimension than the model");
     }
 
@@ -36,7 +38,13 @@ bool DTNode::predict(const std::vector<bool>& instance) {
     } else {
         return this->left->predict(instance);
     }
+}
 
+DTNode DTNode::negate() {
+    if(this->isLeaf()) {
+       return DTNode(!this->leafValue());
+    }
+    return DTNode(label, std::make_shared<DTNode>(left->negate()), std::make_shared<DTNode>(right->negate()));
 }
 
 bool DTNode::leafValue() {
