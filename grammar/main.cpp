@@ -3,7 +3,9 @@
 #include "antlr4-runtime.h"
 #include "invLexer.h"
 #include "invParser.h"
+#include "models.h"
 #include "greedyVisitor.h"
+#include "queryChecker.h"
 
 using namespace antlr4;
 using namespace antlrcpptest;
@@ -15,8 +17,10 @@ int main(int argc, const char* argv[]) {
 	p -> readFromFile("perceptron.txt");
 	
 	gVisitor visitor(p);
+	qChecker checker(p);
 	
 	string s;
+	
 	while ( getline(cin,s) , s != "" ){
 		
 		stringstream stream(s);
@@ -27,6 +31,8 @@ int main(int argc, const char* argv[]) {
 
 		invParser parser(&tokens);
 		invParser::InputContext* ctx = parser.input();
+
+		if ( checker.check(ctx) ) continue;
 		
 		if ( visitor.evaluate(ctx) ) cout<<"YES\n";
 		else cout<<"NO\n";

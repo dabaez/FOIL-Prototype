@@ -1,3 +1,6 @@
+#ifndef GREEDYVISITOR_H
+#define GREEDYVISITOR_H
+
 #include "antlr4-runtime.h"
 #include "invLexer.h"
 #include "invParser.h"
@@ -58,7 +61,7 @@ class gVisitor{
 						val[i] = copy%3;
 						copy/=3;
 					}
-					vars[ ctx->quan()->gexists()->VARIABLE()->getText() ] = val;
+					vars[ ctx->quan()->gforall()->VARIABLE()->getText() ] = val;
 					if ( ! evaluate( ctx -> quans() ) ) return false;
 				}
 				return true;
@@ -109,6 +112,7 @@ class gVisitor{
 	}
 
 	vector<int> val(invParser::CovContext* ctx){
+		
 		if ( ctx -> constant() ){
 			vector<int> ans( imodel->vectorSize() );
 			for (int i=0;i<(imodel->vectorSize());i++){
@@ -118,13 +122,10 @@ class gVisitor{
 			}
 			return ans;
 		}
-		if ( ctx -> VARIABLE() ){
-			if ( vars.find( ctx -> VARIABLE() -> getText() ) == vars.end() ){
-				//error de que nunca se declaro la variable
-			} else {
-				return vars[ ctx -> VARIABLE() -> getText() ];
-			}
-		}
+
+		if ( ctx -> VARIABLE() ) return vars[ ctx -> VARIABLE() -> getText() ];
 	}
 
 };
+
+#endif

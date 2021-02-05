@@ -1,3 +1,6 @@
+#ifndef IMODELS_H
+#define IMODELS_H
+
 #include <vector>
 #include <string>
 #include <iostream>
@@ -63,3 +66,5 @@ class Perceptron: public IModel{
 			return perceptron_size;
 		}
 };
+
+#endif
