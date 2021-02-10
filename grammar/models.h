@@ -22,8 +22,8 @@ class Perceptron: public IModel{
 	public:
 	
 		int perceptron_size;
-		vector<int> perceptron_w;
-		int perceptron_b;
+		vector<double> perceptron_w;
+		double perceptron_b;
 		
 		void readFromFile(string filename){
 			ifstream ptn(filename);
