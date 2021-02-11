@@ -12,6 +12,16 @@ using namespace antlr4;
 using namespace antlrcpptest;
 using namespace std;
 
+class ParserErrorListener:public BaseErrorListener{
+public:
+	virtual void syntaxError(Recognizer *recognizer, Token *offendingSymbol, size_t line, size_t charPositionInLine,
+                           const std::string &msg, std::exception_ptr e) override {
+		cout<<"Error parsing query: ";
+		cout<<msg<<endl;
+		throw -1;
+	}
+};
+
 int main(int argc, char** argv) {
 
 	shared_ptr<IModel> mod;
@@ -64,20 +74,31 @@ int main(int argc, char** argv) {
 	
 	while ( getline(cin,s) , s != "" ){
 		
-		stringstream stream(s);
+		try{
 		
-		ANTLRInputStream input(stream);
-		invLexer lexer(&input);
-		CommonTokenStream tokens(&lexer);
-
-		invParser parser(&tokens);
-		invParser::InputContext* ctx = parser.input();
-
-		if ( checker.check(ctx) ) continue;
+			ParserErrorListener parserErrorListener;
+			
+			stringstream stream(s);
+			ANTLRInputStream input(stream);
+			invLexer lexer(&input);
+			
+			lexer.removeErrorListeners();
+			lexer.addErrorListener(&parserErrorListener);
+			
+			CommonTokenStream tokens(&lexer);
+			invParser parser(&tokens);
+			
+			parser.removeErrorListeners();
+			parser.addErrorListener(&parserErrorListener);
 		
-		if ( visitor.evaluate(ctx) ) cout<<"YES\n";
-		else cout<<"NO\n";
-
+			invParser::InputContext* ctx = parser.input();
+			if ( checker.check(ctx) ) continue;
+			if ( visitor.evaluate(ctx) ) cout<<"YES\n";
+			else cout<<"NO\n";
+		} catch (...){
+			continue;
+		}
+		
 		//tree::ParseTree *tree = parser.input();
 		//cout<< tree->toStringTree(&parser) <<endl;
 		
