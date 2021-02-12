@@ -10,7 +10,15 @@ $ make
 
 This should leave the final program called just main
 
-The perceptron needs to be in a file called perceptron.txt and in the following format:
+
+
+When running main, there's two command line arguments:
+
+--model is a necessary argument, right now the only option is perceptron
+
+--file can be any file to read the model from, if not specified, the model will be read from the console
+
+The perceptron file has to be in the following format:
 
 -First, an integer n representing the size of the perceptron
 
@@ -18,7 +26,6 @@ The perceptron needs to be in a file called perceptron.txt and in the following 
 
 -Finally, a value b representing the bias
 
-Then you can run the file main and it will receive queries, one for each line.
 
 
 Format details:
@@ -38,6 +45,7 @@ Format details:
 -The operation ( A ) ^ ( B )
 
 -The operations "EXISTS x ," and "FORALL x ," must use uppercase as seen
+
 
 Example:
 
