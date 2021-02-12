@@ -48,6 +48,7 @@ class gVisitor{
 						val[i] = copy%3;
 						copy/=3;
 					}
+                    std::cout << std::endl;
 					vars[ ctx->quan()->gexists()->VARIABLE()->getText() ] = val;
 					if ( evaluate( ctx -> quans() ) ) return true;
 				}
@@ -91,8 +92,13 @@ class gVisitor{
 	bool evaluate(invParser::GposContext* ctx){
 		
 		vector<int> value = val( ctx -> cov() );
-		
-		return imodel->evaluate(value);
+        for(int val : value) {
+            if(val == 2) {
+                    return false;
+            }
+        }
+        vector<bool> boolValue(value.begin(), value.end());
+		return imodel->predict(boolValue);
 		
 	}
 

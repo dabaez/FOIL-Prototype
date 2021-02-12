@@ -1,8 +1,9 @@
 #include <vector>
 #include "DTNode.h"
+#include "models.h"
 
 // Assumes binary features TODO: check if it's worth expanding
-class DecisionTree {
+class DecisionTree : public IModel {
     public:
         DecisionTree();
 
@@ -10,7 +11,15 @@ class DecisionTree {
 
         DecisionTree(DTNode& oroot);
 
-        bool predict(const std::vector<bool>& instance) const;
+        bool predict(const std::vector<bool>& instance) const override;
+
+        void readFromFile(const std::string& filename) override;
+
+        void readFromConsole() override;
+
+        bool checkVector(const std::vector<int>& instance) const override;
+
+        int vectorSize() const override;
 
         int getSize() const;
         

@@ -3,6 +3,8 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.7 FATAL_ERROR)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
+project(invint LANGUAGES CXX VERSION 0.0.1)
+
 # compiler must be 11 or 14
 set(CMAKE_CXX_STANDARD 14)
 
@@ -34,8 +36,15 @@ antlr_target(SampleGrammarParser invParser.g4 PARSER
 include_directories(${ANTLR_SampleGrammarLexer_OUTPUT_DIR})
 include_directories(${ANTLR_SampleGrammarParser_OUTPUT_DIR})
 
-# add generated grammar to demo binary target
-add_executable(main main.cpp
-               ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
-               ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
-target_link_libraries(main antlr4_static)
+include_directories(include)
+add_subdirectory(src)
+
+file(GLOB SOURCES "*.cpp")
+
+
+
+add_executable(main src/main.cpp
+   ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
+   ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
+
+target_link_libraries(main antlr4_static perceptron decisiontree dtnode)

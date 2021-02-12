@@ -1,77 +1,68 @@
-# invint
+# Greedy with new grammar
 
-Naive implementation
+The project is built with cmake using c++14
 
+To build the project create a folder build in this directory and in it run the following commands
 
-naive reads and prints through console
+$ cmake ../
 
-naivetxt reads from input.txt and prints in output.txt
+$ make
 
-Compiled through C++14
-
-
--Write integer perceptron size n
-
--Write n real numbers representing the perceptron vector w
-
--Write the real number b representing the bias of the perceptron
-
--Write queries finished with /
+This should leave the final program called just main
 
 
-Queries:
 
-Variables x can be any string as long as they aren't "[" , "(" , "P(" , "~", "Exists" or "ForAll" and DON'T CONTAIN ANY SPACES
+When running main, there's two command line arguments:
 
-Constants have to start with "[" and then have n numbers "0", "1" or "?" and end with a "]" everything separated with spaces
+--model is a necessary argument, right now the only option is perceptron
 
-The operation <= has to be between two variables/constants and has to have a <= in the middle, the three have to be separated by spaces (don't put a space between <=)
+--file can be any file to read the model from, if not specified, the model will be read from the console
 
-The operation P( x ) or P( c ) needs to have "P(" together (with no spaces) but separated with spaces from the variable/constant and the ")"
+The perceptron file has to be in the following format:
 
-Everything from ~ ( A ) has to be separated with spaces
+-First, an integer n representing the size of the perceptron
 
-The operations ( A ) v ( B ) and ( A ) ^ ( B ) need to have everything separated with a space, also it has to be a lowercase v
+-Next, the n doubles representing the weights
 
-Exists x. A and ForAll x. A has to be written exactly as stated and need to have spaces as exemplified
+-Finally, a value b representing the bias
+
+
+
+Format details:
+
+-Variables need to be all latin lowercase, it can have numbers as long as they're not the first character
+
+-Constants have to start with a "[" and then values "0", "1" or "?" separated by commas and finished with a "]"
+
+-The operation <= has to be between two variables/constants with the symbol in the middle
+
+-The operation P( x ) must use the uppercase "P" 
+
+-The operaton ~( A )
+
+-The operation ( A ) V ( B ) must use an uppercase "V"
+
+-The operation ( A ) ^ ( B )
+
+-The operations "EXISTS x ," and "FORALL x ," must use uppercase as seen
 
 
 Example:
 
-4
+With the perceptron.txt file being:
+
+"4
 
 2 4 5 -13
 
--1
+-1"
 
-Exists x. P( x ) /
+The queries could be as follows:
 
-Exists x. ( [ ? ? ? 1 ] <= x ) ^ ( P( x ) ) /
+$ EXISTS x, P(x)
 
-/
+$ YES
 
+$ EXISTS x, ( [ ?,?,?,1] <= x) ^ ( P(x) )
 
-
-Returns:
-
-True
-
-False
-
-
-
-Case Generator
-
-
-reads through input and prints to a input.txt file
-
-Compiled through C++14
-
-
--Write the seed for the algorithm (if -1 is given time(0) will be taken for the seed)
-
--Write the size n of the perceptron
-
--Write the number q of queries
-
--Write the number qs of the size of the queries
+$ NO
