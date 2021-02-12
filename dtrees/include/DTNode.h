@@ -1,4 +1,5 @@
 #include <memory>
+#include <unordered_map>
 
 class DTNode {
     public:
@@ -10,10 +11,14 @@ class DTNode {
 
         DTNode negate();
 
+        DTNode intersect(const std::shared_ptr<DTNode> other);
+
+        DTNode condition(const std::unordered_map<int, int>& cond);
+
 
         bool isLeaf();
 
-        bool leafValue();
+        bool isTrueLeaf();
 
         int getDepth(); // dfefined as the number of edges in the longest path root-to-leaf
 
