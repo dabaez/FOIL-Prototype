@@ -4,6 +4,7 @@
 #include <memory>
 #include <algorithm>
 #include <iostream>
+#include <cassert>
 
 
 DTNode::DTNode(int label, const std::shared_ptr<DTNode> left, const std::shared_ptr<DTNode> right) :
@@ -117,7 +118,7 @@ int DTNode::getSize() const {
     return size;
 } 
 
-const auto DTNode::TRUE = std::make_shared<DTNode>(-1, nullptr, nullptr);
-const auto DTNode::FALSE = std::make_shared<DTNode>(-2, nullptr, nullptr);
+const std::shared_ptr<DTNode> DTNode::TRUE = std::make_shared<DTNode>(-1, nullptr, nullptr);
+const std::shared_ptr<DTNode> DTNode::FALSE = std::make_shared<DTNode>(-2, nullptr, nullptr);
 
 

@@ -60,8 +60,10 @@ int main(int argc, char** argv) {
 	}
 
 	if (defmod){
-		if (deffile) mod -> readFromFile(sfile);
-		else {
+		if (deffile){
+			mod -> readFromFile(sfile);
+			cout<<"File loaded from "<<sfile<<'\n';
+		} else {
 			cout<<"File not specified, model will be read from console"<<endl;
 			mod -> readFromConsole();
 		}

@@ -28,4 +28,4 @@ gsub : cov SUB cov;
 
 cov : (constant | VARIABLE);
 
-constant : OPENB BOOL ( COMMA BOOL )*  CLOSEB;
+constant : OPENB BOOL ( (COMMA)? BOOL )*  CLOSEB;
