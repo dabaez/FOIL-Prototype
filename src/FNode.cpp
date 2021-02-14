@@ -1,4 +1,4 @@
-#include "DTNode.h"
+#include "FNode.h"
 
 #include <vector>
 #include <memory>
@@ -7,7 +7,7 @@
 #include <cassert>
 
 
-DTNode::DTNode(int label, const std::shared_ptr<DTNode> left, const std::shared_ptr<DTNode> right) :
+FNode::FNode(int label, const std::shared_ptr<FNode> left, const std::shared_ptr<FNode> right) :
     label(label), left(left), right(right), leaf(true), depth(0), size(1)
 {
     if(label >= 0) { // non leaf
@@ -26,7 +26,7 @@ DTNode::DTNode(int label, const std::shared_ptr<DTNode> left, const std::shared_
     }
 }
 
-DTNode::DTNode() {
+FNode::FNode() {
     leaf = false;
     label = -3;
     left = nullptr;
@@ -34,7 +34,7 @@ DTNode::DTNode() {
     dimension = 0;
 }
 
-int DTNode::getDimension() const {
+int FNode::getDimension() const {
     int maxLeft = 0;
     int maxRight = 0;
     if(left) {
@@ -46,21 +46,21 @@ int DTNode::getDimension() const {
     return std::max(1 + label, std::max(maxLeft, maxRight));
 }
 
-void DTNode::setLabel(int newlabel) {
+void FNode::setLabel(int newlabel) {
     label = newlabel;
 }
 
-void DTNode::setLeft(const std::shared_ptr<DTNode> newleft) {
+void FNode::setLeft(const std::shared_ptr<FNode> newleft) {
     left  = newleft;
 }
 
-void DTNode::setRight(const std::shared_ptr<DTNode> newright) {
+void FNode::setRight(const std::shared_ptr<FNode> newright) {
     right = newright;
 }
 
-DTNode::DTNode(bool leafValue) : DTNode(-2 + int(leafValue), nullptr, nullptr) {}
+FNode::FNode(bool leafValue) : FNode(-2 + int(leafValue), nullptr, nullptr) {}
 
-bool DTNode::predict(const std::vector<bool>& instance) const {
+bool FNode::predict(const std::vector<bool>& instance) const {
     if(this->isLeaf()) {
         return this->isTrueLeaf();
     }
@@ -75,18 +75,18 @@ bool DTNode::predict(const std::vector<bool>& instance) const {
     }
 }
 
-DTNode DTNode::negate() const {
+FNode FNode::negate() const {
     if(this->isLeaf()) {
-       return DTNode(!this->isTrueLeaf());
+       return FNode(!this->isTrueLeaf());
     }
-    return DTNode(label, std::make_shared<DTNode>(left->negate()), std::make_shared<DTNode>(right->negate()));
+    return FNode(label, std::make_shared<FNode>(left->negate()), std::make_shared<FNode>(right->negate()));
 }
 
-DTNode DTNode::condition(const std::unordered_map<int, int>& conds) const {
-    return DTNode(1, nullptr, nullptr); // TODO 
+FNode FNode::condition(const std::unordered_map<int, int>& conds) const {
+    return FNode(1, nullptr, nullptr); // TODO 
 }  
 
-/*DTNode DTNode::intersect(const std::shared_ptr<DTNode> other) {*/
+/*FNode FNode::intersect(const std::shared_ptr<FNode> other) {*/
     //if(this->isLeaf()) {
         //if(this->isTrueLeaf()) {
             //return condition(other, path);
@@ -100,25 +100,25 @@ DTNode DTNode::condition(const std::unordered_map<int, int>& conds) const {
     //// case where they don't
 /*}*/
 
-bool DTNode::isTrueLeaf() const {
+bool FNode::isTrueLeaf() const {
     assert(this->isLeaf());
     return (label == -1);
 }
 
 
-bool DTNode::isLeaf() const {
+bool FNode::isLeaf() const {
     return leaf;
 }
 
-int DTNode::getDepth() const {
+int FNode::getDepth() const {
     return depth;
 }
 
-int DTNode::getSize() const {
+int FNode::getSize() const {
     return size;
 } 
 
-const std::shared_ptr<DTNode> DTNode::TRUE = std::make_shared<DTNode>(-1, nullptr, nullptr);
-const std::shared_ptr<DTNode> DTNode::FALSE = std::make_shared<DTNode>(-2, nullptr, nullptr);
+const std::shared_ptr<FNode> FNode::TRUE = std::make_shared<FNode>(-1, nullptr, nullptr);
+const std::shared_ptr<FNode> FNode::FALSE = std::make_shared<FNode>(-2, nullptr, nullptr);
 
 

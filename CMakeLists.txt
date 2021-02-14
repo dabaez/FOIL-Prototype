@@ -47,4 +47,4 @@ add_executable(main src/main.cpp
    ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
    ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
 
-target_link_libraries(main antlr4_static perceptron decisiontree dtnode)
+target_link_libraries(main antlr4_static perceptron fbdd fnode)

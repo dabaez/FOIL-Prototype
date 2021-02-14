@@ -6,7 +6,7 @@
 #include "invParser.h"
 #include "models.h"
 #include "perceptron.h"
-#include "DecisionTree.h"
+#include "FBDD.h"
 #include "greedyVisitor.h"
 #include "queryChecker.h"
 
@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
 			case 'm':
 				defmod = true;
 				if ( string(optarg) == "perceptron" ) mod = make_shared<Perceptron>();
-                else if( string(optarg) == "dt" ) mod = make_shared<DecisionTree>();
+                else if( string(optarg) == "dt" ) mod = make_shared<FBDD>();
 				else {
 					cout<<string(optarg)<<" is not a valid model type"<<endl;
 					return 0;
