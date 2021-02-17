@@ -2,27 +2,27 @@
 #include <unordered_map>
 #include <vector>
 
-class DTNode {
+class FNode {
     public:
-        DTNode(int label, const std::shared_ptr<DTNode> left, const std::shared_ptr<DTNode> right);
+        FNode(int label, const std::shared_ptr<FNode> left, const std::shared_ptr<FNode> right);
 
-        DTNode();
+        FNode();
 
         void setLabel(int newlabel);
 
-        void setLeft(const std::shared_ptr<DTNode> newleft);
+        void setLeft(const std::shared_ptr<FNode> newleft);
 
-        void setRight(const std::shared_ptr<DTNode> newright);
+        void setRight(const std::shared_ptr<FNode> newright);
 
-        DTNode(bool leafValue);
+        FNode(bool leafValue);
 
         bool predict(const std::vector<bool>& instance) const;
 
-        DTNode negate() const;
+        FNode negate() const;
 
-        DTNode intersect(const std::shared_ptr<DTNode> other) const;
+        FNode intersect(const std::shared_ptr<FNode> other) const;
 
-        DTNode condition(const std::unordered_map<int, int>& cond) const;
+        FNode condition(const std::unordered_map<int, int>& cond) const;
 
         int getDimension() const;
 
@@ -35,12 +35,12 @@ class DTNode {
         int getSize() const; // defined as the total number of nodes
         
         // leaves
-        const static std::shared_ptr<DTNode> TRUE;
-        const static std::shared_ptr<DTNode> FALSE;
+        const static std::shared_ptr<FNode> TRUE;
+        const static std::shared_ptr<FNode> FALSE;
 
         int label; // -2 -> false, -1 -> true, 0...n-1 -> feature labels
-        std::shared_ptr<DTNode> left;
-        std::shared_ptr<DTNode> right;
+        std::shared_ptr<FNode> left;
+        std::shared_ptr<FNode> right;
         
         
     private:
