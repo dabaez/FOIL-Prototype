@@ -32,9 +32,30 @@ class gVisitor{
 		return ans;
 	}
 
-	bool evaluate(invParser::InputContext* ctx){
+	void evaluate(invParser::InputContext* ctx){
 		vars.clear();
-		return evaluate( ctx->quans() );
+		evaluate( ctx->gcount() );
+	}
+	
+	void evaluate(invParser::GcountContext* ctx){
+		if ( ctx->VARIABLE() ){
+			long long ans = 0;
+			long long combs = fastpow( 3 , imodel->vectorSize() );
+			vector<int> val(imodel->vectorSize());
+			for (long long ccomb=0;ccomb<combs;ccomb++){
+				long long copy = ccomb;
+				for (int i=0;i<(imodel->vectorSize());i++){
+					val[i] = copy%3;
+					copy/=3;
+				}
+				vars[ ctx->VARIABLE()->getText() ] = val;
+				if ( evaluate( ctx -> quans() ) ) ans++;
+			}
+			std::cout<<ans<<std::endl;
+		} else {
+			if ( evaluate( ctx -> quans() ) ) std::cout<<"YES"<<std::endl;
+			else std::cout<<"NO"<<std::endl;
+		}
 	}
 
 	bool evaluate(invParser::QuansContext* ctx){
@@ -48,7 +69,6 @@ class gVisitor{
 						val[i] = copy%3;
 						copy/=3;
 					}
-                    std::cout << std::endl;
 					vars[ ctx->quan()->gexists()->VARIABLE()->getText() ] = val;
 					if ( evaluate( ctx -> quans() ) ) return true;
 				}

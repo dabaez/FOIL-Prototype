@@ -23,7 +23,12 @@ class qChecker{
 
 	bool check(invParser::InputContext* ctx){
 		appear.clear();
-		return check( ctx->quans() );
+		return check( ctx->gcount() );
+	}
+	
+	bool check(invParser::GcountContext* ctx){
+		if (ctx->VARIABLE()) appear.insert(ctx->VARIABLE()->getText());
+		return check(ctx->quans());
 	}
 
 	bool check(invParser::QuansContext* ctx){

@@ -98,8 +98,7 @@ int main(int argc, char** argv) {
 		
 			invParser::InputContext* ctx = parser.input();
 			if ( checker.check(ctx) ) continue;
-			if ( visitor.evaluate(ctx) ) cout<<"YES\n";
-			else cout<<"NO\n";
+			visitor.evaluate(ctx);
 		} catch (...){
 			continue;
 		}

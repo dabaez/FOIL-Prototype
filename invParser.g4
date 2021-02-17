@@ -4,7 +4,9 @@ options {
 	tokenVocab = invLexer;
 }
 
-input : quans;
+input : gcount ;
+
+gcount : (COUNT VARIABLE COMMA)? quans ;
 
 quans : ( quan quans ) | ( noquans );
 
