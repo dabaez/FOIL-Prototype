@@ -1,6 +1,7 @@
 #include "FBDD.h"
 
 #include <iostream>
+#include <cassert>
 
 int main()
 {
