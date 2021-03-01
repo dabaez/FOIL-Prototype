@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include "FNode.h"
 #include "models.h"

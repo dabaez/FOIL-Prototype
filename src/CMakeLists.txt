@@ -5,7 +5,12 @@
 add_library(fnode FNode.cpp)
 add_library(fbdd FBDD.cpp)
 add_library(perceptron perceptron.cpp)
+add_library(fbddsub FBDDsub.cpp)
 
 add_executable(fbddtest fbddtest.cpp)
 
 target_link_libraries(fbddtest fnode fbdd)
+
+add_executable(subtest subtest.cpp)
+
+target_link_libraries(subtest fbdd fnode fbddsub)

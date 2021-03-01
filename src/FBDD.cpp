@@ -8,7 +8,7 @@ FBDD::FBDD() {
 }
 
 FBDD::FBDD(std::shared_ptr<FNode> root) : root(root) {
-    size = root->getSize();
+    size = root->getDimension();
 }
 
 FBDD::FBDD(FNode& oroot) {
