@@ -6,6 +6,7 @@ add_library(fnode FNode.cpp)
 add_library(fbdd FBDD.cpp)
 add_library(perceptron perceptron.cpp)
 add_library(fbddsub FBDDsub.cpp)
+add_library(fpow fastpow.cpp)
 
 add_executable(fbddtest fbddtest.cpp)
 

@@ -9,20 +9,11 @@
 #include "FBDD.h"
 #include "greedyVisitor.h"
 #include "queryChecker.h"
+#include "errorListener.h"
 
 using namespace antlr4;
 using namespace antlrcpptest;
 using namespace std;
-
-class ParserErrorListener:public BaseErrorListener{
-public:
-	virtual void syntaxError(Recognizer *recognizer, Token *offendingSymbol, size_t line, size_t charPositionInLine,
-                           const std::string &msg, std::exception_ptr e) override {
-		cout<<"Error parsing query: ";
-		cout<<msg<<endl;
-		throw -1;
-	}
-};
 
 int main(int argc, char** argv) {
 
