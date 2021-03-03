@@ -15,3 +15,6 @@ target_link_libraries(fbddtest fnode fbdd)
 add_executable(subtest subtest.cpp)
 
 target_link_libraries(subtest fbdd fnode fbddsub)
+
+add_library(errorListener errorListener.cpp)
+target_link_libraries(errorListener antlr4_static)
