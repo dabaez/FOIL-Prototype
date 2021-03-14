@@ -18,3 +18,5 @@ target_link_libraries(subtest fbdd fnode fbddsub)
 
 add_library(errorListener errorListener.cpp)
 target_link_libraries(errorListener antlr4_static)
+
+add_executable(test_generator generator.cpp)

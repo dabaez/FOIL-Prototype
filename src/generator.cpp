@@ -12,6 +12,7 @@ uniform_int_distribution<int> rant(0,2);
 uniform_int_distribution<int> rvar;
 
 int lef,varn,fut,n;
+bool con,sub;
 
 ofstream out("input.txt");
 
@@ -46,17 +47,38 @@ void makeq(){
 		makeq();
 		out<<" ) ";
 	} else {
-		if (ranb(gen)){ //contencion
+        //contencion
+		if ( ((!con) && (!sub)) || ranb(gen)){
             int vn = rvar(gen);
-            if (vn) out<<" x"<<vn<<" ";
-            else outc();
-            out<<" <= ";
-            vn = rvar(gen);
-            if (vn) out<<" x"<<vn<<" ";
-            else outc();
+            if ((!con) || vn){
+                while (!vn) vn = rvar(gen);
+                out<<" x"<<vn<<" ";
+                if (!sub){
+                    out<<" <= ";
+                    outc();
+                } else if (!con) {
+                    vn = rvar(gen);
+                    while (!vn) vn = rvar(gen);
+                    out<<" <= x"<<vn<<" ";
+                } else {
+                    vn = rvar(gen);
+                    out<<" <= ";
+                    if (vn) out<<" x"<<vn<<" ";
+                    else outc();
+                }
+            } else {
+                outc();
+                out<<" <= ";
+                vn = rvar(gen);
+                if (vn) out<<" x"<<vn<<" ";
+                else outc();
+            }
 		} else { //evaluacion
 			out<<" P( ";
 			int vn = rvar(gen);
+            if (!con)
+                while (!vn)
+                    vn = rvar(gen);
 			if (vn) out<<" x"<<vn<<" ";
 			else outc();
 			out<<" ) ";
@@ -70,11 +92,15 @@ int main(){
 
 	ios_base::sync_with_stdio(0); cin.tie(0);
 
-	int sneed;
+    cout<<"seed"<<endl;
+
+   	int sneed;
 	cin>>sneed;
 
 	if (sneed == -1) gen = mt19937(time(0));
 	else gen = mt19937(sneed);
+
+    cout<<"Perceptron size"<<endl;
 
 	cin>>n;
 	out<<n<<'\n';
@@ -89,8 +115,19 @@ int main(){
 	double b = dis(gen);
 	out<<'\n'<<b<<'\n';
 
+    
+    cout<<"how many and how long"<<endl;
 	int q,qs;
 	cin>>q>>qs;
+
+    cout<<"should x <= y appear?"<<endl;
+    int ans;
+    cin>>ans;
+    sub = ans;
+
+    cout<<"should constants appear?"<<endl;
+    cin>>ans;
+    con = ans;
 
 	uniform_int_distribution<int> rnvar(1,qs/2);
 
@@ -100,8 +137,8 @@ int main(){
 		rvar = uniform_int_distribution<int>(0,varn);
 
         for (int i=1;i<=varn;i++){
-			if (ranb(gen)) out<<"Exists x"<<i<<". ";
-			else out<<"ForAll x"<<i<<". ";
+			if (ranb(gen)) out<<"Exists x"<<i<<", ";
+			else out<<"ForAll x"<<i<<", ";
         }
 
         lef = qs - varn;
@@ -110,10 +147,10 @@ int main(){
 
         makeq();
 
-        out<<"/\n";
+        out<<"\n";
 	}
 
-	out<<"/";
+	out<<"\n";
 
 	return 0;
 }
