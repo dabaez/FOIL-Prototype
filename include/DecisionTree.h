@@ -1,15 +1,15 @@
 #include <vector>
-#include "FNode.h"
+#include "DTNode.h"
 #include "models.h"
 
 // Assumes binary features TODO: check if it's worth expanding
-class FBDD : public IModel {
+class DecisionTree : public IModel {
     public:
-        FBDD();
+        DecisionTree();
 
-        FBDD(std::shared_ptr<FNode> root);
+        DecisionTree(std::shared_ptr<DTNode> root);
 
-        FBDD(FNode& oroot);
+        DecisionTree(DTNode& oroot);
 
         bool predict(const std::vector<bool>& instance) const override;
 
@@ -25,15 +25,15 @@ class FBDD : public IModel {
         
         int getDepth() const;
 
-        FBDD condition(const std::vector<bool>& instance) const;
+        DecisionTree condition(const std::vector<bool>& instance) const;
 
-        FBDD intersect(const FBDD& other) const;
+        DecisionTree intersect(const DecisionTree& other) const;
 
-        FBDD unite(const FBDD& other) const; // the word union is reserved in C++.
+        DecisionTree unite(const DecisionTree& other) const; // the word union is reserved in C++.
 
-        FBDD negate() const;
+        DecisionTree negate() const;
 
     private:
-        std::shared_ptr<FNode> root;
+        std::shared_ptr<DTNode> root;
         int size;
 };

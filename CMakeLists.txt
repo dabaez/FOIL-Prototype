@@ -41,10 +41,12 @@ add_subdirectory(src)
 
 file(GLOB SOURCES "*.cpp")
 
+add_executable(dttest src/DTtest.cpp)
 
+target_link_libraries(dttest dtnode dt)
 
 add_executable(main src/main.cpp
    ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
    ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
 
-target_link_libraries(main antlr4_static perceptron fbdd fnode)
+target_link_libraries(main antlr4_static perceptron dt dtnode)
