@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include "DTNode.h"
 #include "models.h"

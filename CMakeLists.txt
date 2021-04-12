@@ -39,14 +39,24 @@ include_directories(${ANTLR_SampleGrammarParser_OUTPUT_DIR})
 include_directories(include)
 add_subdirectory(src)
 
-file(GLOB SOURCES "*.cpp")
+add_library(gVisitor src/greedyVisitor.cpp
+   ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
+   ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
+target_link_libraries(gVisitor antlr4_static fpow)
 
 add_executable(dttest src/DTtest.cpp)
 
 target_link_libraries(dttest dtnode dt)
 
+add_library(qChecker src/queryChecker.cpp
+   ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
+   ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
+target_link_libraries(qChecker antlr4_static)
+
+file(GLOB SOURCES "*.cpp")
+
 add_executable(main src/main.cpp
    ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
    ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
 
-target_link_libraries(main antlr4_static perceptron dt dtnode)
+target_link_libraries(main antlr4_static perceptron dt dtnode gVisitor qChecker errorListener)

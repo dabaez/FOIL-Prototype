@@ -4,6 +4,8 @@ EXISTS : [Ee] [Xx] [Ii] [Ss] [Tt] [Ss];
 
 FORALL : [Ff] [Oo] [Rr] (' ')* [Aa] [Ll] [Ll];
 
+COUNT : [Cc] [Oo] [Uu] [Nn] [Tt];
+
 COMMA : ',';
 
 VARIABLE : [a-z] [a-z0-9]* ;
