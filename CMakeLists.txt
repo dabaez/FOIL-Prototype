@@ -49,6 +49,11 @@ add_library(qChecker src/queryChecker.cpp
    ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
 target_link_libraries(qChecker antlr4_static)
 
+add_library(paperalgo src/paperalgo.cpp
+   ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
+   ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
+target_link_libraries(paperalgo antlr4_static)
+
 file(GLOB SOURCES "*.cpp")
 
 add_executable(main src/main.cpp
