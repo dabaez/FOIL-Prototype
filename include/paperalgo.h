@@ -11,7 +11,7 @@ using namespace antlrcpptest;
 
 class palgo {
 
-	class expr{
+	class expr {
 	public:
 		std::string x,y;
 		std::vector<int> c;
@@ -19,7 +19,7 @@ class palgo {
 		expr(){}
 	};
 
-	class leaf{
+	class leaf {
 	public:
 		int type;
 		int idx;
@@ -45,11 +45,10 @@ class palgo {
 	//7 : x <= y
 	//8 : ~(x <= y)
 
-	std::vector< std::vector< expr > > exprs;
-	std::vector< std::vector< expr > > newexprs;
+	std::vector< std::vector<expr> > exprs;
+	std::vector< std::vector<expr> > newexprs;
 	std::shared_ptr<IModel> imodel;
 	std::shared_ptr<node> tree;
-	bool forall;
 
 	palgo (std::shared_ptr<IModel> m){
 		imodel = m;
@@ -67,8 +66,21 @@ class palgo {
 		}
 	}
 
+	void Kosaraju(int no, std::vector< std::vector<int> >& gr, std::vector<bool> &vis, std::vector<int>& ans){
+
+		vis[no] = true;
+		for (int ne:gr[no]){
+			if (!vis[ne]){
+				Kosaraju(ne,gr,vis,ans);
+			}
+		}
+		ans.push_back(no);
+
+	}
+
 	bool tryall(int ctype, int cidx){
 		if (ctype != 9){
+
 			if (cidx == exprs[ctype].size()) return tryall(ctype+1,0);
 			else {
 
@@ -88,12 +100,59 @@ class palgo {
 				return ret;
 
 			}
+
 		} else {
 
 			if (checkTree(tree)){
 
-				//check if assignment is valid to itself
+				// First, compress all of the variables with Kosaraju
+
+				int idx = 0;
+				std::map< std::string , int > mapidx;
+				std::vector<std::string> rmap;
+				std::vector< std::vector<int> > gr;
+				std::vector< std::vector<int> > tgr;
+				for (expr sub:newexprs[7]){
+					int fi,si;
+					if ( mapidx.find(sub.x) == mapidx.end() ){
+						gr.push_back(std::vector<int>());
+						rmap.push_back(sub.x);
+						fi = mapidx[sub.x] = idx++;
+					} else fi = mapidx[sub.x];
+					if ( mapidx.find(sub.y) == mapidx.end() ){
+						si = mapidx[sub.y] = idx++;
+						rmap.push_back(sub.y);
+						gr.push_back(std::vector<int>());
+					} else si = mapidx[sub.y];
+					gr[fi].push_back(si);
+					tgr[si].push_back(fi);
+				}
+
+				std::vector<int> order;
+				int numNodes = idx;
+				std::vector<bool> visited(numNodes,false);
+				for (int i=0;i<numNodes;i++){
+					if (!visited[i]){
+						std::vector<int> corder;
+						Kosaraju(i,gr,visited,corder);
+						order.insert(order.end(),corder.begin(),corder.end());
+					}
+				}
+
+				std::vector< std::vector<int> > scc;
+				visited.assign(numNodes,false);
+				for (int i=numNodes-1;i>=0;i--){
+					if ( !visited[ order[i] ] ){
+						std::vector<int> cscc;
+						Kosaraju(order[i] , tgr , visited , cscc);
+						scc.push_back(cscc);
+					}
+				}
+				
+				
+
 				return true;
+
 
 			} else return false;
 
@@ -107,7 +166,7 @@ class palgo {
 
 		tree = std::make_shared<node>();
 
-		forall = false;
+		bool forall = false;
 
 		if ( ctx -> gcount() ->quans() -> quan() ){
 			if (ctx -> gcount() ->quans() -> quan() -> gforall()) forall = true;
