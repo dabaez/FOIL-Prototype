@@ -6,8 +6,12 @@
 #include "invParser.h"
 #include "models.h"
 
+#include <queue>
+
 using namespace antlr4;
 using namespace antlrcpptest;
+
+
 
 class palgo {
 
@@ -33,6 +37,38 @@ class palgo {
 		std::shared_ptr<node> left, right;
 		std::shared_ptr<leaf> nodexp;
 		node(){}
+	};
+
+	class dsu {
+	private:
+		std::vector<int> p,size;
+		int numSets;
+	public:
+		dsu(int N):numSets(N){
+			p.resize(numSets);
+			for (int i=0;i<numSets;i++) p[i] = i;
+			size.assign(numSets,1);
+		}
+		int findp(int i){ return (p[i] == i)?i:(p[i]=findp(p[i])); }
+		bool isSame(int i,int j){ return findp(i) == findp(j); }
+		void unionSet(int i,int j){
+			if (!isSame(i,j)){
+				int pi = findp(i);
+				int pj = findp(j);
+				if (size[pi] < size[pj]) std::swap(pj,pi);
+				p[pj] = pi;
+				size[pi] += size[pj];
+			}
+		}
+	};
+
+	class exprins{
+	public:
+		bool full;
+		std::vector< std::vector<bool> > pos;
+		exprins(int vs,bool f = false):full(f){
+			pos.assign(3 , std::vector<bool>(vs,true) );
+		}
 	};
 
 	//0 : constant
@@ -148,8 +184,58 @@ class palgo {
 						scc.push_back(cscc);
 					}
 				}
+
+				int sccn = scc.size();
+				std::map< std::string , int > compressedidx;
+				std::vector< std::vector<std::string> > rcmap(sccn);
 				
-				
+				for (int i=0;i<sccn;i++){
+					for (int j:scc[i]){
+						compressedidx[ rmap[j] ] = i;
+						rcmap[i].push_back(rmap[j]);
+					}
+				}
+
+				std::vector< std::vector<int> > compgr(sccn);
+				for (expr sub:newexprs[7]){
+					int fi = compressedidx[sub.x];
+					int si = compressedidx[sub.y];
+					if (fi != si) compgr[fi].push_back(si);
+				}
+
+				visited.assign(sccn,false);
+				dsu sccix(sccn);
+
+				for (expr pos:newexprs[1]){
+					if ( compressedidx.find(pos.x) != compressedidx.end() ){
+
+						int cix = compressedidx[pos.x];
+
+						if (visited[cix]) continue;
+						visited[cix] = true;
+
+						std::queue<int> bfs;
+						bfs.push(cix);
+
+						while (!bfs.empty()){
+
+							int cno = bfs.front();
+
+							for (int ne:gr[cno]){
+								sccix.unionSet(cix,ne);
+
+								if (!visited[ne]){
+									visited[ne] = true;
+									bfs.push(ne);
+								}
+
+							}
+
+						}
+					}
+				}
+
+				// take all variables from the sccix and start the rest of the algorithm
 
 				return true;
 
