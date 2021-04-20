@@ -114,6 +114,15 @@ class palgo {
 
 	}
 
+	int fxidx(std::string x,std::vector<exprins> &instances,std::map<std::string,int> &idxs){
+		int ans;
+		if (idxs.find(x) == idxs.end()){
+			ans = idxs[x] = instances.size();
+			instances.emplace_back(imodel->vectorSize());
+		} else ans = idxs[x];
+		return ans;
+	}
+
 	bool tryall(int ctype, int cidx){
 		if (ctype != 9){
 
@@ -236,6 +245,43 @@ class palgo {
 				}
 
 				// take all variables from the sccix and start the rest of the algorithm
+
+				std::map<std::string,int> finalidx;
+				for (int i=0;i<sccn;i++){
+					int cfidx = sccix.findp(i);
+					for (int j=0;j<rcmap[i].size();j++){
+						finalidx[ rcmap[i][j] ] = cfidx;
+					}
+				}
+
+				int modelvs = imodel->vectorSize();
+
+				std::vector<exprins> cvarins( sccn , exprins(modelvs) );
+
+				// c <= x
+
+				for (expr sub3:newexprs[3]){
+					int xidx = fxidx(sub3.x,cvarins,finalidx);
+					for (int i=0;i<modelvs;i++){
+						if (sub3.c[i] != 2){
+							if (cvarins[xidx].pos[ sub3.c[i] ][i]){
+								cvarins[xidx].pos[2][i] = false;
+								cvarins[xidx].pos[1 - sub3.c[i]][i] = false;
+							} else return false;
+						}
+					}
+				}
+
+				// x <= c
+
+				for (expr sub5:newexprs[3]){
+					int xidx = fxidx(sub5.x,cvarins,finalidx);
+					for (int i=0;i<modelvs;i++){
+						if (sub5.c[i] != 0) cvarins[xidx].pos[0][i] = false;
+						if (sub5.c[i] != 1) cvarins[xidx].pos[1][i] = false;
+						if ( !( cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i] ) ) return false;
+					}
+				}
 
 				return true;
 
