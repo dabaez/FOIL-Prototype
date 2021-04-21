@@ -11,8 +11,6 @@
 using namespace antlr4;
 using namespace antlrcpptest;
 
-
-
 class palgo {
 
 	class expr {
@@ -85,9 +83,11 @@ class palgo {
 	std::vector< std::vector<expr> > newexprs;
 	std::shared_ptr<IModel> imodel;
 	std::shared_ptr<node> tree;
+	int modelvs;
 
 	palgo (std::shared_ptr<IModel> m){
 		imodel = m;
+		modelvs = imodel->vectorSize();
 	}
 
 	bool checkTree(std::shared_ptr<node> cnode){
@@ -118,7 +118,7 @@ class palgo {
 		int ans;
 		if (idxs.find(x) == idxs.end()){
 			ans = idxs[x] = instances.size();
-			instances.emplace_back(imodel->vectorSize());
+			instances.emplace_back(modelvs);
 		} else ans = idxs[x];
 		return ans;
 	}
@@ -131,6 +131,7 @@ class palgo {
 
 				exprs[ctype][cidx].val = true;
 				newexprs[ctype].push_back( exprs[ctype][cidx] );
+
 				if (tryall(ctype,cidx+1)) return true;
 
 				newexprs[ctype].pop_back();
@@ -140,9 +141,10 @@ class palgo {
 				exprs[ctype][cidx].val = false;
 
 				bool ret = tryall(ctype,cidx+1);
-				newexprs[ctype].pop_back();
+				if (ret) return true;
 
-				return ret;
+				newexprs[ctype].pop_back();
+				return false;
 
 			}
 
@@ -158,17 +160,21 @@ class palgo {
 				std::vector< std::vector<int> > gr;
 				std::vector< std::vector<int> > tgr;
 				for (expr sub:newexprs[7]){
+
 					int fi,si;
+
 					if ( mapidx.find(sub.x) == mapidx.end() ){
 						gr.push_back(std::vector<int>());
 						rmap.push_back(sub.x);
 						fi = mapidx[sub.x] = idx++;
 					} else fi = mapidx[sub.x];
+
 					if ( mapidx.find(sub.y) == mapidx.end() ){
 						si = mapidx[sub.y] = idx++;
 						rmap.push_back(sub.y);
 						gr.push_back(std::vector<int>());
 					} else si = mapidx[sub.y];
+
 					gr[fi].push_back(si);
 					tgr[si].push_back(fi);
 				}
@@ -176,6 +182,7 @@ class palgo {
 				std::vector<int> order;
 				int numNodes = idx;
 				std::vector<bool> visited(numNodes,false);
+
 				for (int i=0;i<numNodes;i++){
 					if (!visited[i]){
 						std::vector<int> corder;
@@ -186,6 +193,7 @@ class palgo {
 
 				std::vector< std::vector<int> > scc;
 				visited.assign(numNodes,false);
+
 				for (int i=numNodes-1;i>=0;i--){
 					if ( !visited[ order[i] ] ){
 						std::vector<int> cscc;
@@ -193,6 +201,8 @@ class palgo {
 						scc.push_back(cscc);
 					}
 				}
+
+				// Compress full instances
 
 				int sccn = scc.size();
 				std::map< std::string , int > compressedidx;
@@ -254,8 +264,6 @@ class palgo {
 					}
 				}
 
-				int modelvs = imodel->vectorSize();
-
 				std::vector<exprins> cvarins( sccn , exprins(modelvs) );
 
 				// c <= x
@@ -279,14 +287,86 @@ class palgo {
 					for (int i=0;i<modelvs;i++){
 						if (sub5.c[i] != 0) cvarins[xidx].pos[0][i] = false;
 						if (sub5.c[i] != 1) cvarins[xidx].pos[1][i] = false;
-						if ( !( cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i] ) ) return false;
+						// First get it running, then add this everywhere
+						// if ( !( cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i] ) ) return false;
 					}
 				}
 
-				return true;
-
+				return sub4(0,cvarins,finalidx);
 
 			} else return false;
+
+		}
+	}
+
+	bool sub4(int sidx , std::vector<exprins> &cvarins , std::map<std::string,int> &smap){
+		if (sidx < newexprs[4].size()){
+
+			int xidx = fxidx( newexprs[4][sidx].x , cvarins , smap );
+
+			for (int i=0;i<modelvs;i++){
+				if (newexprs[4][sidx].c[i] != 2){
+
+					if ( cvarins[xidx].pos[ newexprs[4][sidx].c[i] ][i] ){
+						cvarins[xidx].pos[ newexprs[4][sidx].c[i] ][i] = false;
+						if (sub4(sidx+1,cvarins,smap)) return true;
+						cvarins[xidx].pos[ newexprs[4][sidx].c[i] ][i] = true;
+					} else {
+						// Possible optimization, if there's one that's already wrong don't assign anything
+						if (sub4(sidx+1,cvarins,smap)) return true;
+					}
+				}
+			}
+
+			return false;
+
+		} else {
+
+			return sub6(0,cvarins,smap);
+
+		}
+	}
+
+	bool sub6(int sidx , std::vector<exprins> &cvarins , std::map<std::string,int> &smap){
+		if (sidx < newexprs[6].size()){
+
+			int xidx = fxidx( newexprs[6][sidx].x , cvarins , smap );
+
+			for (int i=0;i<modelvs;i++){
+
+				bool prev0 = cvarins[xidx].pos[0][i];
+				bool prev1 = cvarins[xidx].pos[1][i];
+				bool prev2 = cvarins[xidx].pos[2][i];
+
+				cvarins[xidx].pos[2][i] = false;
+
+				if (newexprs[6][sidx].c[i] == 0) cvarins[xidx].pos[0][i] = false;
+				if (newexprs[6][sidx].c[i] == 1) cvarins[xidx].pos[1][i] = false;
+
+				if (cvarins[xidx].pos[0][i] && cvarins[xidx].pos[1][i]){
+
+					cvarins[xidx].pos[0][i] = false;
+					if (sub6(sidx+1,cvarins,smap)) return true;
+					cvarins[xidx].pos[0][i] = true;
+
+					cvarins[xidx].pos[1][i] = false;
+					if (sub6(sidx+1,cvarins,smap)) return true;
+					cvarins[xidx].pos[1][i] = true;
+
+				} else {
+					if (sub6(sidx+1,cvarins,smap)) return true;
+				}
+				cvarins[xidx].pos[0][i] = prev0;
+				cvarins[xidx].pos[1][i] = prev1;
+				cvarins[xidx].pos[2][i] = prev2;
+
+			}
+
+			return false;
+
+		} else {
+
+			return true;
 
 		}
 	}
