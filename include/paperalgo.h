@@ -266,7 +266,7 @@ class palgo {
 
 				std::vector<exprins> cvarins( sccn , exprins(modelvs) );
 
-				// c <= x
+				// c <= x SUB3
 
 				for (expr sub3:newexprs[3]){
 					int xidx = fxidx(sub3.x,cvarins,finalidx);
@@ -281,7 +281,7 @@ class palgo {
 					}
 				}
 
-				// x <= c
+				// x <= c SUB5
 
 				for (expr sub5:newexprs[3]){
 					int xidx = fxidx(sub5.x,cvarins,finalidx);
@@ -342,29 +342,25 @@ class palgo {
 				bool prev2 = cvarins[xidx].pos[2][i];
 
 				cvarins[xidx].pos[2][i] = false;
-
 				if (newexprs[6][sidx].c[i] == 0) cvarins[xidx].pos[0][i] = false;
 				if (newexprs[6][sidx].c[i] == 1) cvarins[xidx].pos[1][i] = false;
 
 				if (cvarins[xidx].pos[0][i] && cvarins[xidx].pos[1][i]){
 
 					cvarins[xidx].pos[0][i] = false;
-					if (cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i]){
-						if (sub6(sidx+1,cvarins,smap)) return true;
-					}
+					if (sub6(sidx+1,cvarins,smap)) return true;
 					cvarins[xidx].pos[0][i] = true;
 
 					cvarins[xidx].pos[1][i] = false;
-					if (cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i]){
-						if (sub6(sidx+1,cvarins,smap)) return true;
-					}
+					if (sub6(sidx+1,cvarins,smap)) return true;
 					cvarins[xidx].pos[1][i] = true;
 
 				} else {
-					if (cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i]){
+					if (cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i]){
 						if (sub6(sidx+1,cvarins,smap)) return true;
 					}
 				}
+
 				cvarins[xidx].pos[0][i] = prev0;
 				cvarins[xidx].pos[1][i] = prev1;
 				cvarins[xidx].pos[2][i] = prev2;
@@ -386,7 +382,7 @@ class palgo {
 
 			int xidx = fxidx( newexprs[8][sidx].x , cvarins , smap );
 			int yidx = fxidx( newexprs[8][sidx].y , cvarins , smap );
-			
+
 			for (int i=0;i<modelvs;i++){
 
 				bool befx[3];
@@ -422,9 +418,71 @@ class palgo {
 
 		} else {
 
-			return true;
+			return sub7(cvarins,smap);
 
 		}
+	}
+
+	bool sub7(std::vector<exprins> &cvarins , std::map<std::string,int> &smap){
+
+		int sub7s = newexprs[7].size();
+
+		vector<int> xidx(sub7s);
+		vector<int> yidx(sub7s);
+
+		for (int i=0;i<sub7s;i++){
+			xidx[i] = fxidx(sub.x,cvarins,smap);
+			yidx[i] = fxidx(sub.y,cvarins,smap);
+		}
+
+		int cvis = cvarins.size();
+		vector< vector<int> > gr(cvis);
+		vector<int> inco(cvis,0);
+
+		for (int i=0;i<sub7s;i++){
+			gr[xidx[i]].push_back(yidx[i]);
+			inco[yidx[i]]++;
+		}
+
+		stack<int> bfs;
+		for (int i=0;i<cvis;i++){
+			if (!inco[i]){
+				bfs.push(i);
+			}
+		}
+
+		while (!bfs.empty()){
+
+			int cno = bfs.front();
+			bfs.pop();
+
+			for (int ne:gr[cno]){
+
+				for (int i=0;i<modelvs;i++){
+
+					if (!cvarins[cno].pos[2][i]){
+
+						if (cvarins[cno].pos[0][i]){
+							if (cvarins[ne].pos[0][i]){
+								cvarins[ne].pos[1][i] = false;
+								cvarins[ne].pos[2][i] = false;
+							} else return false;
+						} else {
+							if (cvarins[ne].pos[1][i]){
+								cvarins[ne].pos[0][i] = false;
+								cvarins[ne].pos[2][i] = false;
+							} else return false;
+						}
+
+					}
+				}
+
+				if (!(--inco[ne])) bfs.push(ne);
+			}
+		}
+
+		return true;
+
 	}
 
 	void evaluate(invParser::InputContext* ctx){
