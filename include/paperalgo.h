@@ -275,6 +275,7 @@ class palgo {
 							if (cvarins[xidx].pos[ sub3.c[i] ][i]){
 								cvarins[xidx].pos[2][i] = false;
 								cvarins[xidx].pos[1 - sub3.c[i]][i] = false;
+								if ( !( cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i] ) ) return false;
 							} else return false;
 						}
 					}
@@ -287,8 +288,7 @@ class palgo {
 					for (int i=0;i<modelvs;i++){
 						if (sub5.c[i] != 0) cvarins[xidx].pos[0][i] = false;
 						if (sub5.c[i] != 1) cvarins[xidx].pos[1][i] = false;
-						// First get it running, then add this everywhere
-						// if ( !( cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i] ) ) return false;
+						if ( !( cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i] ) ) return false;
 					}
 				}
 
@@ -309,7 +309,9 @@ class palgo {
 
 					if ( cvarins[xidx].pos[ newexprs[4][sidx].c[i] ][i] ){
 						cvarins[xidx].pos[ newexprs[4][sidx].c[i] ][i] = false;
-						if (sub4(sidx+1,cvarins,smap)) return true;
+						if (cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i]){
+							if (sub4(sidx+1,cvarins,smap)) return true;
+						}
 						cvarins[xidx].pos[ newexprs[4][sidx].c[i] ][i] = true;
 					} else {
 						// Possible optimization, if there's one that's already wrong don't assign anything
@@ -328,6 +330,7 @@ class palgo {
 	}
 
 	bool sub6(int sidx , std::vector<exprins> &cvarins , std::map<std::string,int> &smap){
+
 		if (sidx < newexprs[6].size()){
 
 			int xidx = fxidx( newexprs[6][sidx].x , cvarins , smap );
@@ -346,19 +349,72 @@ class palgo {
 				if (cvarins[xidx].pos[0][i] && cvarins[xidx].pos[1][i]){
 
 					cvarins[xidx].pos[0][i] = false;
-					if (sub6(sidx+1,cvarins,smap)) return true;
+					if (cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i]){
+						if (sub6(sidx+1,cvarins,smap)) return true;
+					}
 					cvarins[xidx].pos[0][i] = true;
 
 					cvarins[xidx].pos[1][i] = false;
-					if (sub6(sidx+1,cvarins,smap)) return true;
+					if (cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i]){
+						if (sub6(sidx+1,cvarins,smap)) return true;
+					}
 					cvarins[xidx].pos[1][i] = true;
 
 				} else {
-					if (sub6(sidx+1,cvarins,smap)) return true;
+					if (cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i] || cvarins[xidx].pos[2][i]){
+						if (sub6(sidx+1,cvarins,smap)) return true;
+					}
 				}
 				cvarins[xidx].pos[0][i] = prev0;
 				cvarins[xidx].pos[1][i] = prev1;
 				cvarins[xidx].pos[2][i] = prev2;
+
+			}
+
+			return false;
+
+		} else {
+
+			return sub8(0,cvarins,smap);
+
+		}
+	}
+
+	bool sub8(int sidx , std::vector<exprins> &cvarins , std::map<std::string,int> &smap){
+
+		if (sidx < newexprs[8].size()){
+
+			int xidx = fxidx( newexprs[8][sidx].x , cvarins , smap );
+			int yidx = fxidx( newexprs[8][sidx].y , cvarins , smap );
+			
+			for (int i=0;i<modelvs;i++){
+
+				bool befx[3];
+				bool befy[3];
+				for (int j=0;j<3;j++){
+					befx[j] = cvarins[xidx].pos[j][i];
+					befy[j] = cvarins[yidx].pos[j][i];
+				}
+
+				if (cvarins[xidx].pos[0][i] && (cvarins[yidx].pos[1][i] || cvarins[yidx].pos[2][i])){
+					cvarins[xidx].pos[1][i] = false;
+					cvarins[xidx].pos[2][i] = false;
+					cvarins[yidx].pos[0][i] = false;
+					if (sub8(sidx+1,cvarins,smap)) return true;
+					cvarins[xidx].pos[1][i] = befx[1];
+					cvarins[xidx].pos[2][i] = befx[2];
+					cvarins[yidx].pos[0][i] = befy[0];
+				}
+
+				if (cvarins[xidx].pos[1][i] && (cvarins[yidx].pos[0][i] || cvarins[yidx].pos[2][i])){
+					cvarins[xidx].pos[0][i] = false;
+					cvarins[xidx].pos[2][i] = false;
+					cvarins[yidx].pos[1][i] = false;
+					if (sub8(sidx+1,cvarins,smap)) return true;
+					cvarins[xidx].pos[0][i] = befx[0];
+					cvarins[xidx].pos[2][i] = befx[2];
+					cvarins[yidx].pos[1][i] = befy[1];
+				}
 
 			}
 
