@@ -1,4 +1,4 @@
-#include "queryChecker.h"
+#include "queryChecker2.h"
 
 qChecker2::qChecker2(std::shared_ptr<IModel> m){
 	imodel = m;
