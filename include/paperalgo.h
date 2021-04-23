@@ -266,6 +266,17 @@ class palgo {
 
 				std::vector<exprins> cvarins( sccn , exprins(modelvs) );
 
+				//check if any variable requires pos(x) and ~pos(x)
+				for (expr pose:newexprs[1]){
+					int xidx = fxidx(pose.x,cvarins,finalidx);
+					cvarins[xidx].full = true;
+				}
+
+				for (expr nege:newexprs[2]){
+					int xidx = fxidx(nege.x,cvarins,finalidx);
+					if (cvarins[xidx].full) return false;
+				}
+
 				// c <= x SUB3
 
 				for (expr sub3:newexprs[3]){
@@ -427,24 +438,24 @@ class palgo {
 
 		int sub7s = newexprs[7].size();
 
-		vector<int> xidx(sub7s);
-		vector<int> yidx(sub7s);
+		std::vector<int> xidx(sub7s);
+		std::vector<int> yidx(sub7s);
 
 		for (int i=0;i<sub7s;i++){
-			xidx[i] = fxidx(sub.x,cvarins,smap);
-			yidx[i] = fxidx(sub.y,cvarins,smap);
+			xidx[i] = fxidx(newexprs[7][i].x,cvarins,smap);
+			yidx[i] = fxidx(newexprs[7][i].y,cvarins,smap);
 		}
 
 		int cvis = cvarins.size();
-		vector< vector<int> > gr(cvis);
-		vector<int> inco(cvis,0);
+		std::vector< std::vector<int> > gr(cvis);
+		std::vector<int> inco(cvis,0);
 
 		for (int i=0;i<sub7s;i++){
 			gr[xidx[i]].push_back(yidx[i]);
 			inco[yidx[i]]++;
 		}
 
-		stack<int> bfs;
+		std::queue<int> bfs;
 		for (int i=0;i<cvis;i++){
 			if (!inco[i]){
 				bfs.push(i);
@@ -479,6 +490,44 @@ class palgo {
 
 				if (!(--inco[ne])) bfs.push(ne);
 			}
+		}
+
+		return complete(cvarins,smap);
+
+	}
+
+	bool complete(std::vector<exprins> &cvarins , std::map<std::string,int> &smap){
+
+		for (expr nege:newexprs[2]){
+			int xidx = fxidx(nege.x,cvarins,smap);
+			std::vector<bool> cins(modelvs);
+			bool bottom = false;
+			for (int i=0;i<modelvs;i++){
+				if (cvarins[xidx].pos[2][i]){
+					bottom = true;
+					break;
+				} else {
+					cins[i] = cvarins[xidx].pos[1][i];
+				}
+			}
+			if ( (!bottom) && (imodel->predict(cins))) return false;
+		}
+
+		for (expr pose:newexprs[1]){
+			int xidx = fxidx(pose.x,cvarins,smap);
+			std::vector<int> cins(modelvs);
+			bool bottom = false;
+			for (int i=0;i<modelvs;i++){
+				if (cvarins[xidx].pos[0][i] || cvarins[xidx].pos[1][i]){
+					if (cvarins[xidx].pos[0][i] && cvarins[xidx].pos[1][i]) cins[i] = 2;
+					else if (cvarins[xidx].pos[0][i]) cins[i] = 0;
+					else cins[i] = 1;
+				} else {
+					bottom = true;
+					break;
+				}
+			}
+			if (bottom || (!(imodel->complete(cins)))) return false;
 		}
 
 		return true;

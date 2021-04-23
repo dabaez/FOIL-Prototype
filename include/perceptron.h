@@ -7,9 +7,11 @@ class Perceptron: public IModel{
 
 		void readFromConsole() override;
 	
-		bool checkVector(const std::vector<int>& x) const override; 
+		bool checkVector(const std::vector<int>& x) const override;
 		
-		bool predict(const std::vector<bool> &x) const override; 
+		bool predict(const std::vector<bool> &x) const override;
+
+		bool complete(const std::vector<int> &x) const override;
 			
 		int vectorSize() const override;
 

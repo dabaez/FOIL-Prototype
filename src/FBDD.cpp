@@ -95,3 +95,7 @@ FBDD FBDD::negate() const {
     return FBDD(std::make_shared<FNode>(root->negate()));
 }
 
+bool FBDD::complete(const std::vector<int>& instance) const {
+    // Not implemented yet
+    return true;
+}
