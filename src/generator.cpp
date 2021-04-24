@@ -40,7 +40,7 @@ void makeq(){
 		fut++;
 		makeq();
 		out<<" ) ";
-		if ( ranb(gen) ) out<<" v ";
+		if ( ranb(gen) ) out<<" V ";
 		else out<<" ^ ";
 		out<<" ( ";
 		fut--;
@@ -129,6 +129,11 @@ int main(){
     cin>>ans;
     con = ans;
 
+    bool juste;
+    cout<<"should all quantifiers be the same?"<<endl;
+    cin>>ans;
+    juste = ans;
+
 	uniform_int_distribution<int> rnvar(1,qs/2);
 
 	while (q--){
@@ -136,10 +141,22 @@ int main(){
 		varn = rnvar(gen);
 		rvar = uniform_int_distribution<int>(0,varn);
 
-        for (int i=1;i<=varn;i++){
-			if (ranb(gen)) out<<"Exists x"<<i<<", ";
-			else out<<"ForAll x"<<i<<", ";
-        }
+		if (juste){
+
+			bool fq = ranb(gen);
+			for (int i=1;i<=varn;i++){
+				if (fq) out<<"Exists x"<<i<<", ";
+				else out<<"ForAll x"<<i<<", ";
+	        }
+
+		} else {
+
+	        for (int i=1;i<=varn;i++){
+				if (ranb(gen)) out<<"Exists x"<<i<<", ";
+				else out<<"ForAll x"<<i<<", ";
+	        }
+
+	    }
 
         lef = qs - varn;
 

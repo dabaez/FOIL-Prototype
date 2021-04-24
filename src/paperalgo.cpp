@@ -78,14 +78,16 @@ bool palgo::tryall(int ctype, int cidx){
 
 			newexprs[ctype].pop_back();
 
-			if (ctype%2) newexprs[ctype-1].push_back( exprs[ctype][cidx] );
-			else newexprs[ctype+1].push_back( exprs[ctype][cidx] );
+			if (ctype%2) newexprs[ctype+1].push_back( exprs[ctype][cidx] );
+			else newexprs[ctype-1].push_back( exprs[ctype][cidx] );
 			exprs[ctype][cidx].val = false;
 
 			bool ret = tryall(ctype,cidx+1);
 			if (ret) return true;
 
-			newexprs[ctype].pop_back();
+			if (ctype%2) newexprs[ctype+1].pop_back();
+			else newexprs[ctype-1].pop_back();
+
 			return false;
 
 		}
@@ -107,6 +109,7 @@ bool palgo::tryall(int ctype, int cidx){
 
 				if ( mapidx.find(sub.x) == mapidx.end() ){
 					gr.push_back(std::vector<int>());
+					tgr.push_back(std::vector<int>());
 					rmap.push_back(sub.x);
 					fi = mapidx[sub.x] = idx++;
 				} else fi = mapidx[sub.x];
@@ -115,6 +118,7 @@ bool palgo::tryall(int ctype, int cidx){
 					si = mapidx[sub.y] = idx++;
 					rmap.push_back(sub.y);
 					gr.push_back(std::vector<int>());
+					tgr.push_back(std::vector<int>());
 				} else si = mapidx[sub.y];
 
 				gr[fi].push_back(si);
@@ -181,8 +185,9 @@ bool palgo::tryall(int ctype, int cidx){
 					while (!bfs.empty()){
 
 						int cno = bfs.front();
+						bfs.pop();
 
-						for (int ne:gr[cno]){
+						for (int ne:compgr[cno]){
 							sccix.unionSet(cix,ne);
 
 							if (!visited[ne]){
@@ -236,7 +241,7 @@ bool palgo::tryall(int ctype, int cidx){
 
 			// x <= c SUB5
 
-			for (expr sub5:newexprs[3]){
+			for (expr sub5:newexprs[5]){
 				int xidx = fxidx(sub5.x,cvarins,finalidx);
 				for (int i=0;i<modelvs;i++){
 					if (sub5.c[i] != 0) cvarins[xidx].pos[0][i] = false;
@@ -336,6 +341,8 @@ bool palgo::sub8(int sidx , std::vector<exprins> &cvarins , std::map<std::string
 		int xidx = fxidx( newexprs[8][sidx].x , cvarins , smap );
 		int yidx = fxidx( newexprs[8][sidx].y , cvarins , smap );
 
+		if (xidx == yidx) return false;
+
 		for (int i=0;i<modelvs;i++){
 
 			bool befx[3];
@@ -393,8 +400,10 @@ bool palgo::sub7(std::vector<exprins> &cvarins , std::map<std::string,int> &smap
 	std::vector<int> inco(cvis,0);
 
 	for (int i=0;i<sub7s;i++){
-		gr[xidx[i]].push_back(yidx[i]);
-		inco[yidx[i]]++;
+		if (xidx[i] != yidx[i]){
+			gr[xidx[i]].push_back(yidx[i]);
+			inco[yidx[i]]++;
+		}
 	}
 
 	std::queue<int> bfs;
@@ -530,7 +539,7 @@ void palgo::buildt(invParser::GposContext* ctx , std::shared_ptr<node> cnode , b
 
 		}
 
-		if (cnot) exprs[0][cidx].val = !exprs[0][cidx].val;
+		if (!cnot) exprs[0][cidx].val = !exprs[0][cidx].val;
 
 	} else {
 
@@ -590,6 +599,9 @@ void palgo::buildt(invParser::GsubContext* ctx , std::shared_ptr<node> cnode , b
 		for (int i=0;i<c1.size() && cval;i++){
 			if (c1[i] != 2 && c1[i] != c2[i]) cval = false;
 		}
+
+		if (!cnot) cval = !cval;
+
 		exprs[ctype][cidx].val = cval;
 
 	}
