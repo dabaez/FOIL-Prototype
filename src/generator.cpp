@@ -115,19 +115,26 @@ int main(){
 	double b = dis(gen);
 	out<<'\n'<<b<<'\n';
 
-    
-    cout<<"how many and how long"<<endl;
-	int q,qs;
-	cin>>q>>qs;
+	cout<<"how many queries"<<endl;
+	int q;
+	cin>>q;
 
-    cout<<"should x <= y appear?"<<endl;
-    int ans;
-    cin>>ans;
-    sub = ans;
+	cout<<"how long should queries be?"<<endl;
+	int qs;
+	cin>>qs;
 
-    cout<<"should constants appear?"<<endl;
-    cin>>ans;
-    con = ans;
+	cout<<"how many quantifiers should there be?"<<endl;
+	int qqs;
+	cin>>qqs;
+
+	int ans;
+    //cout<<"should x <= y appear?"<<endl;
+    //cin>>ans;
+    sub = true;
+
+    //cout<<"should constants appear?"<<endl;
+    //cin>>ans;
+    con = true;
 
     bool juste;
     cout<<"should all quantifiers be the same?"<<endl;
@@ -138,7 +145,8 @@ int main(){
 
 	while (q--){
 
-		varn = rnvar(gen);
+		//varn = rnvar(gen);
+		varn = qqs;
 		rvar = uniform_int_distribution<int>(0,varn);
 
 		if (juste){
@@ -158,7 +166,7 @@ int main(){
 
 	    }
 
-        lef = qs - varn;
+        lef = qs;
 
         fut = 0;
 
