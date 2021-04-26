@@ -389,6 +389,11 @@ bool palgo::sub7(std::vector<exprins> &cvarins , std::map<std::string,int> &smap
 	std::vector<int> xidx(sub7s);
 	std::vector<int> yidx(sub7s);
 
+	for (int i=0;i<sub7s;i++){
+		xidx[i] = fxidx(newexprs[7][i].x,cvarins,smap);
+		yidx[i] = fxidx(newexprs[7][i].y,cvarins,smap);
+	}
+
 	int cvis = cvarins.size();
 	std::vector< std::vector<int> > gr(cvis);
 	std::vector<int> inco(cvis,0);
