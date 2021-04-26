@@ -96,5 +96,5 @@ DecisionTree DecisionTree::negate() const {
 }
 
 bool DecisionTree::complete(const std::vector<int>& x) const {
-    return true;
+    return root->complete(x);
 }

@@ -133,3 +133,8 @@ const std::shared_ptr<DTNode> DTNode::TRUE = std::make_shared<DTNode>(-1, nullpt
 const std::shared_ptr<DTNode> DTNode::FALSE = std::make_shared<DTNode>(-2, nullptr, nullptr);
 
 
+bool DTNode::complete(const std::vector<int>& x) const {
+    if (x[label] == 2) return (this->right->complete(x)) || (this->left->complete(x));
+    else if (x[label]) return this->right->complete(x);
+    else return this->left->complete(x);
+}
