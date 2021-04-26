@@ -78,12 +78,11 @@ bool palgo::tryall(int ctype, int cidx){
 
 			newexprs[ctype].pop_back();
 
+			exprs[ctype][cidx].val = false;
 			if (ctype%2) newexprs[ctype+1].push_back( exprs[ctype][cidx] );
 			else newexprs[ctype-1].push_back( exprs[ctype][cidx] );
-			exprs[ctype][cidx].val = false;
 
-			bool ret = tryall(ctype,cidx+1);
-			if (ret) return true;
+			if (tryall(ctype,cidx+1)) return true;
 
 			if (ctype%2) newexprs[ctype+1].pop_back();
 			else newexprs[ctype-1].pop_back();
