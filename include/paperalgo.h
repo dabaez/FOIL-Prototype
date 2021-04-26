@@ -77,6 +77,12 @@ private:
 		}
 	};
 
+	class change{
+	public:
+		int xidx, pos, idx;
+		change(int xidx,int pos,int idx):xidx(xidx),pos(pos),idx(idx){}
+	};
+
 	//0 : constant
 	//1 : positive (x)
 	//2 : ~positive(x)

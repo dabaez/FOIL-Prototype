@@ -389,11 +389,6 @@ bool palgo::sub7(std::vector<exprins> &cvarins , std::map<std::string,int> &smap
 	std::vector<int> xidx(sub7s);
 	std::vector<int> yidx(sub7s);
 
-	for (int i=0;i<sub7s;i++){
-		xidx[i] = fxidx(newexprs[7][i].x,cvarins,smap);
-		yidx[i] = fxidx(newexprs[7][i].y,cvarins,smap);
-	}
-
 	int cvis = cvarins.size();
 	std::vector< std::vector<int> > gr(cvis);
 	std::vector<int> inco(cvis,0);
@@ -412,27 +407,43 @@ bool palgo::sub7(std::vector<exprins> &cvarins , std::map<std::string,int> &smap
 		}
 	}
 
-	while (!bfs.empty()){
+	std::vector<change> changes;
+
+	bool fail = false;
+
+	while ( (!bfs.empty()) && (!fail) ){
 
 		int cno = bfs.front();
 		bfs.pop();
 
 		for (int ne:gr[cno]){
 
-			for (int i=0;i<modelvs;i++){
+			for (int i=0;i<modelvs && (!fail);i++){
 
 				if (!cvarins[cno].pos[2][i]){
 
 					if (cvarins[cno].pos[0][i]){
 						if (cvarins[ne].pos[0][i]){
-							cvarins[ne].pos[1][i] = false;
-							cvarins[ne].pos[2][i] = false;
-						} else return false;
+							if (cvarins[ne].pos[1][i]){
+								changes.emplace_back(ne,1,i);
+								cvarins[ne].pos[1][i] = false;
+							}
+							if (cvarins[ne].pos[2][i]){
+								changes.emplace_back(ne,2,i);
+								cvarins[ne].pos[2][i] = false;
+							}
+						} else fail = true;
 					} else {
 						if (cvarins[ne].pos[1][i]){
-							cvarins[ne].pos[0][i] = false;
-							cvarins[ne].pos[2][i] = false;
-						} else return false;
+							if (cvarins[ne].pos[0][i]){
+								changes.emplace_back(ne,0,i);
+								cvarins[ne].pos[0][i] = false;
+							}
+							if (cvarins[ne].pos[2][i]){
+								changes.emplace_back(ne,2,i);
+								cvarins[ne].pos[2][i] = false;
+							}
+						} else fail = true;
 					}
 
 				}
@@ -442,7 +453,10 @@ bool palgo::sub7(std::vector<exprins> &cvarins , std::map<std::string,int> &smap
 		}
 	}
 
-	return complete(cvarins,smap);
+	if (fail || (!complete(cvarins,smap))){
+		for (change ch:changes) cvarins[ch.xidx].pos[ch.pos][ch.idx] = true;
+		return false;
+	} else return true;
 
 }
 
