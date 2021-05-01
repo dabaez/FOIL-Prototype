@@ -40,7 +40,7 @@ void makeq(){
 		fut++;
 		makeq();
 		out<<" ) ";
-		if ( ranb(gen) ) out<<" v ";
+		if ( ranb(gen) ) out<<" V ";
 		else out<<" ^ ";
 		out<<" ( ";
 		fut--;
@@ -115,33 +115,58 @@ int main(){
 	double b = dis(gen);
 	out<<'\n'<<b<<'\n';
 
-    
-    cout<<"how many and how long"<<endl;
-	int q,qs;
-	cin>>q>>qs;
+	cout<<"how many queries"<<endl;
+	int q;
+	cin>>q;
 
-    cout<<"should x <= y appear?"<<endl;
-    int ans;
-    cin>>ans;
-    sub = ans;
+	cout<<"how long should queries be?"<<endl;
+	int qs;
+	cin>>qs;
 
-    cout<<"should constants appear?"<<endl;
+	cout<<"how many quantifiers should there be?"<<endl;
+	int qqs;
+	cin>>qqs;
+
+	int ans;
+    //cout<<"should x <= y appear?"<<endl;
+    //cin>>ans;
+    sub = true;
+
+    //cout<<"should constants appear?"<<endl;
+    //cin>>ans;
+    con = true;
+
+    bool juste;
+    cout<<"should all quantifiers be the same?"<<endl;
     cin>>ans;
-    con = ans;
+    juste = ans;
 
 	uniform_int_distribution<int> rnvar(1,qs/2);
 
 	while (q--){
 
-		varn = rnvar(gen);
+		//varn = rnvar(gen);
+		varn = qqs;
 		rvar = uniform_int_distribution<int>(0,varn);
 
-        for (int i=1;i<=varn;i++){
-			if (ranb(gen)) out<<"Exists x"<<i<<", ";
-			else out<<"ForAll x"<<i<<", ";
-        }
+		if (juste){
 
-        lef = qs - varn;
+			bool fq = ranb(gen);
+			for (int i=1;i<=varn;i++){
+				if (fq) out<<"Exists x"<<i<<", ";
+				else out<<"ForAll x"<<i<<", ";
+	        }
+
+		} else {
+
+	        for (int i=1;i<=varn;i++){
+				if (ranb(gen)) out<<"Exists x"<<i<<", ";
+				else out<<"ForAll x"<<i<<", ";
+	        }
+
+	    }
+
+        lef = qs;
 
         fut = 0;
 

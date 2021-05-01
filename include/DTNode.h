@@ -35,6 +35,8 @@ class DTNode {
         int getDepth() const; // dfefined as the number of edges in the longest path root-to-leaf
 
         int getSize() const; // defined as the total number of nodes
+
+        bool complete(const std::vector<int>& x) const;
         
         // leaves
         const static std::shared_ptr<DTNode> TRUE;

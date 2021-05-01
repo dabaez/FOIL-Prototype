@@ -96,3 +96,6 @@ DecisionTree DecisionTree::negate() const {
     return DecisionTree(std::make_shared<DTNode>(root->negate()));
 }
 
+bool DecisionTree::complete(const std::vector<int>& x) const {
+    return root->complete(x);
+}
