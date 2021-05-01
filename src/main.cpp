@@ -54,6 +54,7 @@ int main(int argc, char** argv) {
 		if (deffile){
 			mod -> readFromFile(sfile);
 			cout<<"File loaded from "<<sfile<<'\n';
+            cout<<"Number of features = "<<mod->vectorSize()<<endl;
 		} else {
 			cout<<"File not specified, model will be read from console"<<endl;
 			mod -> readFromConsole();

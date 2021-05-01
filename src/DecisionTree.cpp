@@ -1,6 +1,10 @@
 #include "DecisionTree.h"
+#include "json.hpp"
 
 #include <vector>
+
+using json = nlohmann::json;
+
 
 DecisionTree::DecisionTree() {
     root = {};
@@ -23,42 +27,39 @@ bool DecisionTree::predict(const std::vector<bool>& instance) const {
 
 
 void DecisionTree::readFromFile(const std::string& filename) {
-    //  # nodos internos (entero N)
-    //  N líneas
-    //  label <id izq> <id der>
-    //
-    //     2
-    //    / \
-    //    1   0
-    //   / \ / \
-    //   F T T F
-    std::ifstream dt(filename);
-    int N;
-    dt >> N;
-    std::vector<std::shared_ptr<DTNode>> nodes(N);
+    std::ifstream json_file(filename);
+    json j; json_file >> j;
+    json nodes = j["nodes"];
+    std::string positive = j["positive"];
+
+    int N = nodes.size();
+    std::vector<std::shared_ptr<DTNode>> dtnodes(N);
     for(int i = 0; i < N; ++i) 
-        nodes[i] = std::make_shared<DTNode>();
+        dtnodes[i] = std::make_shared<DTNode>();
 
     for(int i = 0; i < N; ++i) {
-        int label, left, right;
-        dt >> label >> left >> right;
-        nodes[i]->setLabel(label);
-        if(left == -2) {
-            nodes[i]->setLeft(DTNode::FALSE);
-        } else if(left == -1) {
-            nodes[i]->setLeft(DTNode::TRUE);
-        } else {
-            nodes[i]->setLeft(nodes[left]);
+        json node = nodes[std::to_string(i)];
+        if(node["type"] == "internal") {
+            dtnodes[i]->setLabel(node["feature_index"]);
+            int left_index = node["id_left"];
+            int right_index = node["id_right"];
+            json left = nodes[std::to_string(left_index)];
+            json right = nodes[std::to_string(right_index)];
+            if(left["type"] == "leaf") {
+                dtnodes[i]->setLeft((left["class"] == positive ? DTNode::TRUE : DTNode::FALSE));
+            } else {
+                dtnodes[i]->setLeft(dtnodes[left_index]);
+            }
+            
+            if(right["type"] == "leaf") {
+                dtnodes[i]->setRight((right["class"] == positive ? DTNode::TRUE : DTNode::FALSE));
+            } else {
+                dtnodes[i]->setRight(dtnodes[right_index]);
+            }
         }
-        if(right == -2) {
-            nodes[i]->setRight(DTNode::FALSE);
-        } else if(right == -1) {
-            nodes[i]->setRight(DTNode::TRUE);
-        } else {
-            nodes[i]->setRight(nodes[right]);
-        }
+
     }
-    root = nodes[0];
+    root = dtnodes[0];
     return;
 }
 
