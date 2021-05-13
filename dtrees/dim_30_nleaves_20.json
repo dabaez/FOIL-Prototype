@@ -1,0 +1,344 @@
+{
+  "feature_names": [
+    "ft0",
+    "ft1",
+    "ft2",
+    "ft3",
+    "ft4",
+    "ft5",
+    "ft6",
+    "ft7",
+    "ft8",
+    "ft9",
+    "ft10",
+    "ft11",
+    "ft12",
+    "ft13",
+    "ft14",
+    "ft15",
+    "ft16",
+    "ft17",
+    "ft18",
+    "ft19",
+    "ft20",
+    "ft21",
+    "ft22",
+    "ft23",
+    "ft24",
+    "ft25",
+    "ft26",
+    "ft27",
+    "ft28",
+    "ft29"
+  ],
+  "feature_types": [
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean"
+  ],
+  "class_names": [
+    "positive",
+    "negative"
+  ],
+  "positive": "positive",
+  "nodes": {
+    "0": {
+      "id": 0,
+      "type": "internal",
+      "feature_name": "ft10",
+      "feature_index": 10,
+      "threshold": 0.5,
+      "id_left": 1,
+      "id_right": 2
+    },
+    "1": {
+      "id": 1,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "2": {
+      "id": 2,
+      "type": "internal",
+      "feature_name": "ft24",
+      "feature_index": 24,
+      "threshold": 0.5,
+      "id_left": 3,
+      "id_right": 4
+    },
+    "3": {
+      "id": 3,
+      "type": "internal",
+      "feature_name": "ft1",
+      "feature_index": 1,
+      "threshold": 0.5,
+      "id_left": 9,
+      "id_right": 10
+    },
+    "9": {
+      "id": 9,
+      "type": "internal",
+      "feature_name": "ft17",
+      "feature_index": 17,
+      "threshold": 0.5,
+      "id_left": 21,
+      "id_right": 22
+    },
+    "21": {
+      "id": 21,
+      "type": "internal",
+      "feature_name": "ft25",
+      "feature_index": 25,
+      "threshold": 0.5,
+      "id_left": 23,
+      "id_right": 24
+    },
+    "23": {
+      "id": 23,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "24": {
+      "id": 24,
+      "type": "internal",
+      "feature_name": "ft0",
+      "feature_index": 0,
+      "threshold": 0.5,
+      "id_left": 25,
+      "id_right": 26
+    },
+    "25": {
+      "id": 25,
+      "type": "internal",
+      "feature_name": "ft21",
+      "feature_index": 21,
+      "threshold": 0.5,
+      "id_left": 29,
+      "id_right": 30
+    },
+    "29": {
+      "id": 29,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "30": {
+      "id": 30,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "26": {
+      "id": 26,
+      "type": "internal",
+      "feature_name": "ft2",
+      "feature_index": 2,
+      "threshold": 0.5,
+      "id_left": 27,
+      "id_right": 28
+    },
+    "27": {
+      "id": 27,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "28": {
+      "id": 28,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "22": {
+      "id": 22,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "10": {
+      "id": 10,
+      "type": "internal",
+      "feature_name": "ft12",
+      "feature_index": 12,
+      "threshold": 0.5,
+      "id_left": 11,
+      "id_right": 12
+    },
+    "11": {
+      "id": 11,
+      "type": "internal",
+      "feature_name": "ft20",
+      "feature_index": 20,
+      "threshold": 0.5,
+      "id_left": 33,
+      "id_right": 34
+    },
+    "33": {
+      "id": 33,
+      "type": "internal",
+      "feature_name": "ft0",
+      "feature_index": 0,
+      "threshold": 0.5,
+      "id_left": 35,
+      "id_right": 36
+    },
+    "35": {
+      "id": 35,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "36": {
+      "id": 36,
+      "type": "internal",
+      "feature_name": "ft23",
+      "feature_index": 23,
+      "threshold": 0.5,
+      "id_left": 37,
+      "id_right": 38
+    },
+    "37": {
+      "id": 37,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "38": {
+      "id": 38,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "34": {
+      "id": 34,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "12": {
+      "id": 12,
+      "type": "internal",
+      "feature_name": "ft25",
+      "feature_index": 25,
+      "threshold": 0.5,
+      "id_left": 13,
+      "id_right": 14
+    },
+    "13": {
+      "id": 13,
+      "type": "internal",
+      "feature_name": "ft23",
+      "feature_index": 23,
+      "threshold": 0.5,
+      "id_left": 15,
+      "id_right": 16
+    },
+    "15": {
+      "id": 15,
+      "type": "internal",
+      "feature_name": "ft5",
+      "feature_index": 5,
+      "threshold": 0.5,
+      "id_left": 19,
+      "id_right": 20
+    },
+    "19": {
+      "id": 19,
+      "type": "internal",
+      "feature_name": "ft15",
+      "feature_index": 15,
+      "threshold": 0.5,
+      "id_left": 31,
+      "id_right": 32
+    },
+    "31": {
+      "id": 31,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "32": {
+      "id": 32,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "20": {
+      "id": 20,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "16": {
+      "id": 16,
+      "type": "internal",
+      "feature_name": "ft8",
+      "feature_index": 8,
+      "threshold": 0.5,
+      "id_left": 17,
+      "id_right": 18
+    },
+    "17": {
+      "id": 17,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "18": {
+      "id": 18,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "14": {
+      "id": 14,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "4": {
+      "id": 4,
+      "type": "internal",
+      "feature_name": "ft7",
+      "feature_index": 7,
+      "threshold": 0.5,
+      "id_left": 5,
+      "id_right": 6
+    },
+    "5": {
+      "id": 5,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "6": {
+      "id": 6,
+      "type": "internal",
+      "feature_name": "ft2",
+      "feature_index": 2,
+      "threshold": 0.5,
+      "id_left": 7,
+      "id_right": 8
+    },
+    "7": {
+      "id": 7,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "8": {
+      "id": 8,
+      "type": "leaf",
+      "class": "negative"
+    }
+  }
+}

@@ -9,9 +9,9 @@ class DecisionTree : public IModel {
     public:
         DecisionTree();
 
-        DecisionTree(std::shared_ptr<DTNode> root);
+        DecisionTree(std::shared_ptr<DTNode> root, int dimension);
 
-        DecisionTree(DTNode& oroot);
+        DecisionTree(DTNode& oroot, int dimension);
 
         bool predict(const std::vector<bool>& instance) const override;
 
@@ -29,6 +29,8 @@ class DecisionTree : public IModel {
         
         int getDepth() const;
 
+        /*
+
         DecisionTree condition(const std::vector<bool>& instance) const;
 
         DecisionTree intersect(const DecisionTree& other) const;
@@ -36,8 +38,11 @@ class DecisionTree : public IModel {
         DecisionTree unite(const DecisionTree& other) const; // the word union is reserved in C++.
 
         DecisionTree negate() const;
+        
+        */
 
     private:
         std::shared_ptr<DTNode> root;
         int size;
+        int dimension;
 };

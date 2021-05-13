@@ -1,0 +1,84 @@
+{
+  "feature_names": [
+    "ft0",
+    "ft1",
+    "ft2",
+    "ft3",
+    "ft4"
+  ],
+  "feature_types": [
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean"
+  ],
+  "class_names": [
+    "positive",
+    "negative"
+  ],
+  "positive": "positive",
+  "nodes": {
+    "0": {
+      "id": 0,
+      "type": "internal",
+      "feature_name": "ft0",
+      "feature_index": 0,
+      "threshold": 0.5,
+      "id_left": 1,
+      "id_right": 2
+    },
+    "1": {
+      "id": 1,
+      "type": "internal",
+      "feature_name": "ft3",
+      "feature_index": 3,
+      "threshold": 0.5,
+      "id_left": 3,
+      "id_right": 4
+    },
+    "3": {
+      "id": 3,
+      "type": "internal",
+      "feature_name": "ft4",
+      "feature_index": 4,
+      "threshold": 0.5,
+      "id_left": 5,
+      "id_right": 6
+    },
+    "5": {
+      "id": 5,
+      "type": "internal",
+      "feature_name": "ft2",
+      "feature_index": 2,
+      "threshold": 0.5,
+      "id_left": 7,
+      "id_right": 8
+    },
+    "7": {
+      "id": 7,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "8": {
+      "id": 8,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "6": {
+      "id": 6,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "4": {
+      "id": 4,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "2": {
+      "id": 2,
+      "type": "leaf",
+      "class": "positive"
+    }
+  }
+}
