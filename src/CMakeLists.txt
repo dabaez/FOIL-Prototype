@@ -4,6 +4,8 @@
             # target_link_libraries(main antlr4_static)
 add_library(dtnode DTNode.cpp)
 add_library(dt DecisionTree.cpp)
+add_library(afbdd AFBDD.cpp)
+add_library(afbddnode AFBDDNode.cpp)
 add_library(perceptron perceptron.cpp)
 add_library(fpow fastpow.cpp)
 
