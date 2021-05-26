@@ -19,12 +19,13 @@ int main(int argc, char** argv) {
 
 	shared_ptr<IModel> mod;
 
-	bool defmod=false,deffile=false;
+	bool defmod=false,deffile=false,one=false;
 	string sfile;
 
 	const option long_opts[] = {
 		{"model",required_argument,0,'m'},
-		{"file",required_argument,0,'f'}
+		{"file",required_argument,0,'f'},
+		{"one",no_argument,0,'o'}
 	};
 	
 	while (true){
@@ -47,14 +48,16 @@ int main(int argc, char** argv) {
 					return 0;
 				}
 				break;
+			case 'o':
+				one = true;
 		}
 	}
 
 	if (defmod){
 		if (deffile){
 			mod -> readFromFile(sfile);
-			cout<<"File loaded from "<<sfile<<'\n';
-			cout<<"Number of features = "<<mod->vectorSize()<<endl;
+			if (!one) cout<<"File loaded from "<<sfile<<'\n';
+			if (!one) cout<<"Number of features = "<<mod->vectorSize()<<endl;
 		} else {
 			cout<<"File not specified, model will be read from console"<<endl;
 			mod -> readFromConsole();
@@ -94,6 +97,8 @@ int main(int argc, char** argv) {
 		} catch (...){
 			continue;
 		}
+
+		if (one) break;
 		
 	}
 	
