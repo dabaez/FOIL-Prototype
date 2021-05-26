@@ -9,13 +9,14 @@ using json = nlohmann::json;
 DecisionTree::DecisionTree() {
     root = {};
     size = 0;
+    dimension = 0;
 }
 
-DecisionTree::DecisionTree(std::shared_ptr<DTNode> root) : root(root) {
+DecisionTree::DecisionTree(std::shared_ptr<DTNode> root, int dimension) : root(root), dimension(dimension) {
     size = root->getSize();
 }
 
-DecisionTree::DecisionTree(DTNode& oroot) {
+DecisionTree::DecisionTree(DTNode& oroot, int dimension) : dimension(dimension) {
     root = std::make_shared<DTNode>(oroot);
     size = root->getSize();
 }
@@ -60,6 +61,7 @@ void DecisionTree::readFromFile(const std::string& filename) {
 
     }
     root = dtnodes[0];
+    dimension = j["feature_names"].size();
     return;
 }
 
@@ -72,14 +74,14 @@ bool DecisionTree::checkVector(const std::vector<int>& instance) const {
 }
 
 int DecisionTree::vectorSize() const {
-    return root->getDimension();
+    return dimension;
 }   
 
 int DecisionTree::getSize() const {
     return size;
 }
 
-
+/*
 DecisionTree DecisionTree::condition(const std::vector<bool>& instance) const {
     return DecisionTree();
 }
@@ -95,6 +97,7 @@ DecisionTree DecisionTree::unite(const DecisionTree& other) const {
 DecisionTree DecisionTree::negate() const {
     return DecisionTree(std::make_shared<DTNode>(root->negate()));
 }
+*/
 
 bool DecisionTree::complete(const std::vector<int>& x) const {
     return root->complete(x);
