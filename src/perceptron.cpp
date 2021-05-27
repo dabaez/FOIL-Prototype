@@ -54,3 +54,16 @@ bool Perceptron::complete(const std::vector<int> &x) const {
     return ceval >= -perceptron_b;
 
 }
+
+
+bool Perceptron::negativeComplete(const std::vector<int> &x) const {
+     double ceval = 0;
+    for (int i=0;i<perceptron_size;i++){
+        if (x[i] != 2){
+            ceval += x[i] * perceptron_w[i];
+        } else {
+            if (perceptron_w[i] < 0) ceval+=perceptron_w[i];
+        }
+    }
+    return ceval < -perceptron_b;
+}

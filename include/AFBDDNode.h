@@ -19,13 +19,13 @@ class AFBDDNode {
 
         bool predict(const std::vector<bool>& instance) const;
 
-        AFBDDNode negate() const;
-
-        std::shared_ptr<AFBDDNode> unite(const std::shared_ptr<AFBDDNode> other) const;
-
-        AFBDDNode intersect(const std::shared_ptr<AFBDDNode> other) const;
-
-        AFBDDNode condition(const std::unordered_map<int, int>& cond) const;
+        // AFBDDNode negate() const;
+        //
+        // std::shared_ptr<AFBDDNode> unite(const std::shared_ptr<AFBDDNode> other) const;
+        //
+        // AFBDDNode intersect(const std::shared_ptr<AFBDDNode> other) const;
+        //
+        // AFBDDNode condition(const std::unordered_map<int, int>& cond) const;
 
         int getDimension() const;
 
@@ -38,7 +38,9 @@ class AFBDDNode {
         int getSize() const; // defined as the total number of nodes
 
         bool complete(const std::vector<int>& x, std::map<const AFBDDNode*, bool>& dp) const;
-        
+
+        bool negativeComplete(const std::vector<int>& x, std::map<const AFBDDNode*, bool>& dp) const;
+
         // leaves
         const static std::shared_ptr<AFBDDNode> TRUE;
         const static std::shared_ptr<AFBDDNode> FALSE;
@@ -46,8 +48,8 @@ class AFBDDNode {
         int label; // -2 -> false, -1 -> true, 0...n-1 -> feature labels
         std::shared_ptr<AFBDDNode> left;
         std::shared_ptr<AFBDDNode> right;
-        
-        
+
+
     private:
         bool leaf;
         int depth;

@@ -38,7 +38,7 @@ int AFBDDNode::getDimension() const {
     int maxRight = 0;
     if(left) {
         maxLeft = left->getDimension();
-    } 
+    }
     if(right) {
         maxRight = right->getDimension();
     }
@@ -74,27 +74,27 @@ bool AFBDDNode::predict(const std::vector<bool>& instance) const {
     }
 }
 
-AFBDDNode AFBDDNode::negate() const {
-    if(this->isLeaf()) {
-       return AFBDDNode(!this->isTrueLeaf());
-    }
-    return AFBDDNode(label, std::make_shared<AFBDDNode>(left->negate()), std::make_shared<AFBDDNode>(right->negate()));
-}
-
-std::shared_ptr<AFBDDNode> AFBDDNode::unite(const std::shared_ptr<AFBDDNode> other) const {
-   if(this->isLeaf()) {
-        if(this->isTrueLeaf()) {
-            return AFBDDNode::TRUE;
-        } else {
-            return other;
-        }
-   }
-   return std::make_shared<AFBDDNode>(this->label, this->left->unite(other), this->right->unite(other));
-}
-
-AFBDDNode AFBDDNode::condition(const std::unordered_map<int, int>& conds) const {
-    return AFBDDNode(1, nullptr, nullptr); // TODO 
-}  
+// AFBDDNode AFBDDNode::negate() const {
+//     if(this->isLeaf()) {
+//        return AFBDDNode(!this->isTrueLeaf());
+//     }
+//     return AFBDDNode(label, std::make_shared<AFBDDNode>(left->negate()), std::make_shared<AFBDDNode>(right->negate()));
+// }
+//
+// std::shared_ptr<AFBDDNode> AFBDDNode::unite(const std::shared_ptr<AFBDDNode> other) const {
+//    if(this->isLeaf()) {
+//         if(this->isTrueLeaf()) {
+//             return AFBDDNode::TRUE;
+//         } else {
+//             return other;
+//         }
+//    }
+//    return std::make_shared<AFBDDNode>(this->label, this->left->unite(other), this->right->unite(other));
+// }
+//
+// AFBDDNode AFBDDNode::condition(const std::unordered_map<int, int>& conds) const {
+//     return AFBDDNode(1, nullptr, nullptr); // TODO
+// }
 
 /*AFBDDNode AFBDDNode::intersect(const std::shared_ptr<AFBDDNode> other) {*/
     //if(this->isLeaf()) {
@@ -105,7 +105,7 @@ AFBDDNode AFBDDNode::condition(const std::unordered_map<int, int>& conds) const 
         //}
     //}
     //// case where they share the root label
-    
+
 
     //// case where they don't
 /*}*/
@@ -126,7 +126,7 @@ int AFBDDNode::getDepth() const {
 
 int AFBDDNode::getSize() const {
     return size;
-} 
+}
 
 const std::shared_ptr<AFBDDNode> AFBDDNode::TRUE = std::make_shared<AFBDDNode>(-1, nullptr, nullptr);
 const std::shared_ptr<AFBDDNode> AFBDDNode::FALSE = std::make_shared<AFBDDNode>(-2, nullptr, nullptr);
@@ -143,4 +143,17 @@ bool AFBDDNode::complete(const std::vector<int>& x, std::map<const AFBDDNode*, b
     if (x[label] == 2) return dp[this] = (this->right->complete(x, dp)) || (this->left->complete(x, dp));
     else if (x[label]) return dp[this] = this->right->complete(x, dp);
     else return dp[this] = this->left->complete(x, dp);
+}
+
+bool AFBDDNode::negativeComplete(const std::vector<int>& x, std::map<const AFBDDNode*, bool>& dp) const {
+    if (this->isLeaf()){
+        return not this->isTrueLeaf();
+    }
+
+    if(dp.count(this)) {
+        return dp[this];
+    }
+    if (x[label] == 2) return dp[this] = (this->right->negativeComplete(x, dp)) || (this->left->negativeComplete(x, dp));
+    else if (x[label]) return dp[this] = this->right->negativeComplete(x, dp);
+    else return dp[this] = this->left->negativeComplete(x, dp);
 }

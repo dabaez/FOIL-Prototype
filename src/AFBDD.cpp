@@ -1,6 +1,7 @@
 #include "AFBDD.h"
 #include "json.hpp"
 
+#include <map>
 #include <vector>
 
 using json = nlohmann::json;
@@ -9,13 +10,14 @@ using json = nlohmann::json;
 AFBDD::AFBDD() {
     root = {};
     size = 0;
+    dimension = 0;
 }
 
-AFBDD::AFBDD(std::shared_ptr<AFBDDNode> root) : root(root) {
+AFBDD::AFBDD(std::shared_ptr<AFBDDNode> root, int dimension) : root(root), dimension(dimension) {
     size = root->getSize();
 }
 
-AFBDD::AFBDD(AFBDDNode& oroot) {
+AFBDD::AFBDD(AFBDDNode& oroot, int dimension) : dimension(dimension) {
     root = std::make_shared<AFBDDNode>(oroot);
     size = root->getSize();
 }
@@ -34,7 +36,7 @@ void AFBDD::readFromFile(const std::string& filename) {
 
     int N = nodes.size();
     std::vector<std::shared_ptr<AFBDDNode>> dtnodes(N);
-    for(int i = 0; i < N; ++i) 
+    for(int i = 0; i < N; ++i)
         dtnodes[i] = std::make_shared<AFBDDNode>();
 
     for(int i = 0; i < N; ++i) {
@@ -50,7 +52,7 @@ void AFBDD::readFromFile(const std::string& filename) {
             } else {
                 dtnodes[i]->setLeft(dtnodes[left_index]);
             }
-            
+
             if(right["type"] == "leaf") {
                 dtnodes[i]->setRight((right["class"] == positive ? AFBDDNode::TRUE : AFBDDNode::FALSE));
             } else {
@@ -60,6 +62,7 @@ void AFBDD::readFromFile(const std::string& filename) {
 
     }
     root = dtnodes[0];
+    dimension = j["feature_names"].size();
     return;
 }
 
@@ -72,30 +75,36 @@ bool AFBDD::checkVector(const std::vector<int>& instance) const {
 }
 
 int AFBDD::vectorSize() const {
-    return root->getDimension();
-}   
+    return dimension;
+}
 
 int AFBDD::getSize() const {
     return size;
 }
 
 
-AFBDD AFBDD::condition(const std::vector<bool>& instance) const {
-    return AFBDD();
-}
-
-AFBDD AFBDD::intersect(const AFBDD& other) const {
-    return AFBDD();
-}
-
-AFBDD AFBDD::unite(const AFBDD& other) const {
-    return AFBDD(root->unite(other.root));
-}
-
-AFBDD AFBDD::negate() const {
-    return AFBDD(std::make_shared<AFBDDNode>(root->negate()));
-}
+// AFBDD AFBDD::condition(const std::vector<bool>& instance) const {
+//     return AFBDD();
+// }
+//
+// AFBDD AFBDD::intersect(const AFBDD& other) const {
+//     return AFBDD();
+// }
+//
+// AFBDD AFBDD::unite(const AFBDD& other) const {
+//     return AFBDD(root->unite(other.root));
+// }
+//
+// AFBDD AFBDD::negate() const {
+//     return AFBDD(std::make_shared<AFBDDNode>(root->negate()));
+// }
 
 bool AFBDD::complete(const std::vector<int>& x) const {
-    return root->complete(x, std::unordered_map<AFBDDNode*, bool>());
+    std::map<const AFBDDNode*, bool> dp;
+    return root->complete(x, dp);
+}
+
+bool AFBDD::negativeComplete(const std::vector<int>& x) const {
+    std::map<const AFBDDNode*, bool> dp;
+    return root->negativeComplete(x, dp);
 }

@@ -37,6 +37,8 @@ class DTNode {
         int getSize() const; // defined as the total number of nodes
 
         bool complete(const std::vector<int>& x) const;
+
+        bool negativeComplete(const std::vector<int>& x) const;
         
         // leaves
         const static std::shared_ptr<DTNode> TRUE;

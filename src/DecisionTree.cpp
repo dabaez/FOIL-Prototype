@@ -35,7 +35,7 @@ void DecisionTree::readFromFile(const std::string& filename) {
 
     int N = nodes.size();
     std::vector<std::shared_ptr<DTNode>> dtnodes(N);
-    for(int i = 0; i < N; ++i) 
+    for(int i = 0; i < N; ++i)
         dtnodes[i] = std::make_shared<DTNode>();
 
     for(int i = 0; i < N; ++i) {
@@ -51,7 +51,7 @@ void DecisionTree::readFromFile(const std::string& filename) {
             } else {
                 dtnodes[i]->setLeft(dtnodes[left_index]);
             }
-            
+
             if(right["type"] == "leaf") {
                 dtnodes[i]->setRight((right["class"] == positive ? DTNode::TRUE : DTNode::FALSE));
             } else {
@@ -75,7 +75,7 @@ bool DecisionTree::checkVector(const std::vector<int>& instance) const {
 
 int DecisionTree::vectorSize() const {
     return dimension;
-}   
+}
 
 int DecisionTree::getSize() const {
     return size;
@@ -101,4 +101,8 @@ DecisionTree DecisionTree::negate() const {
 
 bool DecisionTree::complete(const std::vector<int>& x) const {
     return root->complete(x);
+}
+
+bool DecisionTree::negativeComplete(const std::vector<int>& x) const {
+    return root->negativeComplete(x);
 }

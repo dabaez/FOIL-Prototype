@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
 				defmod = true;
 				if ( string(optarg) == "perceptron" ) mod = make_shared<Perceptron>();
                 else if( string(optarg) == "dt" ) mod = make_shared<DecisionTree>();
-                else if( string(optarg) == "afbdd") mod = make_shared<AFBDD()>;
+                else if( string(optarg) == "afbdd") mod = make_shared<AFBDD>();
 				else {
 					cout<<string(optarg)<<" is not a valid model type"<<endl;
 					return 0;

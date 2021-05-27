@@ -39,7 +39,7 @@ int DTNode::getDimension() const {
     int maxRight = 0;
     if(left) {
         maxLeft = left->getDimension();
-    } 
+    }
     if(right) {
         maxRight = right->getDimension();
     }
@@ -94,8 +94,8 @@ std::shared_ptr<DTNode> DTNode::unite(const std::shared_ptr<DTNode> other) const
 }
 
 DTNode DTNode::condition(const std::unordered_map<int, int>& conds) const {
-    return DTNode(1, nullptr, nullptr); // TODO 
-}  
+    return DTNode(1, nullptr, nullptr); // TODO
+}
 
 /*DTNode DTNode::intersect(const std::shared_ptr<DTNode> other) {*/
     //if(this->isLeaf()) {
@@ -106,7 +106,7 @@ DTNode DTNode::condition(const std::unordered_map<int, int>& conds) const {
         //}
     //}
     //// case where they share the root label
-    
+
 
     //// case where they don't
 /*}*/
@@ -127,7 +127,7 @@ int DTNode::getDepth() const {
 
 int DTNode::getSize() const {
     return size;
-} 
+}
 
 const std::shared_ptr<DTNode> DTNode::TRUE = std::make_shared<DTNode>(-1, nullptr, nullptr);
 const std::shared_ptr<DTNode> DTNode::FALSE = std::make_shared<DTNode>(-2, nullptr, nullptr);
@@ -141,4 +141,13 @@ bool DTNode::complete(const std::vector<int>& x) const {
     if (x[label] == 2) return (this->right->complete(x)) || (this->left->complete(x));
     else if (x[label]) return this->right->complete(x);
     else return this->left->complete(x);
+}
+
+bool DTNode::negativeComplete(const std::vector<int>& x) const {
+    if (this->isLeaf()){
+        return not this->isTrueLeaf();
+    }
+    if (x[label] == 2) return (this->right->negativeComplete(x)) || (this->left->negativeComplete(x));
+    else if (x[label]) return this->right->negativeComplete(x);
+    else return this->left->negativeComplete(x);
 }

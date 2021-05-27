@@ -12,6 +12,8 @@ class Perceptron: public IModel{
 		bool predict(const std::vector<bool> &x) const override;
 
 		bool complete(const std::vector<int> &x) const override;
+		
+        bool negativeComplete(const std::vector<int> &x) const override;
 			
 		int vectorSize() const override;
 

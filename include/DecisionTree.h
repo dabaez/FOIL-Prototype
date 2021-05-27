@@ -16,6 +16,8 @@ class DecisionTree : public IModel {
         bool predict(const std::vector<bool>& instance) const override;
 
         bool complete(const std::vector<int>& x) const override;
+        
+        bool negativeComplete(const std::vector<int>& x) const override;
 
         void readFromFile(const std::string& filename) override;
 
