@@ -1,0 +1,1904 @@
+{
+  "feature_names": [
+    "ft0",
+    "ft1",
+    "ft2",
+    "ft3",
+    "ft4",
+    "ft5",
+    "ft6",
+    "ft7",
+    "ft8",
+    "ft9",
+    "ft10",
+    "ft11",
+    "ft12",
+    "ft13",
+    "ft14",
+    "ft15",
+    "ft16",
+    "ft17",
+    "ft18",
+    "ft19",
+    "ft20",
+    "ft21",
+    "ft22",
+    "ft23",
+    "ft24",
+    "ft25",
+    "ft26",
+    "ft27",
+    "ft28",
+    "ft29",
+    "ft30",
+    "ft31",
+    "ft32",
+    "ft33",
+    "ft34",
+    "ft35",
+    "ft36",
+    "ft37",
+    "ft38",
+    "ft39",
+    "ft40",
+    "ft41",
+    "ft42",
+    "ft43",
+    "ft44",
+    "ft45",
+    "ft46",
+    "ft47",
+    "ft48",
+    "ft49",
+    "ft50",
+    "ft51",
+    "ft52",
+    "ft53",
+    "ft54",
+    "ft55",
+    "ft56",
+    "ft57",
+    "ft58",
+    "ft59",
+    "ft60",
+    "ft61",
+    "ft62",
+    "ft63",
+    "ft64",
+    "ft65",
+    "ft66",
+    "ft67",
+    "ft68",
+    "ft69",
+    "ft70",
+    "ft71",
+    "ft72",
+    "ft73",
+    "ft74",
+    "ft75",
+    "ft76",
+    "ft77",
+    "ft78",
+    "ft79",
+    "ft80",
+    "ft81",
+    "ft82",
+    "ft83",
+    "ft84",
+    "ft85",
+    "ft86",
+    "ft87",
+    "ft88",
+    "ft89",
+    "ft90",
+    "ft91",
+    "ft92",
+    "ft93",
+    "ft94",
+    "ft95",
+    "ft96",
+    "ft97",
+    "ft98",
+    "ft99",
+    "ft100",
+    "ft101",
+    "ft102",
+    "ft103",
+    "ft104",
+    "ft105",
+    "ft106",
+    "ft107",
+    "ft108",
+    "ft109",
+    "ft110",
+    "ft111",
+    "ft112",
+    "ft113",
+    "ft114",
+    "ft115",
+    "ft116",
+    "ft117",
+    "ft118",
+    "ft119",
+    "ft120",
+    "ft121",
+    "ft122",
+    "ft123",
+    "ft124",
+    "ft125",
+    "ft126",
+    "ft127",
+    "ft128",
+    "ft129",
+    "ft130",
+    "ft131",
+    "ft132",
+    "ft133",
+    "ft134",
+    "ft135",
+    "ft136",
+    "ft137",
+    "ft138",
+    "ft139",
+    "ft140",
+    "ft141",
+    "ft142",
+    "ft143",
+    "ft144",
+    "ft145",
+    "ft146",
+    "ft147",
+    "ft148",
+    "ft149",
+    "ft150",
+    "ft151",
+    "ft152",
+    "ft153",
+    "ft154",
+    "ft155",
+    "ft156",
+    "ft157",
+    "ft158",
+    "ft159",
+    "ft160",
+    "ft161",
+    "ft162",
+    "ft163",
+    "ft164",
+    "ft165",
+    "ft166",
+    "ft167",
+    "ft168",
+    "ft169",
+    "ft170",
+    "ft171",
+    "ft172",
+    "ft173",
+    "ft174",
+    "ft175",
+    "ft176",
+    "ft177",
+    "ft178",
+    "ft179",
+    "ft180",
+    "ft181",
+    "ft182",
+    "ft183",
+    "ft184",
+    "ft185",
+    "ft186",
+    "ft187",
+    "ft188",
+    "ft189",
+    "ft190",
+    "ft191",
+    "ft192",
+    "ft193",
+    "ft194",
+    "ft195",
+    "ft196",
+    "ft197",
+    "ft198",
+    "ft199",
+    "ft200",
+    "ft201",
+    "ft202",
+    "ft203",
+    "ft204",
+    "ft205",
+    "ft206",
+    "ft207",
+    "ft208",
+    "ft209",
+    "ft210",
+    "ft211",
+    "ft212",
+    "ft213",
+    "ft214",
+    "ft215",
+    "ft216",
+    "ft217",
+    "ft218",
+    "ft219",
+    "ft220",
+    "ft221",
+    "ft222",
+    "ft223",
+    "ft224",
+    "ft225",
+    "ft226",
+    "ft227",
+    "ft228",
+    "ft229",
+    "ft230",
+    "ft231",
+    "ft232",
+    "ft233",
+    "ft234",
+    "ft235",
+    "ft236",
+    "ft237",
+    "ft238",
+    "ft239",
+    "ft240",
+    "ft241",
+    "ft242",
+    "ft243",
+    "ft244",
+    "ft245",
+    "ft246",
+    "ft247",
+    "ft248",
+    "ft249"
+  ],
+  "feature_types": [
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean",
+    "boolean"
+  ],
+  "class_names": [
+    "positive",
+    "negative"
+  ],
+  "positive": "positive",
+  "nodes": {
+    "0": {
+      "id": 0,
+      "type": "internal",
+      "feature_name": "ft1",
+      "feature_index": 1,
+      "threshold": 0.5,
+      "id_left": 1,
+      "id_right": 2
+    },
+    "1": {
+      "id": 1,
+      "type": "internal",
+      "feature_name": "ft243",
+      "feature_index": 243,
+      "threshold": 0.5,
+      "id_left": 31,
+      "id_right": 32
+    },
+    "31": {
+      "id": 31,
+      "type": "internal",
+      "feature_name": "ft130",
+      "feature_index": 130,
+      "threshold": 0.5,
+      "id_left": 87,
+      "id_right": 88
+    },
+    "87": {
+      "id": 87,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "88": {
+      "id": 88,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "32": {
+      "id": 32,
+      "type": "internal",
+      "feature_name": "ft93",
+      "feature_index": 93,
+      "threshold": 0.5,
+      "id_left": 33,
+      "id_right": 34
+    },
+    "33": {
+      "id": 33,
+      "type": "internal",
+      "feature_name": "ft237",
+      "feature_index": 237,
+      "threshold": 0.5,
+      "id_left": 157,
+      "id_right": 158
+    },
+    "157": {
+      "id": 157,
+      "type": "internal",
+      "feature_name": "ft211",
+      "feature_index": 211,
+      "threshold": 0.5,
+      "id_left": 167,
+      "id_right": 168
+    },
+    "167": {
+      "id": 167,
+      "type": "internal",
+      "feature_name": "ft191",
+      "feature_index": 191,
+      "threshold": 0.5,
+      "id_left": 177,
+      "id_right": 178
+    },
+    "177": {
+      "id": 177,
+      "type": "internal",
+      "feature_name": "ft231",
+      "feature_index": 231,
+      "threshold": 0.5,
+      "id_left": 179,
+      "id_right": 180
+    },
+    "179": {
+      "id": 179,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "180": {
+      "id": 180,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "178": {
+      "id": 178,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "168": {
+      "id": 168,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "158": {
+      "id": 158,
+      "type": "internal",
+      "feature_name": "ft228",
+      "feature_index": 228,
+      "threshold": 0.5,
+      "id_left": 159,
+      "id_right": 160
+    },
+    "159": {
+      "id": 159,
+      "type": "internal",
+      "feature_name": "ft216",
+      "feature_index": 216,
+      "threshold": 0.5,
+      "id_left": 161,
+      "id_right": 162
+    },
+    "161": {
+      "id": 161,
+      "type": "internal",
+      "feature_name": "ft18",
+      "feature_index": 18,
+      "threshold": 0.5,
+      "id_left": 181,
+      "id_right": 182
+    },
+    "181": {
+      "id": 181,
+      "type": "internal",
+      "feature_name": "ft100",
+      "feature_index": 100,
+      "threshold": 0.5,
+      "id_left": 183,
+      "id_right": 184
+    },
+    "183": {
+      "id": 183,
+      "type": "internal",
+      "feature_name": "ft215",
+      "feature_index": 215,
+      "threshold": 0.5,
+      "id_left": 187,
+      "id_right": 188
+    },
+    "187": {
+      "id": 187,
+      "type": "internal",
+      "feature_name": "ft118",
+      "feature_index": 118,
+      "threshold": 0.5,
+      "id_left": 189,
+      "id_right": 190
+    },
+    "189": {
+      "id": 189,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "190": {
+      "id": 190,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "188": {
+      "id": 188,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "184": {
+      "id": 184,
+      "type": "internal",
+      "feature_name": "ft163",
+      "feature_index": 163,
+      "threshold": 0.5,
+      "id_left": 185,
+      "id_right": 186
+    },
+    "185": {
+      "id": 185,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "186": {
+      "id": 186,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "182": {
+      "id": 182,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "162": {
+      "id": 162,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "160": {
+      "id": 160,
+      "type": "internal",
+      "feature_name": "ft120",
+      "feature_index": 120,
+      "threshold": 0.5,
+      "id_left": 163,
+      "id_right": 164
+    },
+    "163": {
+      "id": 163,
+      "type": "internal",
+      "feature_name": "ft133",
+      "feature_index": 133,
+      "threshold": 0.5,
+      "id_left": 165,
+      "id_right": 166
+    },
+    "165": {
+      "id": 165,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "166": {
+      "id": 166,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "164": {
+      "id": 164,
+      "type": "internal",
+      "feature_name": "ft6",
+      "feature_index": 6,
+      "threshold": 0.5,
+      "id_left": 169,
+      "id_right": 170
+    },
+    "169": {
+      "id": 169,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "170": {
+      "id": 170,
+      "type": "internal",
+      "feature_name": "ft184",
+      "feature_index": 184,
+      "threshold": 0.5,
+      "id_left": 171,
+      "id_right": 172
+    },
+    "171": {
+      "id": 171,
+      "type": "internal",
+      "feature_name": "ft128",
+      "feature_index": 128,
+      "threshold": 0.5,
+      "id_left": 173,
+      "id_right": 174
+    },
+    "173": {
+      "id": 173,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "174": {
+      "id": 174,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "172": {
+      "id": 172,
+      "type": "internal",
+      "feature_name": "ft227",
+      "feature_index": 227,
+      "threshold": 0.5,
+      "id_left": 175,
+      "id_right": 176
+    },
+    "175": {
+      "id": 175,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "176": {
+      "id": 176,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "34": {
+      "id": 34,
+      "type": "internal",
+      "feature_name": "ft164",
+      "feature_index": 164,
+      "threshold": 0.5,
+      "id_left": 35,
+      "id_right": 36
+    },
+    "35": {
+      "id": 35,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "36": {
+      "id": 36,
+      "type": "internal",
+      "feature_name": "ft190",
+      "feature_index": 190,
+      "threshold": 0.5,
+      "id_left": 37,
+      "id_right": 38
+    },
+    "37": {
+      "id": 37,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "38": {
+      "id": 38,
+      "type": "internal",
+      "feature_name": "ft233",
+      "feature_index": 233,
+      "threshold": 0.5,
+      "id_left": 39,
+      "id_right": 40
+    },
+    "39": {
+      "id": 39,
+      "type": "internal",
+      "feature_name": "ft75",
+      "feature_index": 75,
+      "threshold": 0.5,
+      "id_left": 111,
+      "id_right": 112
+    },
+    "111": {
+      "id": 111,
+      "type": "internal",
+      "feature_name": "ft40",
+      "feature_index": 40,
+      "threshold": 0.5,
+      "id_left": 115,
+      "id_right": 116
+    },
+    "115": {
+      "id": 115,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "116": {
+      "id": 116,
+      "type": "internal",
+      "feature_name": "ft214",
+      "feature_index": 214,
+      "threshold": 0.5,
+      "id_left": 117,
+      "id_right": 118
+    },
+    "117": {
+      "id": 117,
+      "type": "internal",
+      "feature_name": "ft186",
+      "feature_index": 186,
+      "threshold": 0.5,
+      "id_left": 119,
+      "id_right": 120
+    },
+    "119": {
+      "id": 119,
+      "type": "internal",
+      "feature_name": "ft33",
+      "feature_index": 33,
+      "threshold": 0.5,
+      "id_left": 121,
+      "id_right": 122
+    },
+    "121": {
+      "id": 121,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "122": {
+      "id": 122,
+      "type": "internal",
+      "feature_name": "ft146",
+      "feature_index": 146,
+      "threshold": 0.5,
+      "id_left": 129,
+      "id_right": 130
+    },
+    "129": {
+      "id": 129,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "130": {
+      "id": 130,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "120": {
+      "id": 120,
+      "type": "internal",
+      "feature_name": "ft79",
+      "feature_index": 79,
+      "threshold": 0.5,
+      "id_left": 131,
+      "id_right": 132
+    },
+    "131": {
+      "id": 131,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "132": {
+      "id": 132,
+      "type": "internal",
+      "feature_name": "ft54",
+      "feature_index": 54,
+      "threshold": 0.5,
+      "id_left": 133,
+      "id_right": 134
+    },
+    "133": {
+      "id": 133,
+      "type": "internal",
+      "feature_name": "ft239",
+      "feature_index": 239,
+      "threshold": 0.5,
+      "id_left": 135,
+      "id_right": 136
+    },
+    "135": {
+      "id": 135,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "136": {
+      "id": 136,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "134": {
+      "id": 134,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "118": {
+      "id": 118,
+      "type": "internal",
+      "feature_name": "ft178",
+      "feature_index": 178,
+      "threshold": 0.5,
+      "id_left": 151,
+      "id_right": 152
+    },
+    "151": {
+      "id": 151,
+      "type": "internal",
+      "feature_name": "ft240",
+      "feature_index": 240,
+      "threshold": 0.5,
+      "id_left": 153,
+      "id_right": 154
+    },
+    "153": {
+      "id": 153,
+      "type": "internal",
+      "feature_name": "ft139",
+      "feature_index": 139,
+      "threshold": 0.5,
+      "id_left": 155,
+      "id_right": 156
+    },
+    "155": {
+      "id": 155,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "156": {
+      "id": 156,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "154": {
+      "id": 154,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "152": {
+      "id": 152,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "112": {
+      "id": 112,
+      "type": "internal",
+      "feature_name": "ft104",
+      "feature_index": 104,
+      "threshold": 0.5,
+      "id_left": 113,
+      "id_right": 114
+    },
+    "113": {
+      "id": 113,
+      "type": "internal",
+      "feature_name": "ft51",
+      "feature_index": 51,
+      "threshold": 0.5,
+      "id_left": 123,
+      "id_right": 124
+    },
+    "123": {
+      "id": 123,
+      "type": "internal",
+      "feature_name": "ft21",
+      "feature_index": 21,
+      "threshold": 0.5,
+      "id_left": 125,
+      "id_right": 126
+    },
+    "125": {
+      "id": 125,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "126": {
+      "id": 126,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "124": {
+      "id": 124,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "114": {
+      "id": 114,
+      "type": "internal",
+      "feature_name": "ft14",
+      "feature_index": 14,
+      "threshold": 0.5,
+      "id_left": 127,
+      "id_right": 128
+    },
+    "127": {
+      "id": 127,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "128": {
+      "id": 128,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "40": {
+      "id": 40,
+      "type": "internal",
+      "feature_name": "ft84",
+      "feature_index": 84,
+      "threshold": 0.5,
+      "id_left": 63,
+      "id_right": 64
+    },
+    "63": {
+      "id": 63,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "64": {
+      "id": 64,
+      "type": "internal",
+      "feature_name": "ft121",
+      "feature_index": 121,
+      "threshold": 0.5,
+      "id_left": 65,
+      "id_right": 66
+    },
+    "65": {
+      "id": 65,
+      "type": "internal",
+      "feature_name": "ft58",
+      "feature_index": 58,
+      "threshold": 0.5,
+      "id_left": 67,
+      "id_right": 68
+    },
+    "67": {
+      "id": 67,
+      "type": "internal",
+      "feature_name": "ft9",
+      "feature_index": 9,
+      "threshold": 0.5,
+      "id_left": 69,
+      "id_right": 70
+    },
+    "69": {
+      "id": 69,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "70": {
+      "id": 70,
+      "type": "internal",
+      "feature_name": "ft71",
+      "feature_index": 71,
+      "threshold": 0.5,
+      "id_left": 73,
+      "id_right": 74
+    },
+    "73": {
+      "id": 73,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "74": {
+      "id": 74,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "68": {
+      "id": 68,
+      "type": "internal",
+      "feature_name": "ft175",
+      "feature_index": 175,
+      "threshold": 0.5,
+      "id_left": 71,
+      "id_right": 72
+    },
+    "71": {
+      "id": 71,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "72": {
+      "id": 72,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "66": {
+      "id": 66,
+      "type": "internal",
+      "feature_name": "ft221",
+      "feature_index": 221,
+      "threshold": 0.5,
+      "id_left": 75,
+      "id_right": 76
+    },
+    "75": {
+      "id": 75,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "76": {
+      "id": 76,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "2": {
+      "id": 2,
+      "type": "internal",
+      "feature_name": "ft112",
+      "feature_index": 112,
+      "threshold": 0.5,
+      "id_left": 3,
+      "id_right": 4
+    },
+    "3": {
+      "id": 3,
+      "type": "internal",
+      "feature_name": "ft198",
+      "feature_index": 198,
+      "threshold": 0.5,
+      "id_left": 5,
+      "id_right": 6
+    },
+    "5": {
+      "id": 5,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "6": {
+      "id": 6,
+      "type": "internal",
+      "feature_name": "ft154",
+      "feature_index": 154,
+      "threshold": 0.5,
+      "id_left": 7,
+      "id_right": 8
+    },
+    "7": {
+      "id": 7,
+      "type": "internal",
+      "feature_name": "ft241",
+      "feature_index": 241,
+      "threshold": 0.5,
+      "id_left": 41,
+      "id_right": 42
+    },
+    "41": {
+      "id": 41,
+      "type": "internal",
+      "feature_name": "ft138",
+      "feature_index": 138,
+      "threshold": 0.5,
+      "id_left": 57,
+      "id_right": 58
+    },
+    "57": {
+      "id": 57,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "58": {
+      "id": 58,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "42": {
+      "id": 42,
+      "type": "internal",
+      "feature_name": "ft35",
+      "feature_index": 35,
+      "threshold": 0.5,
+      "id_left": 43,
+      "id_right": 44
+    },
+    "43": {
+      "id": 43,
+      "type": "internal",
+      "feature_name": "ft90",
+      "feature_index": 90,
+      "threshold": 0.5,
+      "id_left": 47,
+      "id_right": 48
+    },
+    "47": {
+      "id": 47,
+      "type": "internal",
+      "feature_name": "ft205",
+      "feature_index": 205,
+      "threshold": 0.5,
+      "id_left": 85,
+      "id_right": 86
+    },
+    "85": {
+      "id": 85,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "86": {
+      "id": 86,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "48": {
+      "id": 48,
+      "type": "internal",
+      "feature_name": "ft3",
+      "feature_index": 3,
+      "threshold": 0.5,
+      "id_left": 49,
+      "id_right": 50
+    },
+    "49": {
+      "id": 49,
+      "type": "internal",
+      "feature_name": "ft211",
+      "feature_index": 211,
+      "threshold": 0.5,
+      "id_left": 81,
+      "id_right": 82
+    },
+    "81": {
+      "id": 81,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "82": {
+      "id": 82,
+      "type": "internal",
+      "feature_name": "ft136",
+      "feature_index": 136,
+      "threshold": 0.5,
+      "id_left": 83,
+      "id_right": 84
+    },
+    "83": {
+      "id": 83,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "84": {
+      "id": 84,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "50": {
+      "id": 50,
+      "type": "internal",
+      "feature_name": "ft122",
+      "feature_index": 122,
+      "threshold": 0.5,
+      "id_left": 51,
+      "id_right": 52
+    },
+    "51": {
+      "id": 51,
+      "type": "internal",
+      "feature_name": "ft5",
+      "feature_index": 5,
+      "threshold": 0.5,
+      "id_left": 59,
+      "id_right": 60
+    },
+    "59": {
+      "id": 59,
+      "type": "internal",
+      "feature_name": "ft98",
+      "feature_index": 98,
+      "threshold": 0.5,
+      "id_left": 61,
+      "id_right": 62
+    },
+    "61": {
+      "id": 61,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "62": {
+      "id": 62,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "60": {
+      "id": 60,
+      "type": "internal",
+      "feature_name": "ft220",
+      "feature_index": 220,
+      "threshold": 0.5,
+      "id_left": 107,
+      "id_right": 108
+    },
+    "107": {
+      "id": 107,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "108": {
+      "id": 108,
+      "type": "internal",
+      "feature_name": "ft25",
+      "feature_index": 25,
+      "threshold": 0.5,
+      "id_left": 109,
+      "id_right": 110
+    },
+    "109": {
+      "id": 109,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "110": {
+      "id": 110,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "52": {
+      "id": 52,
+      "type": "internal",
+      "feature_name": "ft206",
+      "feature_index": 206,
+      "threshold": 0.5,
+      "id_left": 89,
+      "id_right": 90
+    },
+    "89": {
+      "id": 89,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "90": {
+      "id": 90,
+      "type": "internal",
+      "feature_name": "ft202",
+      "feature_index": 202,
+      "threshold": 0.5,
+      "id_left": 91,
+      "id_right": 92
+    },
+    "91": {
+      "id": 91,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "92": {
+      "id": 92,
+      "type": "internal",
+      "feature_name": "ft85",
+      "feature_index": 85,
+      "threshold": 0.5,
+      "id_left": 93,
+      "id_right": 94
+    },
+    "93": {
+      "id": 93,
+      "type": "internal",
+      "feature_name": "ft9",
+      "feature_index": 9,
+      "threshold": 0.5,
+      "id_left": 103,
+      "id_right": 104
+    },
+    "103": {
+      "id": 103,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "104": {
+      "id": 104,
+      "type": "internal",
+      "feature_name": "ft208",
+      "feature_index": 208,
+      "threshold": 0.5,
+      "id_left": 105,
+      "id_right": 106
+    },
+    "105": {
+      "id": 105,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "106": {
+      "id": 106,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "94": {
+      "id": 94,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "44": {
+      "id": 44,
+      "type": "internal",
+      "feature_name": "ft137",
+      "feature_index": 137,
+      "threshold": 0.5,
+      "id_left": 45,
+      "id_right": 46
+    },
+    "45": {
+      "id": 45,
+      "type": "internal",
+      "feature_name": "ft248",
+      "feature_index": 248,
+      "threshold": 0.5,
+      "id_left": 53,
+      "id_right": 54
+    },
+    "53": {
+      "id": 53,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "54": {
+      "id": 54,
+      "type": "internal",
+      "feature_name": "ft3",
+      "feature_index": 3,
+      "threshold": 0.5,
+      "id_left": 55,
+      "id_right": 56
+    },
+    "55": {
+      "id": 55,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "56": {
+      "id": 56,
+      "type": "internal",
+      "feature_name": "ft131",
+      "feature_index": 131,
+      "threshold": 0.5,
+      "id_left": 95,
+      "id_right": 96
+    },
+    "95": {
+      "id": 95,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "96": {
+      "id": 96,
+      "type": "internal",
+      "feature_name": "ft202",
+      "feature_index": 202,
+      "threshold": 0.5,
+      "id_left": 97,
+      "id_right": 98
+    },
+    "97": {
+      "id": 97,
+      "type": "internal",
+      "feature_name": "ft172",
+      "feature_index": 172,
+      "threshold": 0.5,
+      "id_left": 99,
+      "id_right": 100
+    },
+    "99": {
+      "id": 99,
+      "type": "internal",
+      "feature_name": "ft55",
+      "feature_index": 55,
+      "threshold": 0.5,
+      "id_left": 101,
+      "id_right": 102
+    },
+    "101": {
+      "id": 101,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "102": {
+      "id": 102,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "100": {
+      "id": 100,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "98": {
+      "id": 98,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "46": {
+      "id": 46,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "8": {
+      "id": 8,
+      "type": "internal",
+      "feature_name": "ft84",
+      "feature_index": 84,
+      "threshold": 0.5,
+      "id_left": 9,
+      "id_right": 10
+    },
+    "9": {
+      "id": 9,
+      "type": "internal",
+      "feature_name": "ft137",
+      "feature_index": 137,
+      "threshold": 0.5,
+      "id_left": 11,
+      "id_right": 12
+    },
+    "11": {
+      "id": 11,
+      "type": "internal",
+      "feature_name": "ft18",
+      "feature_index": 18,
+      "threshold": 0.5,
+      "id_left": 13,
+      "id_right": 14
+    },
+    "13": {
+      "id": 13,
+      "type": "internal",
+      "feature_name": "ft139",
+      "feature_index": 139,
+      "threshold": 0.5,
+      "id_left": 15,
+      "id_right": 16
+    },
+    "15": {
+      "id": 15,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "16": {
+      "id": 16,
+      "type": "internal",
+      "feature_name": "ft95",
+      "feature_index": 95,
+      "threshold": 0.5,
+      "id_left": 17,
+      "id_right": 18
+    },
+    "17": {
+      "id": 17,
+      "type": "internal",
+      "feature_name": "ft12",
+      "feature_index": 12,
+      "threshold": 0.5,
+      "id_left": 21,
+      "id_right": 22
+    },
+    "21": {
+      "id": 21,
+      "type": "internal",
+      "feature_name": "ft142",
+      "feature_index": 142,
+      "threshold": 0.5,
+      "id_left": 23,
+      "id_right": 24
+    },
+    "23": {
+      "id": 23,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "24": {
+      "id": 24,
+      "type": "internal",
+      "feature_name": "ft29",
+      "feature_index": 29,
+      "threshold": 0.5,
+      "id_left": 25,
+      "id_right": 26
+    },
+    "25": {
+      "id": 25,
+      "type": "internal",
+      "feature_name": "ft7",
+      "feature_index": 7,
+      "threshold": 0.5,
+      "id_left": 143,
+      "id_right": 144
+    },
+    "143": {
+      "id": 143,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "144": {
+      "id": 144,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "26": {
+      "id": 26,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "22": {
+      "id": 22,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "18": {
+      "id": 18,
+      "type": "internal",
+      "feature_name": "ft26",
+      "feature_index": 26,
+      "threshold": 0.5,
+      "id_left": 19,
+      "id_right": 20
+    },
+    "19": {
+      "id": 19,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "20": {
+      "id": 20,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "14": {
+      "id": 14,
+      "type": "internal",
+      "feature_name": "ft80",
+      "feature_index": 80,
+      "threshold": 0.5,
+      "id_left": 27,
+      "id_right": 28
+    },
+    "27": {
+      "id": 27,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "28": {
+      "id": 28,
+      "type": "internal",
+      "feature_name": "ft218",
+      "feature_index": 218,
+      "threshold": 0.5,
+      "id_left": 29,
+      "id_right": 30
+    },
+    "29": {
+      "id": 29,
+      "type": "internal",
+      "feature_name": "ft135",
+      "feature_index": 135,
+      "threshold": 0.5,
+      "id_left": 191,
+      "id_right": 192
+    },
+    "191": {
+      "id": 191,
+      "type": "internal",
+      "feature_name": "ft113",
+      "feature_index": 113,
+      "threshold": 0.5,
+      "id_left": 193,
+      "id_right": 194
+    },
+    "193": {
+      "id": 193,
+      "type": "internal",
+      "feature_name": "ft157",
+      "feature_index": 157,
+      "threshold": 0.5,
+      "id_left": 195,
+      "id_right": 196
+    },
+    "195": {
+      "id": 195,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "196": {
+      "id": 196,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "194": {
+      "id": 194,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "192": {
+      "id": 192,
+      "type": "internal",
+      "feature_name": "ft88",
+      "feature_index": 88,
+      "threshold": 0.5,
+      "id_left": 197,
+      "id_right": 198
+    },
+    "197": {
+      "id": 197,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "198": {
+      "id": 198,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "30": {
+      "id": 30,
+      "type": "internal",
+      "feature_name": "ft165",
+      "feature_index": 165,
+      "threshold": 0.5,
+      "id_left": 137,
+      "id_right": 138
+    },
+    "137": {
+      "id": 137,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "138": {
+      "id": 138,
+      "type": "internal",
+      "feature_name": "ft56",
+      "feature_index": 56,
+      "threshold": 0.5,
+      "id_left": 139,
+      "id_right": 140
+    },
+    "139": {
+      "id": 139,
+      "type": "internal",
+      "feature_name": "ft115",
+      "feature_index": 115,
+      "threshold": 0.5,
+      "id_left": 141,
+      "id_right": 142
+    },
+    "141": {
+      "id": 141,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "142": {
+      "id": 142,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "140": {
+      "id": 140,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "12": {
+      "id": 12,
+      "type": "internal",
+      "feature_name": "ft115",
+      "feature_index": 115,
+      "threshold": 0.5,
+      "id_left": 77,
+      "id_right": 78
+    },
+    "77": {
+      "id": 77,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "78": {
+      "id": 78,
+      "type": "internal",
+      "feature_name": "ft126",
+      "feature_index": 126,
+      "threshold": 0.5,
+      "id_left": 79,
+      "id_right": 80
+    },
+    "79": {
+      "id": 79,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "80": {
+      "id": 80,
+      "type": "internal",
+      "feature_name": "ft23",
+      "feature_index": 23,
+      "threshold": 0.5,
+      "id_left": 145,
+      "id_right": 146
+    },
+    "145": {
+      "id": 145,
+      "type": "internal",
+      "feature_name": "ft113",
+      "feature_index": 113,
+      "threshold": 0.5,
+      "id_left": 147,
+      "id_right": 148
+    },
+    "147": {
+      "id": 147,
+      "type": "internal",
+      "feature_name": "ft244",
+      "feature_index": 244,
+      "threshold": 0.5,
+      "id_left": 149,
+      "id_right": 150
+    },
+    "149": {
+      "id": 149,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "150": {
+      "id": 150,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "148": {
+      "id": 148,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "146": {
+      "id": 146,
+      "type": "leaf",
+      "class": "negative"
+    },
+    "10": {
+      "id": 10,
+      "type": "leaf",
+      "class": "positive"
+    },
+    "4": {
+      "id": 4,
+      "type": "leaf",
+      "class": "negative"
+    }
+  }
+}

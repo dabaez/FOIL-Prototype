@@ -79,10 +79,11 @@ bool qChecker2::check(invParser::NoquansContext* ctx){
 	if ( ctx -> gpos() )
 		return check ( ctx -> gpos() -> cov() );
 
-	if ( ctx -> gfull() )
+	if ( ctx -> gfull() ){
 		std::cout<<"Can't use FULL in this version"<<std::endl;
 		check ( ctx -> gfull() -> cov() );
 		return true;
+	}
 	
 	if ( ctx -> gsub() ){
 		bool noq1, noq2;
