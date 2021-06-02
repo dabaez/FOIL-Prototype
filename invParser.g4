@@ -16,7 +16,7 @@ gexists: EXISTS VARIABLE ;
 
 gforall: FORALL VARIABLE ;
 
-noquans : gor | gand | gno | gpos | gsub;
+noquans : gor | gand | gno | gpos | gsub | gfull;
 
 gor : OPENP noquans CLOSEP OR OPENP noquans CLOSEP;
 
@@ -25,6 +25,8 @@ gand : OPENP noquans CLOSEP AND OPENP noquans CLOSEP;
 gno : NO OPENP noquans CLOSEP;
 
 gpos : POSITIVE OPENP cov CLOSEP;
+
+gfull : FULL OPENP cov CLOSEP;
 
 gsub : cov SUB cov;
 

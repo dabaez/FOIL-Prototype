@@ -63,16 +63,20 @@ add_library(paperalgo src/paperalgo.cpp
    ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
 target_link_libraries(paperalgo antlr4_static)
 
+add_library(qChecker3 src/queryChecker3.cpp
+   ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
+   ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
+target_link_libraries(qChecker3 antlr4_static)
+
+add_library(paperalgofull src/paperalgofull.cpp
+   ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
+   ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
+target_link_libraries(paperalgofull antlr4_static)
+
 file(GLOB SOURCES "*.cpp")
 
 add_executable(main src/main.cpp
    ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
    ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
 
-target_link_libraries(main antlr4_static perceptron dt dtnode afbdd afbddnode gVisitor qChecker errorListener)
-
-add_executable(main2 src/main2.cpp
-   ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
-   ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
-
-target_link_libraries(main2 antlr4_static perceptron dt dtnode afbdd afbddnode paperalgo qChecker2 errorListener)
+target_link_libraries(main antlr4_static perceptron dt dtnode afbdd afbddnode gVisitor qChecker paperalgo qChecker2 paperalgofull qChecker3 errorListener)

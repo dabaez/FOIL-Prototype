@@ -1,15 +1,15 @@
-#include "queryChecker2.h"
+#include "queryChecker3.h"
 
-qChecker2::qChecker2(std::shared_ptr<IModel> m){
+qChecker3::qChecker3(std::shared_ptr<IModel> m){
 	imodel = m;
 }
 
-bool qChecker2::check(invParser::InputContext* ctx){
+bool qChecker3::check(invParser::InputContext* ctx){
 	appear.clear();
 	return check( ctx->gcount() );
 }
 
-bool qChecker2::check(invParser::GcountContext* ctx){
+bool qChecker3::check(invParser::GcountContext* ctx){
 	if (ctx->VARIABLE()){
 		std::cout<<"Count operation isn't available for this algorithm"<<std::endl;
 		appear.insert(ctx->VARIABLE()->getText());
@@ -18,7 +18,7 @@ bool qChecker2::check(invParser::GcountContext* ctx){
 	} return check(ctx->quans());
 }
 
-bool qChecker2::check(invParser::QuansContext* ctx){
+bool qChecker3::check(invParser::QuansContext* ctx){
 
 	if ( ctx -> quan() ){
 
@@ -58,7 +58,7 @@ bool qChecker2::check(invParser::QuansContext* ctx){
 	}
 }
 
-bool qChecker2::check(invParser::NoquansContext* ctx){
+bool qChecker3::check(invParser::NoquansContext* ctx){
 	if ( ctx -> gor() ){
 		bool noq1, noq2;
 		noq1 = check( ctx -> gor() -> noquans(0) );
@@ -80,9 +80,7 @@ bool qChecker2::check(invParser::NoquansContext* ctx){
 		return check ( ctx -> gpos() -> cov() );
 
 	if ( ctx -> gfull() )
-		std::cout<<"Can't use FULL in this version"<<std::endl;
-		check ( ctx -> gfull() -> cov() );
-		return true;
+		return check ( ctx -> gfull() -> cov() );
 	
 	if ( ctx -> gsub() ){
 		bool noq1, noq2;
@@ -92,7 +90,7 @@ bool qChecker2::check(invParser::NoquansContext* ctx){
 	}
 }
 
-bool qChecker2::check(invParser::CovContext* ctx){
+bool qChecker3::check(invParser::CovContext* ctx){
 
 	if (ctx -> constant()){
 

@@ -20,6 +20,8 @@ NO : '~';
 
 POSITIVE : 'P' ;
 
+FULL : 'FULL' ;
+
 OPENP : '(' ;
 
 CLOSEP : ')';
