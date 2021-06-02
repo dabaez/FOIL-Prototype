@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
 
 	if (defversion == 1){
 
-		cout<<"Using naive algorithm"<<endl;
+		if (!one) cout<<"Using naive algorithm"<<endl;
 	
 		gVisitor visitor(mod);
 		qChecker checker(mod);
@@ -126,7 +126,7 @@ int main(int argc, char** argv) {
 
 	} else if (defversion == 2){
 
-		cout<<"Using efficient algorithm without full"<<endl;
+		if (!one) cout<<"Using efficient algorithm without full"<<endl;
 
 		palgo visitor(mod);
 		qChecker2 checker(mod);
@@ -165,7 +165,7 @@ int main(int argc, char** argv) {
 
 	} else {
 
-		cout<<"Using efficient algorithm with full"<<endl;
+		if (!one) cout<<"Using efficient algorithm with full"<<endl;
 
 		palgof visitor(mod);
 		qChecker3 checker(mod);
