@@ -198,4 +198,4 @@ with open("queries.txt","w") as text:
     for i in range(len(qs)):
         text.write(qs[i] + "\n")
 
-#run_queries(qs,10)
+run_queries(qs,10)
