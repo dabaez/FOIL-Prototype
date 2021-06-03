@@ -32,7 +32,7 @@ The file `exp.py` runs `./main` on the shell so it doesn't work on Windows but i
 
 In order to build the project, the file `CMakeLists.txt` is on the root directory and can be run with cmake, we recommend creating a folder `build/` in the project and running the following commands:
 ```
-$ cake ../
+$ cmake ../
 $ make
 ```
 The folder `build/` is needed in order for `exp.py` to find everything it needs to run the experiments.
