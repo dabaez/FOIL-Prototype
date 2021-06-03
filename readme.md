@@ -1,4 +1,14 @@
-# Greedy with new grammar
+readme
+
+# Foundations of Symbolic Languages for Model Interpretability
+
+## To replicate the experiments over Decision Trees
+
+The file `experiments.sh` is there in order to make the replication of the experiments over Decision Trees as easy as possible, running it with
+```
+./experiments.sh
+```
+creates the folder `build/` with the built project and runs the experiments with all the trees in the Decision Trees in the folder `dtrees/`, each tree leaves a file ``
 
 The project is built with cmake using c++14
 
