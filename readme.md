@@ -1,6 +1,6 @@
 # Foundations of Symbolic Languages for Model Interpretability
 
-## To replicate the experiments over Binary Decision Trees (Section 6.1)
+## Experiments over Binary Decision Trees (Section 6.1)
 
 The file `experiments.sh` is there in order to make the replication of the experiments over Decision Trees as easy as possible. Running it with
 ```
@@ -8,7 +8,7 @@ $ ./experiments.sh
 ```
 creates the folder `build/` with the built project and runs the experiments with all the trees in the Decision Trees in the folder `dtrees/`, each tree leaves a file `build/data/dim_x_nleaves_y.csv` with the details of all of the queries ran on  that tree; the file `build/queries.txt` has all of the queries that were ran, one on each line; the file `build/queries.csv` has all of the averages of each query for each tree; the file `build/experiment_data.csv` has the information used in the paper, the average and maximum over all queries for all of the trees. If you want to build and run all the code independently, please see the sections below.
 
-## Runing high-level queries over General Decision Trees (Section 6.2)
+## High-level queries over General Decision Trees (Section 6.2)
 
 The following python script trains a general decision tree using the `DecisionTreeClassifier` from Scikit-learn with the [Student Performance Data Set](https://archive.ics.uci.edu/ml/datasets/Student+Performance), load it into a format suitable to run high-level queries over it and then run a set of selected queries.
 ```
@@ -62,11 +62,11 @@ With the perceptron.txt file being:
 
 (First number is the size of the perceptron, second line has the weights of the perceptrons and lastly is the bias)
 
-"4
-
+```
+4
 2 4 5 -13
-
--1"
+-1
+```
 
 The queries could be as follows:
 
@@ -79,4 +79,29 @@ $ EXISTS x, P(x)
 YES
 $ EXISTS x, ( [ ?,?,?,1] <= x) ^ ( P(x) )
 NO
+```
+
+## High-level syntax queries by example
+
+The following is a list of example queries in high-level syntax that you can run using `student_user_friendly_queries.py`:
+
+```
+for every student, 
+    student.male = true
+    implies goodFinalGrade(student)
+```
+```
+exists student, 
+    student.alcoholWeek > 3
+    and goodFinalGrade(student)
+```     
+```
+exists student, 
+    student.alcoholWeek < 2
+    and full(student) and not goodFinalGrade(student)
+```    
+```
+for every student, 
+    student.alcoholWeekend > 3 and student.alcoholWeek > 3
+    implies not goodFinalGrade(student)
 ```
