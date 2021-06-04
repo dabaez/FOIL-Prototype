@@ -1,0 +1,2 @@
+for every student, student.alcoholWeekend > 3 and student.alcoholWeek > 4
+        implies not goodFinalGrade(student)
