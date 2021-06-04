@@ -178,7 +178,7 @@ def example_queries():
     queries = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22]
     for iq, query in enumerate(queries):
         t1 = time.perf_counter()
-        answer = high_level_single(student_clf, feature_names, feature_types, class_names, query, debug=False)[:-1]
+        answer = high_level_single(student_clf, feature_names, feature_types, class_names, query)[:-1]
         delta = time.perf_counter() - t1
         print(f'q{iq+1}: answer={answer}, time={delta}')
 
@@ -187,14 +187,14 @@ def query_from_file(filename):
         query = f.read()
         query = ' '.join(query.replace('\n','').split())
         t1 = time.perf_counter()
-        answer = high_level_single(student_clf, feature_names, feature_types, class_names, query, debug=False)[:-1]
+        answer = high_level_single(student_clf, feature_names, feature_types, class_names, query)[:-1]
         delta = time.perf_counter() - t1
         print(f'answer={answer}, time={delta}')
 
 if len(sys.argv) > 2:
     assert sys.argv[1] == '--query'
     filename = sys.argv[2]
-    print(f'evaluating query from file {filename}')
+    print(f'Evaluating query from file {filename}...')
     query_from_file(filename)
 else:
     example_queries()

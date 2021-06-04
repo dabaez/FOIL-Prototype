@@ -481,11 +481,11 @@ def high_level_cycle(dtree, feature_names, feature_types, target_names, debug=Fa
 def high_level_single(dtree, feature_names, feature_types, target_names, query, debug=False):
     binary_fbdd, dim = to_binary_model(dtree, feature_names, feature_types, target_names, query)
     model_string = json.dumps(final_json_from_rec(binary_fbdd, dim, target_names))
-    with open('afbdd.txt', 'w') as f:
+    with open('./build/afbdd.txt', 'w') as f:
         f.write(model_string)
     low_query = to_low(dtree, feature_names, feature_types, target_names, query)
     if debug: print(low_query)
-    result = subprocess.run(['./build/main', '--one', '--model=afbdd', '--file=afbdd.txt', '--version=2'],
+    result = subprocess.run(['./build/main', '--one', '--model=afbdd', '--file=./build/afbdd.txt', '--v=3'],
             input=low_query,
             capture_output=True,
             text=True)
