@@ -37,7 +37,7 @@ $ make
 ```
 The folder `build/` is needed in order for `exp.py` to find everything it needs to run the experiments.
 
-Then, in the build folder the file `main` can be run in order to run the testing of the queries. It accepts four arguemnts:
+Then, in the build folder the file `main` can be run in order to run the testing of the queries. It accepts four arguments:
 
 * `--model=` is used to declare the model, this is required for the algorithm to run, right now it accepts `perceptron` for perceptrons, `dt` for decision trees and `afbdd` for afbdds.
 * `--file=` for giving the algorithm the file from where to read the model.
