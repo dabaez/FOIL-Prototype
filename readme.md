@@ -46,15 +46,15 @@ Then, in the build folder the file `main` can be run in order to run the testing
 
 After starting the algorithm, you can run the queries just by writing them line by line. The formatting of the queries is the following:
 
-* Variables need to be all latin lowercase, it can have numbers as long as they're not the first character
-* Constants have to start with a "[" and then values "0", "1" or "?" separated by commas and finished with a "]"
-* The operation <= has to be between two variables/constants with the symbol in the middle
-* The operation P( x ) must use the uppercase "P" 
-* The operation FULL( x ) must also be uppercase
-* The operaton ~( A )
-* The operation ( A ) V ( B ) must use an uppercase "V"
-* The operation ( A ) ^ ( B )
-* The operations "EXISTS x ," and "FORALL x ," must use uppercase as seen here and must be at the start of the query
+* Variables need to be all latin lowercase, they can have numbers except for their first character.
+* Constants have to start with a "[" and then values "0", "1" or "?" separated by commas and finished with a "]".
+* The operation <= has to be between two variables/constants with the symbol in the middle.
+* If `x` is a variable, then `P( x )` is a valid query. Note that "P" must be uppercase.
+* If `x` is a variable, then `FULL( x )` is a valid query. Note that "FULL" must be uppercase.
+* If `A` is a valid quantifier free query, then  `~( A )` also is.
+* If `A` and `B` are valid quantfier free queries, then `( A ) V ( B )` also is. Note that "V" must be uppercase.
+* If `A` and `B` are valid  quantifier free queries, then `( A ) ^ ( B )` also is.
+* If `A` is valid query with a free variable `x`, then `EXISTS x, A` and `FORALL x, A` are valid queries. 
 
 Example:
 
