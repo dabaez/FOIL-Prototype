@@ -17,8 +17,9 @@ python student_user_friendly_queries.py
 
 If you want to run your own specific query over a decision tree trained over the same dataset, you can provide an input text file with the query as follows
 ```
-python student_user_friendly_queries.py --query my_query.txt 
+python student_user_friendly_queries.py --query query_example.txt 
 ```
+A `query_example.txt` file is provided as well, and serves to show that line breaks and whitespace are allowed in the query.
 
 ## Building requirements
 
