@@ -46,15 +46,17 @@ Then, in the build folder the file `main` can be run in order to run the testing
 
 After starting the algorithm, you can run the queries just by writing them line by line. The formatting of the queries is the following:
 
-* Variables need to be all latin lowercase, they can have numbers except for their first character.
+* Variable names can have latin lowercase characters and numbers as long as the first character is not a number.
 * Constants have to start with a "[" and then values "0", "1" or "?" separated by commas and finished with a "]".
-* The operation <= has to be between two variables/constants with the symbol in the middle.
-* If `x` is a variable, then `P( x )` is a valid query. Note that "P" must be uppercase.
-* If `x` is a variable, then `FULL( x )` is a valid query. Note that "FULL" must be uppercase.
-* If `A` is a valid quantifier free query, then  `~( A )` also is.
-* If `A` and `B` are valid quantfier free queries, then `( A ) V ( B )` also is. Note that "V" must be uppercase.
-* If `A` and `B` are valid  quantifier free queries, then `( A ) ^ ( B )` also is.
-* If `A` is valid query with a free variable `x`, then `EXISTS x, A` and `FORALL x, A` are valid queries. 
+* If `x`, `y` are variables/constants, `x <= y` is a valid query with free variables if `x` or `y` are variables.
+* If `x` is a variable, then `P( x )` is a valid query with free variable `x`. Note that "P" must be uppercase.
+* If `x` is a variable, then `FULL( x )` is a valid query with free variable `x`. Note that "FULL" must be uppercase.
+* If `A` is a valid quantifier free query, then  `~( A )` also is, and has the same free variables as `A`.
+* If `A` and `B` are valid quantfier free queries, then `( A ) V ( B )` also is, with the free variables of `A` and `B`. Note that "V" must be uppercase.
+* If `A` and `B` are valid  quantifier free queries, then `( A ) ^ ( B )` also is, with the free variables of `A` and `B`.
+* If `A` is valid query with a free variable `x`, then `EXISTS x, A` and `FORALL x, A` are valid queries that forget `x` as a free variable.
+
+Finally, valid queries must have no free variables. 
 
 Example:
 
