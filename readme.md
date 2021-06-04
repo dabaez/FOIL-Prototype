@@ -37,24 +37,26 @@ $ make
 ```
 The folder `build/` is needed in order for `exp.py` to find everything it needs to run the experiments.
 
-Then, in the build folder the file `main` can be run in order to run the testing of the queries. It accepts four arguemnts:
+Then, in the build folder the file `main` can be run in order to run the testing of the queries. It accepts four arguments:
 
 * `--model=` is used to declare the model, this is required for the algorithm to run, right now it accepts `perceptron` for perceptrons, `dt` for decision trees and `afbdd` for afbdds.
 * `--file=` for giving the algorithm the file from where to read the model.
 * `--one` for supressing most outputs except for the answer for the query and errors and making the algorithm close after one query.
-* `--version=` is used to run different versions of the algorithm: if given 1 it will run the naive algorithm that tests all assignations for the variables in order to find an answer, if given 2 it will run the more efficient version described in the paper that only takes in querys where all of the quantifiers are only of one type, either "Exists" or "For all", and also this one isn't able to process the FULL command, if given 3 it will be the same as version 2 but this time it's able to process the FULL command if given. If this argument isn't given it will just run the naive version.
+* `--v=` is used to run different versions of the algorithm: if given 1 it will run the naive algorithm that tests all assignations for the variables in order to find an answer, if given 2 it will run the more efficient version described in the paper that only takes in querys where all of the quantifiers are only of one type, either "Exists" or "For all", and also this one isn't able to process the FULL command, if given 3 it will be the same as version 2 but this time it's able to process the FULL command if given. If this argument isn't given it will just run the naive version.
 
 After starting the algorithm, you can run the queries just by writing them line by line. The formatting of the queries is the following:
 
-* Variables need to be all latin lowercase, it can have numbers as long as they're not the first character
-* Constants have to start with a "[" and then values "0", "1" or "?" separated by commas and finished with a "]"
-* The operation <= has to be between two variables/constants with the symbol in the middle
-* The operation P( x ) must use the uppercase "P" 
-* The operation FULL( x ) must also be uppercase
-* The operaton ~( A )
-* The operation ( A ) V ( B ) must use an uppercase "V"
-* The operation ( A ) ^ ( B )
-* The operations "EXISTS x ," and "FORALL x ," must use uppercase as seen here and must be at the start of the query
+* Variable names can have latin lowercase characters and numbers as long as the first character is not a number.
+* Constants have to start with a "[" and then values "0", "1" or "?" separated by commas and finished with a "]".
+* If `x`, `y` are variables/constants, `x <= y` is a valid query with free variables if `x` or `y` are variables.
+* If `x` is a variable, then `P( x )` is a valid query with free variable `x`. Note that "P" must be uppercase.
+* If `x` is a variable, then `FULL( x )` is a valid query with free variable `x`. Note that "FULL" must be uppercase.
+* If `A` is a valid quantifier free query, then  `~( A )` also is, and has the same free variables as `A`.
+* If `A` and `B` are valid quantfier free queries, then `( A ) V ( B )` also is, with the free variables of `A` and `B`. Note that "V" must be uppercase.
+* If `A` and `B` are valid  quantifier free queries, then `( A ) ^ ( B )` also is, with the free variables of `A` and `B`.
+* If `A` is valid query with a free variable `x`, then `EXISTS x, A` and `FORALL x, A` are valid queries that forget `x` as a free variable.
+
+Finally, valid queries must have no free variables. 
 
 Example:
 
