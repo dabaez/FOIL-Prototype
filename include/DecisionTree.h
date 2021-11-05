@@ -31,18 +31,6 @@ class DecisionTree : public IModel {
         
         int getDepth() const;
 
-        /*
-
-        DecisionTree condition(const std::vector<bool>& instance) const;
-
-        DecisionTree intersect(const DecisionTree& other) const;
-
-        DecisionTree unite(const DecisionTree& other) const; // the word union is reserved in C++.
-
-        DecisionTree negate() const;
-        
-        */
-
     private:
         std::shared_ptr<DTNode> root;
         int size;

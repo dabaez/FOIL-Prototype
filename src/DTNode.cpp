@@ -97,20 +97,6 @@ DTNode DTNode::condition(const std::unordered_map<int, int>& conds) const {
     return DTNode(1, nullptr, nullptr); // TODO
 }
 
-/*DTNode DTNode::intersect(const std::shared_ptr<DTNode> other) {*/
-    //if(this->isLeaf()) {
-        //if(this->isTrueLeaf()) {
-            //return condition(other, path);
-        //} else {
-            //return FALSE;
-        //}
-    //}
-    //// case where they share the root label
-
-
-    //// case where they don't
-/*}*/
-
 bool DTNode::isTrueLeaf() const {
     assert(this->isLeaf());
     return (label == -1);

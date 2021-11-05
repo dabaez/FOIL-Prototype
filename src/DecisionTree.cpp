@@ -81,24 +81,6 @@ int DecisionTree::getSize() const {
     return size;
 }
 
-/*
-DecisionTree DecisionTree::condition(const std::vector<bool>& instance) const {
-    return DecisionTree();
-}
-
-DecisionTree DecisionTree::intersect(const DecisionTree& other) const {
-    return DecisionTree();
-}
-
-DecisionTree DecisionTree::unite(const DecisionTree& other) const {
-    return DecisionTree(root->unite(other.root));
-}
-
-DecisionTree DecisionTree::negate() const {
-    return DecisionTree(std::make_shared<DTNode>(root->negate()));
-}
-*/
-
 bool DecisionTree::complete(const std::vector<int>& x) const {
     return root->complete(x);
 }

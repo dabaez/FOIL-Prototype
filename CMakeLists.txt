@@ -44,10 +44,6 @@ add_library(gVisitor src/greedyVisitor.cpp
    ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})
 target_link_libraries(gVisitor antlr4_static fpow)
 
-add_executable(dttest src/DTtest.cpp)
-
-target_link_libraries(dttest dtnode dt)
-
 add_library(qChecker src/queryChecker.cpp
    ${ANTLR_SampleGrammarLexer_CXX_OUTPUTS}
    ${ANTLR_SampleGrammarParser_CXX_OUTPUTS})

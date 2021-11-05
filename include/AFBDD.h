@@ -31,14 +31,6 @@ class AFBDD : public IModel {
 
         int getDepth() const;
 
-        // AFBDD condition(const std::vector<bool>& instance) const;
-        //
-        // AFBDD intersect(const AFBDD& other) const;
-        //
-        // AFBDD unite(const AFBDD& other) const; // the word union is reserved in C++.
-        //
-        // AFBDD negate() const;
-
     private:
         std::shared_ptr<AFBDDNode> root;
         int size;

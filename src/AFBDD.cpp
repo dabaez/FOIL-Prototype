@@ -82,23 +82,6 @@ int AFBDD::getSize() const {
     return size;
 }
 
-
-// AFBDD AFBDD::condition(const std::vector<bool>& instance) const {
-//     return AFBDD();
-// }
-//
-// AFBDD AFBDD::intersect(const AFBDD& other) const {
-//     return AFBDD();
-// }
-//
-// AFBDD AFBDD::unite(const AFBDD& other) const {
-//     return AFBDD(root->unite(other.root));
-// }
-//
-// AFBDD AFBDD::negate() const {
-//     return AFBDD(std::make_shared<AFBDDNode>(root->negate()));
-// }
-
 bool AFBDD::complete(const std::vector<int>& x) const {
     std::map<const AFBDDNode*, bool> dp;
     return root->complete(x, dp);

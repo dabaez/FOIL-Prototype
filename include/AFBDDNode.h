@@ -19,14 +19,6 @@ class AFBDDNode {
 
         bool predict(const std::vector<bool>& instance) const;
 
-        // AFBDDNode negate() const;
-        //
-        // std::shared_ptr<AFBDDNode> unite(const std::shared_ptr<AFBDDNode> other) const;
-        //
-        // AFBDDNode intersect(const std::shared_ptr<AFBDDNode> other) const;
-        //
-        // AFBDDNode condition(const std::unordered_map<int, int>& cond) const;
-
         int getDimension() const;
 
         bool isLeaf() const;

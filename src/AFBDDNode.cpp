@@ -74,42 +74,6 @@ bool AFBDDNode::predict(const std::vector<bool>& instance) const {
     }
 }
 
-// AFBDDNode AFBDDNode::negate() const {
-//     if(this->isLeaf()) {
-//        return AFBDDNode(!this->isTrueLeaf());
-//     }
-//     return AFBDDNode(label, std::make_shared<AFBDDNode>(left->negate()), std::make_shared<AFBDDNode>(right->negate()));
-// }
-//
-// std::shared_ptr<AFBDDNode> AFBDDNode::unite(const std::shared_ptr<AFBDDNode> other) const {
-//    if(this->isLeaf()) {
-//         if(this->isTrueLeaf()) {
-//             return AFBDDNode::TRUE;
-//         } else {
-//             return other;
-//         }
-//    }
-//    return std::make_shared<AFBDDNode>(this->label, this->left->unite(other), this->right->unite(other));
-// }
-//
-// AFBDDNode AFBDDNode::condition(const std::unordered_map<int, int>& conds) const {
-//     return AFBDDNode(1, nullptr, nullptr); // TODO
-// }
-
-/*AFBDDNode AFBDDNode::intersect(const std::shared_ptr<AFBDDNode> other) {*/
-    //if(this->isLeaf()) {
-        //if(this->isTrueLeaf()) {
-            //return condition(other, path);
-        //} else {
-            //return FALSE;
-        //}
-    //}
-    //// case where they share the root label
-
-
-    //// case where they don't
-/*}*/
-
 bool AFBDDNode::isTrueLeaf() const {
     assert(this->isLeaf());
     return (label == -1);
